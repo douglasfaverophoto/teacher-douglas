@@ -200,7 +200,7 @@ const KEY="tableSeven.v1";
 let done = load();
 function load(){try{const v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v:[]}catch(e){return []}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}}
-const REPORT_URL = "";  // Google Apps Script web app URL
+const REPORT_URL = "https://script.google.com/macros/s/AKfycby54Hv7HCzhWeUiL0yhU11jlFpb28bkARw6l4-va9QJ_IUizPSmzuDrFBncyb8FsY9Qcg/exec";  // Google Apps Script web app URL
 const NKEY="tableSeven.name", BKEY="tableSeven.bonus";
 function getName(){try{return localStorage.getItem(NKEY)||""}catch(e){return ""}}
 function setName(n){try{localStorage.setItem(NKEY,n)}catch(e){}}
