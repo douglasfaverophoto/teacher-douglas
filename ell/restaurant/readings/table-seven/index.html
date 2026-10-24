@@ -89,6 +89,12 @@ h2{font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;l
 .btns{display:flex;flex-wrap:wrap;gap:10px}
 .primary{background:var(--wine);color:var(--slip);border:0;border-radius:6px;padding:12px 18px;font-weight:700}
 .secondary{background:transparent;border:1px solid var(--wine);color:var(--wine);border-radius:6px;padding:12px 18px;font-weight:700}
+.namecard{display:flex;flex-direction:column;gap:8px;background:var(--wine-soft);border:1px solid var(--wine);border-radius:6px;padding:14px 16px}
+.namecard .row{display:flex;gap:8px}
+.namecard input{flex:1;min-width:0;font:inherit;padding:10px 12px;border:1px solid var(--rule);border-radius:6px;background:var(--slip);color:var(--ink)}
+.namecard small{color:var(--muted);font-size:13px}
+.hello{margin:0;font-size:16px}
+.link{background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;font-size:13px;margin-left:6px}
 footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);padding-top:8px;border-top:1px dashed var(--rule)}
 footer button{background:none;border:0;padding:0;text-decoration:underline;color:var(--muted);font-size:13px}
 @media (prefers-reduced-motion:no-preference){.unlock{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}}
@@ -114,7 +120,7 @@ const EP = [
       ["Who is Victor?",["The chef","A waiter","The man who brings the wine"],2],
       ["Grammar: He ___ order food.",["don't","doesn't","isn't"],1]],
   bonus:["Why does the man give Mateo a napkin?",["He wants a clean napkin","He wants to warn Mateo about Victor","He wants to pay the check"],1],
-  practice:["Good evening! Welcome to La Luna. A table for one?","Yes, please. Table seven.","Right this way, please."]},
+  practice:["Good evening! Welcome to La Luna. A table for one?","Yes, please. Table seven.","Right this way, please.","Thank you.","Here is the menu. Your server will be right with you."]},
  {t:"The Woman in Red", s:"The menu and describing dishes", time:"Lunes · Mesa 7 · 21:00",
   story:[
    "On Monday, the man in the black hat doesn't come. At nine o'clock, a woman comes in. She wears a red dress. She sits at table seven. \"Good evening. Here is the menu,\" I say.",
@@ -128,7 +134,7 @@ const EP = [
       ["What does she ask about Victor?",["Is he the manager?","Does he come every Friday?","Is he married?"],1],
       ["Grammar: ___ Victor come every Friday?",["Do","Is","Does"],2]],
   bonus:["How does the woman know about the man in the black hat?",["She reads about him on the menu","Mateo tells her","She knows him"],2],
-  practice:["What is the mole negro?","It is chicken with a black sauce. The sauce has chiles, chocolate, garlic and onion.","Is it spicy?","A little."]},
+  practice:["What is the mole negro?","It is chicken with a black sauce. The sauce has chiles, chocolate, garlic and onion.","Is it spicy?","A little.","OK. The mole, please, and a glass of water.","Very good. Anything else?"]},
  {t:"A Gift for Table Seven", s:"Drinks and the bar", time:"Viernes · Barra · 20:00",
   story:[
    "On Friday, Victor comes at eight o'clock with ten boxes of wine. He puts the boxes behind the bar. He is tall and he has a gold watch.",
@@ -143,7 +149,7 @@ const EP = [
       ["Does the woman drink the wine?",["Yes, she does","No, she doesn't","Yes, a little"],1],
       ["Grammar: The bottle is ___ the salt shaker and the flowers.",["under","behind","between"],2]],
   bonus:["Why are the flowers dead?",["Nobody gives them water","There is poison (veneno) in the wine","The window is open"],1],
-  practice:["Would you like something to drink?","Just water, please. I don't drink wine."]},
+  practice:["Would you like something to drink?","Just water, please. I don't drink wine.","Still or sparkling water?","Still water, please."]},
  {t:"The Photo", s:"The check and payment", time:"Sábado · Mesa 7 · 22:15",
   story:[
    "On Saturday, the woman in red comes again. She eats quickly. \"The check, please,\" she says.",
@@ -157,7 +163,7 @@ const EP = [
       ["Who is in the photo?",["Mateo and Lupe","The woman and Victor","The man in the black hat and Victor"],2],
       ["Grammar: ___ you pay by card or in cash?",["Does","Do","Are"],1]],
   bonus:["Why is the photo in the money?",["The woman wants Mateo to see it","It is a mistake","It is a tip for Mateo"],0],
-  practice:["Your total is three hundred and eighty pesos. Do you pay by card or in cash?","In cash, please.","I received five hundred pesos. Your change is one hundred and twenty pesos."]},
+  practice:["Your total is three hundred and eighty pesos. Do you pay by card or in cash?","In cash, please.","I received five hundred pesos. Your change is one hundred and twenty pesos.","Keep the change.","Thank you very much! Have a good night."]},
  {t:"The Angry Customer", s:"Complaints", time:"Domingo · Mesa 3 · 21:30",
   story:[
    "On Sunday, the restaurant is very busy. At table three, across from table seven, a big man calls me. \"Excuse me! This soup is cold.\" \"I'm very sorry, sir. I can bring you a hot soup right away.\" \"And this fork is dirty!\" \"I'm sorry. Here is a clean fork.\"",
@@ -171,7 +177,7 @@ const EP = [
       ["Where is the man's bag?",["On the table","Under his chair","Next to the door"],1],
       ["Grammar: He ___ look at his food.",["don't","not","doesn't"],2]],
   bonus:["Why does the man really complain?",["He is very hungry","He wants a reason to stay and watch table seven","He doesn't like Mateo"],1],
-  practice:["Excuse me! This fork is dirty.","I'm very sorry, sir. Here is a clean fork. Can I bring you anything else?"]},
+  practice:["Excuse me! This fork is dirty.","I'm very sorry, sir. Here is a clean fork. Can I bring you anything else?","Yes. This soup is cold.","I'm sorry, sir. I can bring you a hot soup right away."]},
  {t:"The Back Door", s:"Directions inside and outside", time:"Domingo · Puerta trasera · 23:40",
   story:[
    "After work, I take the empty bottles out. I walk through the kitchen, past the dishwasher, and out the back door. Outside, the street is dark.",
@@ -186,7 +192,7 @@ const EP = [
       ["What does Mateo drop?",["A glass","A spoon","A bottle"],0],
       ["Grammar: Mateo walks ___ the kitchen and out the back door.",["through","under","between"],0]],
   bonus:["What does Victor mean: \"You see a lot, don't you?\"",["Mateo has very good eyes","Victor knows Mateo heard the phone call","Victor wants Mateo to work more"],1],
-  practice:["Excuse me, where is the restroom?","Go through the dining room, past the bar. It is next to the kitchen."]},
+  practice:["Excuse me, where is the restroom?","Go through the dining room, past the bar. It is next to the kitchen.","Is it near the bar?","Yes. It is between the bar and the kitchen."]},
 ];
 const COMING = ["Reservations by phone","Allergies","The big tip","Closing time"];
 
@@ -194,6 +200,16 @@ const KEY="tableSeven.v1";
 let done = load();
 function load(){try{const v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v:[]}catch(e){return []}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}}
+const REPORT_URL = "";  // Google Apps Script web app URL
+const NKEY="tableSeven.name", BKEY="tableSeven.bonus";
+function getName(){try{return localStorage.getItem(NKEY)||""}catch(e){return ""}}
+function setName(n){try{localStorage.setItem(NKEY,n)}catch(e){}}
+let bonusDone=(()=>{try{return JSON.parse(localStorage.getItem(BKEY))||[]}catch(e){return []}})();
+function report(i,event){
+  if(!REPORT_URL) return;
+  try{fetch(REPORT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify({name:getName()||"(sin nombre)",episode:i+1,title:EP[i].t,event})}).catch(()=>{})}catch(e){}
+}
 const unlocked = i => i===0 || done.includes(i-1);
 const app = document.getElementById("app");
 const canSpeak = "speechSynthesis" in window;
@@ -202,6 +218,7 @@ let voice=null;
 function pickVoice(){try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang));voice=vs.find(v=>v.lang=="en-US"&&MALE.some(n=>v.name.toLowerCase().includes(n)))||vs.find(v=>MALE.some(n=>v.name.toLowerCase().includes(n)))||null}catch(e){}}
 if(canSpeak){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
 
+function esc(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function home(){
   try{speechSynthesis.cancel()}catch(e){}
   let list = EP.map((e,i)=>{
@@ -214,9 +231,16 @@ function home(){
   <header><span class="mono">La Luna · Oaxaca</span><h1>Table <span>Seven</span></h1>
   <p class="sub">An English mystery for waiters.</p></header>
   <p class="howto"><b>Cómo funciona:</b> Lee el episodio. Contesta las 4 preguntas. Cuando todas están correctas, se abre el siguiente episodio.</p>
+  ${getName()?`<p class="hello">Hello, <b>${esc(getName())}</b>! <button id="chname" class="link">Cambiar nombre</button></p>`:
+  `<form class="namecard" id="nameform"><label for="studentname"><b>What is your name?</b> ¿Cómo te llamas?</label>
+   <div class="row"><input id="studentname" autocomplete="name" placeholder="Name / Nombre" required maxlength="40"><button class="primary" type="submit">OK</button></div>
+   <small>Teacher Douglas ve tu nombre y tu progreso. / Teacher Douglas can see your name and progress.</small></form>`}
   <ul class="tickets">${list}</ul>
   <footer><a href="/ell/restaurant/" style="color:inherit">Teacher Douglas · Restaurant English</a><button id="reset">Empezar de nuevo</button></footer>`;
   app.querySelectorAll(".ticket[data-i]").forEach(b=>b.onclick=()=>episode(+b.dataset.i));
+  const nf=document.getElementById("nameform");
+  if(nf) nf.onsubmit=ev=>{ev.preventDefault();const v=document.getElementById("studentname").value.trim();if(v){setName(v);home()}};
+  const cn=document.getElementById("chname"); if(cn) cn.onclick=()=>{setName("");home()};
   const r=document.getElementById("reset"); let armed=false;
   r.onclick=()=>{ if(!armed){armed=true;r.textContent="¿Seguro? Toca otra vez";return}
     done=[];save();home(); };
@@ -260,7 +284,7 @@ function episode(i){
     speechSynthesis.speak(u);setBtn(true)}catch(err){setBtn(false)}};
   const bq=document.querySelector("#bonus .q"), bfb=bq.querySelector(".fb");
   bq.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
-    if(+b.dataset.o===e.bonus[2]){bq.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(+x.dataset.o===e.bonus[2])x.classList.add("right")});bfb.textContent="Great detective work! ⭐ / ¡Buen trabajo de detective!";bfb.className="fb ok"}
+    if(+b.dataset.o===e.bonus[2]){bq.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(+x.dataset.o===e.bonus[2])x.classList.add("right")});bfb.textContent="Great detective work! ⭐ / ¡Buen trabajo de detective!";bfb.className="fb ok";if(!bonusDone.includes(i)){bonusDone.push(i);try{localStorage.setItem(BKEY,JSON.stringify(bonusDone))}catch(err){}report(i,"Bonus correct")}}
     else{b.classList.add("wrong");b.disabled=true;bfb.textContent="Not quite. Try again. / Intenta otra vez.";bfb.className="fb no"}
   });
   app.querySelectorAll(".q:not(#bonus .q)").forEach(qel=>{
@@ -274,7 +298,7 @@ function episode(i){
   });
   function check(){
     if(answered.size<e.qs.length) return;
-    if(!done.includes(i)){done.push(i);save()}
+    if(!done.includes(i)){done.push(i);save();report(i,"Finished")}
     const box=document.getElementById("unlock"); const next=i+1<EP.length;
     box.innerHTML=`<section class="unlock" aria-live="polite"><h3>${next?`Episode ${i+2} is open!`:"You finished all the episodes!"}</h3>
       <p>${next?"Good work. Stop here for today and come back tomorrow. / Buen trabajo. Para aquí por hoy y regresa mañana.":"More episodes are coming soon. / Pronto hay más episodios."}</p>
