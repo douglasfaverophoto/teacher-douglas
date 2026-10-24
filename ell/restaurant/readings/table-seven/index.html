@@ -113,7 +113,7 @@ const EP = [
       ["Where is table seven?",["Next to the window","Behind the bar","In the kitchen"],0],
       ["Who is Victor?",["The chef","A waiter","The man who brings the wine"],2],
       ["Grammar: He ___ order food.",["don't","doesn't","isn't"],1]],
-  challenge:"Why does the man give Mateo a napkin?",
+  bonus:["Why does the man give Mateo a napkin?",["He wants a clean napkin","He wants to warn Mateo about Victor","He wants to pay the check"],1],
   practice:["Good evening! Welcome to La Luna. A table for one?","Yes, please. Table seven.","Right this way, please."]},
  {t:"The Woman in Red", s:"The menu and describing dishes", time:"Lunes · Mesa 7 · 21:00",
   story:[
@@ -127,7 +127,7 @@ const EP = [
       ["What is in the mole sauce?",["Tomato, cilantro and lime","Chiles, chocolate, garlic and onion","Potato and corn"],1],
       ["What does she ask about Victor?",["Is he the manager?","Does he come every Friday?","Is he married?"],1],
       ["Grammar: ___ Victor come every Friday?",["Do","Is","Does"],2]],
-  challenge:"How does the woman know about the man in the black hat?",
+  bonus:["How does the woman know about the man in the black hat?",["She reads about him on the menu","Mateo tells her","She knows him"],2],
   practice:["What is the mole negro?","It is chicken with a black sauce. The sauce has chiles, chocolate, garlic and onion.","Is it spicy?","A little."]},
  {t:"A Gift for Table Seven", s:"Drinks and the bar", time:"Viernes · Barra · 20:00",
   story:[
@@ -142,7 +142,7 @@ const EP = [
       ["Who is Lupe?",["The bartender","The manager","The woman in red"],0],
       ["Does the woman drink the wine?",["Yes, she does","No, she doesn't","Yes, a little"],1],
       ["Grammar: The bottle is ___ the salt shaker and the flowers.",["under","behind","between"],2]],
-  challenge:"Why are the flowers dead?",
+  bonus:["Why are the flowers dead?",["Nobody gives them water","There is poison (veneno) in the wine","The window is open"],1],
   practice:["Would you like something to drink?","Just water, please. I don't drink wine."]},
  {t:"The Photo", s:"The check and payment", time:"Sábado · Mesa 7 · 22:15",
   story:[
@@ -156,7 +156,7 @@ const EP = [
       ["How much is the change?",["$120 pesos","$80 pesos","$220 pesos"],0],
       ["Who is in the photo?",["Mateo and Lupe","The woman and Victor","The man in the black hat and Victor"],2],
       ["Grammar: ___ you pay by card or in cash?",["Does","Do","Are"],1]],
-  challenge:"Are Victor and the man in the black hat friends or enemies?",
+  bonus:["Why is the photo in the money?",["The woman wants Mateo to see it","It is a mistake","It is a tip for Mateo"],0],
   practice:["Your total is three hundred and eighty pesos. Do you pay by card or in cash?","In cash, please.","I received five hundred pesos. Your change is one hundred and twenty pesos."]},
  {t:"The Angry Customer", s:"Complaints", time:"Domingo · Mesa 3 · 21:30",
   story:[
@@ -170,7 +170,7 @@ const EP = [
       ["What are the man's problems?",["The soup is cold and the fork is dirty","The check is wrong","The music is loud"],0],
       ["Where is the man's bag?",["On the table","Under his chair","Next to the door"],1],
       ["Grammar: He ___ look at his food.",["don't","not","doesn't"],2]],
-  challenge:"Is the soup really cold? Why does the man complain?",
+  bonus:["Why does the man really complain?",["He is very hungry","He wants a reason to stay and watch table seven","He doesn't like Mateo"],1],
   practice:["Excuse me! This fork is dirty.","I'm very sorry, sir. Here is a clean fork. Can I bring you anything else?"]},
  {t:"The Back Door", s:"Directions inside and outside", time:"Domingo · Puerta trasera · 23:40",
   story:[
@@ -185,7 +185,7 @@ const EP = [
       ["Where is Hotel Sol?",["On the corner, across from the market","Next to La Luna","Behind the church"],0],
       ["What does Mateo drop?",["A glass","A spoon","A bottle"],0],
       ["Grammar: Mateo walks ___ the kitchen and out the back door.",["through","under","between"],0]],
-  challenge:"What does Victor mean: \"You see a lot, don't you?\"",
+  bonus:["What does Victor mean: \"You see a lot, don't you?\"",["Mateo has very good eyes","Victor knows Mateo heard the phone call","Victor wants Mateo to work more"],1],
   practice:["Excuse me, where is the restroom?","Go through the dining room, past the bar. It is next to the kitchen."]},
 ];
 const COMING = ["Reservations by phone","Allergies","The big tip","Closing time"];
@@ -243,8 +243,9 @@ function episode(i){
   <div id="unlock"></div>
   <section class="slip section extra"><h3>Practice · Practica</h3>
     <div class="dialog">${e.practice.map((l,k)=>`<div>${e.practice.length>1?(k%2?"B: ":"A: "):""}${l}</div>`).join("")}</div></section>
-  <section class="slip section extra"><h3>⭐ Challenge · Reto</h3><p>${e.challenge}</p>
-    <p class="fb">Answer in English to your teacher on WhatsApp. / Contesta en inglés a tu maestro por WhatsApp.</p></section>`;
+  <section class="slip section extra" id="bonus"><h3>⭐ Bonus · Pregunta extra</h3>
+    <div class="q"><p>${e.bonus[0]}</p><div class="opts">${e.bonus[1].map((o,oi)=>`<button class="opt" data-o="${oi}">${o}</button>`).join("")}</div>
+    <p class="fb" aria-live="polite">Optional. / Opcional: no la necesitas para el siguiente episodio.</p></div></section>`;
   document.getElementById("back").onclick=home;
   const L=document.getElementById("listen");
   let playing=false;
@@ -257,7 +258,12 @@ function episode(i){
     u.lang=voice?voice.lang:"en-US";u.rate=.8;
     u.onend=()=>setBtn(false);u.onerror=()=>setBtn(false);
     speechSynthesis.speak(u);setBtn(true)}catch(err){setBtn(false)}};
-  app.querySelectorAll(".q").forEach(qel=>{
+  const bq=document.querySelector("#bonus .q"), bfb=bq.querySelector(".fb");
+  bq.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+    if(+b.dataset.o===e.bonus[2]){bq.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(+x.dataset.o===e.bonus[2])x.classList.add("right")});bfb.textContent="Great detective work! ⭐ / ¡Buen trabajo de detective!";bfb.className="fb ok"}
+    else{b.classList.add("wrong");b.disabled=true;bfb.textContent="Not quite. Try again. / Intenta otra vez.";bfb.className="fb no"}
+  });
+  app.querySelectorAll(".q:not(#bonus .q)").forEach(qel=>{
     const qi=+qel.dataset.q, fb=qel.querySelector(".fb");
     const mark=()=>{qel.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(+b.dataset.o===e.qs[qi][2])b.classList.add("right")});fb.textContent="Correct! ✓";fb.className="fb ok";answered.add(qi)};
     if(already) mark();
