@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Table Seven: a beginner English mystery for restaurant waiters, by Teacher Douglas.">
+<title>Table Seven</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* Layout: a single narrow column styled like a waiter's order pad — episodes as numbered tickets, the story as the slip, questions as the order lines. */
+:root{
+  --paper:#eef1ea;      /* order-pad paper, faint green */
+  --slip:#fbfcf8;
+  --ink:#1d2433;        /* carbon blue-black */
+  --muted:#5f6878;
+  --rule:#cfd6cc;
+  --wine:#7a1f2b;       /* accent: red wine */
+  --wine-soft:#f3e3e4;
+  --ok:#2f6b45; --ok-soft:#e1efe5;
+  --no:#9a4a12; --no-soft:#f8e9dc;
+  --display:"Bodoni Moda", "Didot", Georgia, serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"Courier Prime", "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#12171a; --slip:#1a2125; --ink:#e8ecef; --muted:#9aa5ad; --rule:#2c363c;
+  --wine:#e0707d; --wine-soft:#3a1d22; --ok:#7cc796; --ok-soft:#1b3326; --no:#e8a46b; --no-soft:#3a2716; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#12171a; --slip:#1a2125; --ink:#e8ecef; --muted:#9aa5ad; --rule:#2c363c;
+  --wine:#e0707d; --wine-soft:#3a1d22; --ok:#7cc796; --ok-soft:#1b3326; --no:#e8a46b; --no-soft:#3a2716; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--wine);outline-offset:2px}
+.mono{font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:4px;padding-top:8px}
+h1{font-family:var(--display);font-style:italic;font-weight:800;font-size:clamp(44px,13vw,64px);line-height:1;margin:0;text-wrap:balance}
+h1 span{color:var(--wine)}
+.sub{margin:0;color:var(--muted)}
+.howto{background:var(--slip);border:1px dashed var(--rule);border-radius:6px;padding:14px 16px;font-size:15px;margin:0}
+/* ticket list */
+.tickets{display:flex;flex-direction:column;gap:10px;list-style:none;margin:0;padding:0}
+.ticket{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:14px;width:100%;text-align:left;
+  background:var(--slip);border:1px solid var(--rule);border-radius:6px;padding:12px 14px}
+.ticket .num{font-family:var(--display);font-style:italic;font-weight:800;font-size:34px;line-height:1;color:var(--wine);text-align:center}
+.ticket .t{font-weight:700;min-width:0}
+.ticket .s{display:block;font-size:14px;color:var(--muted);font-weight:400}
+.ticket .state{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:99px;white-space:nowrap}
+.state.done{background:var(--ok-soft);color:var(--ok)}
+.state.open{background:var(--wine-soft);color:var(--wine)}
+.state.lock{color:var(--muted);border:1px solid var(--rule)}
+.ticket[disabled]{cursor:not-allowed;opacity:.6}
+.ticket[disabled] .num{color:var(--muted)}
+/* episode */
+.back{align-self:flex-start;background:none;border:0;padding:4px 0;font-family:var(--mono);font-size:14px;color:var(--muted)}
+.slip{background:var(--slip);border:1px solid var(--rule);border-radius:6px;padding:20px 18px;display:flex;flex-direction:column;gap:12px}
+.sliphead{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px dashed var(--rule);padding-bottom:10px}
+h2{font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;line-height:1.1;margin:0;text-wrap:balance}
+.story p{margin:0 0 .7em;max-width:65ch}
+.story p:last-child{margin:0}
+.story .clue{font-weight:700;color:var(--wine)}
+.listen{align-self:flex-start;border:1px solid var(--rule);background:var(--paper);border-radius:99px;padding:6px 14px;font-size:15px}
+.section h3{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:700}
+.vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;margin:0}
+.vocab div{display:flex;gap:6px;flex-wrap:wrap;font-size:15px;border-bottom:1px dotted var(--rule);padding-bottom:4px}
+.vocab dt{font-weight:700}
+.vocab dd{margin:0;color:var(--muted)}
+.q{display:flex;flex-direction:column;gap:8px;padding:12px 0;border-top:1px dashed var(--rule)}
+.q:first-of-type{border-top:0;padding-top:0}
+.q p{margin:0;font-weight:700}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opt{text-align:left;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:10px 12px;font-size:16px}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--no-soft);border-color:var(--no);color:var(--no);text-decoration:line-through}
+.opt[disabled]{cursor:default}
+.fb{font-size:14px;margin:0;min-height:1.2em}
+.fb.ok{color:var(--ok)} .fb.no{color:var(--no)}
+.extra{font-size:15px}
+.extra p{margin:0}
+.gram p{margin:0 0 4px}.gram .gt{font-weight:700;color:var(--wine)}.gram b{color:var(--wine)}
+.dialog{font-family:var(--mono);font-size:15px;line-height:1.6}
+.unlock{border:2px solid var(--wine);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:12px;background:var(--wine-soft)}
+.unlock h3{font-family:var(--display);font-style:italic;font-weight:800;font-size:26px;margin:0;color:var(--wine)}
+.unlock p{margin:0}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.primary{background:var(--wine);color:var(--slip);border:0;border-radius:6px;padding:12px 18px;font-weight:700}
+.secondary{background:transparent;border:1px solid var(--wine);color:var(--wine);border-radius:6px;padding:12px 18px;font-weight:700}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);padding-top:8px;border-top:1px dashed var(--rule)}
+footer button{background:none;border:0;padding:0;text-decoration:underline;color:var(--muted);font-size:13px}
+@media (prefers-reduced-motion:no-preference){.unlock{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app"></div>
+
+<script>
+const EP = [
+ {t:"The Man in the Black Hat", s:"Greeting and seating", time:"Martes · Mesa 7 · 21:00",
+  story:[
+   "My name is Mateo. I am a waiter at La Luna restaurant. I work from Tuesday to Sunday. Every night at nine o'clock, a man comes in. He wears a black hat.",
+   "\"Good evening! Welcome to La Luna. A table for one?\" I ask. \"Yes. Table seven, please,\" he says. Table seven is next to the window, near the door.",
+   "He always orders a black coffee. He doesn't order food. He doesn't smile. He pays the check and leaves a big tip.",
+   "Tonight, he puts a napkin under his cup. On the napkin are three words: <span class='clue'>\"Don't trust Victor.\"</span>",
+   "Victor brings the wine to our restaurant every Friday. He is not part of our team."],
+  vocab:[["waiter","mesero"],["welcome","bienvenido"],["window","ventana"],["near","cerca de"],["check / bill","cuenta"],["tip","propina"],["napkin","servilleta"],["under","debajo de"],["trust","confiar"]],
+  gram:{title:"Present simple: + and –",rows:["He <b>orders</b> a black coffee.","He <b>doesn't order</b> food.","I <b>work</b> from Tuesday to Sunday.","I <b>don't work</b> on Monday."]},
+  qs:[["What time does the man come?",["At eight o'clock","At nine o'clock","At ten o'clock"],1],
+      ["Where is table seven?",["Next to the window","Behind the bar","In the kitchen"],0],
+      ["Who is Victor?",["The chef","A waiter","The man who brings the wine"],2],
+      ["Grammar: He ___ order food.",["don't","doesn't","isn't"],1]],
+  challenge:"Why does the man give Mateo a napkin?",
+  practice:["Good evening! Welcome to La Luna. A table for one?","Yes, please. Table seven.","Right this way, please."]},
+ {t:"The Woman in Red", s:"The menu and describing dishes", time:"Lunes · Mesa 7 · 21:00",
+  story:[
+   "On Monday, the man in the black hat doesn't come. At nine o'clock, a woman comes in. She wears a red dress. She sits at table seven. \"Good evening. Here is the menu,\" I say.",
+   "\"What is the mole negro?\" she asks. \"It is chicken with a black sauce. The sauce has chiles, chocolate, garlic and onion.\" \"Is it spicy?\" \"A little.\" \"OK. The mole, please, and a glass of water.\"",
+   "She opens a small notebook. \"Does Victor come every Friday?\" she asks. \"Yes, he does. Why?\" She doesn't answer. She looks at the door. Then she looks at me.",
+   "<span class='clue'>\"Where is the man in the black hat?\"</span>"],
+  vocab:[["menu","menú"],["chicken","pollo"],["sauce","salsa"],["garlic","ajo"],["onion","cebolla"],["spicy","picante"],["a little","un poco"],["notebook","libreta"],["door","puerta"]],
+  gram:{title:"Present simple: questions",rows:["<b>Does</b> Victor <b>come</b> every Friday?","Yes, he <b>does</b>. / No, he <b>doesn't</b>.","<b>Is</b> it spicy? — A little.","<b>Do</b> you <b>want</b> a glass of water?"]},
+  qs:[["What day is it?",["Monday","Friday","Sunday"],0],
+      ["What is in the mole sauce?",["Tomato, cilantro and lime","Chiles, chocolate, garlic and onion","Potato and corn"],1],
+      ["What does she ask about Victor?",["Is he the manager?","Does he come every Friday?","Is he married?"],1],
+      ["Grammar: ___ Victor come every Friday?",["Do","Is","Does"],2]],
+  challenge:"How does the woman know about the man in the black hat?",
+  practice:["What is the mole negro?","It is chicken with a black sauce. The sauce has chiles, chocolate, garlic and onion.","Is it spicy?","A little."]},
+ {t:"A Gift for Table Seven", s:"Drinks and the bar", time:"Viernes · Barra · 20:00",
+  story:[
+   "On Friday, Victor comes at eight o'clock with ten boxes of wine. He puts the boxes behind the bar. He is tall and he has a gold watch.",
+   "He gives Lupe, the bartender, a bottle of red wine. \"A gift for table seven,\" he says. Then he leaves through the back door.",
+   "At nine o'clock, the woman in red sits at table seven. I put a glass of water and the wine on my tray. \"A gift from Victor,\" I say. She looks at the wine. \"I don't drink wine,\" she says. \"Please take it back.\"",
+   "I put the bottle on the table, between the salt shaker and the flowers.",
+   "The next morning, <span class='clue'>the flowers on table seven are dead.</span>"],
+  vocab:[["box","caja"],["behind","detrás de"],["bar","barra"],["bartender","cantinero"],["bottle","botella"],["gift","regalo"],["tray","charola"],["between","entre"],["salt shaker","salero"]],
+  gram:{title:"Prepositions of place",rows:["The boxes are <b>behind</b> the bar.","The glass is <b>on</b> the tray.","The bottle is <b>between</b> the salt shaker and the flowers.","The napkin is <b>under</b> the cup."]},
+  qs:[["Where does Victor put the boxes?",["Behind the bar","Under the table","Next to the door"],0],
+      ["Who is Lupe?",["The bartender","The manager","The woman in red"],0],
+      ["Does the woman drink the wine?",["Yes, she does","No, she doesn't","Yes, a little"],1],
+      ["Grammar: The bottle is ___ the salt shaker and the flowers.",["under","behind","between"],2]],
+  challenge:"Why are the flowers dead?",
+  practice:["Would you like something to drink?","Just water, please. I don't drink wine."]},
+ {t:"The Photo", s:"The check and payment", time:"Sábado · Mesa 7 · 22:15",
+  story:[
+   "On Saturday, the woman in red comes again. She eats quickly. \"The check, please,\" she says.",
+   "\"Your total is three hundred and eighty pesos,\" I say. \"Do you pay by card or in cash?\" \"In cash.\" She gives me five hundred pesos. \"I received five hundred pesos. Your change is one hundred and twenty pesos.\" \"Keep the change,\" she says.",
+   "In the money there is an old photo. Two young men smile in the photo. One man is the man in the black hat. The other man is <span class='clue'>Victor.</span>",
+   "On the back of the photo are words: <span class='clue'>\"Hotel Sol. Room 12. Friday.\"</span> I look up. The woman is not at her table. She is gone."],
+  vocab:[["total","total"],["by card","con tarjeta"],["in cash","en efectivo"],["change","cambio"],["keep the change","quédese con el cambio"],["photo","foto"],["room","habitación"],["gone","se fue"]],
+  gram:{title:"Prices and numbers",rows:["380 = three hundred <b>and</b> eighty pesos","500 = five hundred pesos","120 = one hundred <b>and</b> twenty pesos","<b>Do</b> you pay by card or in cash?"]},
+  qs:[["What is the total?",["$280 pesos","$380 pesos","$500 pesos"],1],
+      ["How much is the change?",["$120 pesos","$80 pesos","$220 pesos"],0],
+      ["Who is in the photo?",["Mateo and Lupe","The woman and Victor","The man in the black hat and Victor"],2],
+      ["Grammar: ___ you pay by card or in cash?",["Does","Do","Are"],1]],
+  challenge:"Are Victor and the man in the black hat friends or enemies?",
+  practice:["Your total is three hundred and eighty pesos. Do you pay by card or in cash?","In cash, please.","I received five hundred pesos. Your change is one hundred and twenty pesos."]},
+ {t:"The Angry Customer", s:"Complaints", time:"Domingo · Mesa 3 · 21:30",
+  story:[
+   "On Sunday, the restaurant is very busy. At table three, across from table seven, a big man calls me. \"Excuse me! This soup is cold.\" \"I'm very sorry, sir. I can bring you a hot soup right away.\" \"And this fork is dirty!\" \"I'm sorry. Here is a clean fork.\"",
+   "But the man doesn't eat his soup. He doesn't look at his food. He looks at table seven, again and again.",
+   "\"Does the woman in red come here every night?\" he asks. \"I don't know, sir,\" I say.",
+   "I take his soup to the kitchen. Then I see his bag under his chair. In the bag there is <span class='clue'>a black hat.</span>"],
+  vocab:[["busy","lleno, ocupado"],["across from","enfrente de"],["cold","frío"],["right away","enseguida"],["fork","tenedor"],["dirty","sucio"],["clean","limpio"],["bag","bolsa"],["chair","silla"]],
+  gram:{title:"Present simple: – with he / she",rows:["He <b>doesn't eat</b> his soup.","He <b>doesn't look</b> at his food.","I <b>don't know</b>, sir.","<b>Does</b> the woman in red <b>come</b> here every night?"]},
+  qs:[["Where is table three?",["Across from table seven","Behind the bar","In the kitchen"],0],
+      ["What are the man's problems?",["The soup is cold and the fork is dirty","The check is wrong","The music is loud"],0],
+      ["Where is the man's bag?",["On the table","Under his chair","Next to the door"],1],
+      ["Grammar: He ___ look at his food.",["don't","not","doesn't"],2]],
+  challenge:"Is the soup really cold? Why does the man complain?",
+  practice:["Excuse me! This fork is dirty.","I'm very sorry, sir. Here is a clean fork. Can I bring you anything else?"]},
+ {t:"The Back Door", s:"Directions inside and outside", time:"Domingo · Puerta trasera · 23:40",
+  story:[
+   "After work, I take the empty bottles out. I walk through the kitchen, past the dishwasher, and out the back door. Outside, the street is dark.",
+   "Victor's white van is behind the restaurant, next to a big tree. Victor is between the van and the wall. He is on the phone. He doesn't see me.",
+   "\"Yes, she comes every night,\" Victor says. \"Friday. Hotel Sol. Room 12. The hotel is on the corner, across from the market.\"",
+   "I drop a glass. Crash! Victor turns around. \"What do you want?\" \"Nothing. I'm taking out the bottles.\"",
+   "Victor smiles. It is not a nice smile. <span class='clue'>\"Mateo… you see a lot, don't you?\"</span>"],
+  vocab:[["empty","vacío"],["through","a través de"],["past","pasando"],["dishwasher","lavaplatos"],["back door","puerta trasera"],["van","camioneta"],["corner","esquina"],["market","mercado"],["drop","se me cae"]],
+  gram:{title:"Directions: where and how",rows:["Walk <b>through</b> the kitchen.","Go <b>past</b> the dishwasher.","Go <b>out</b> the back door.","The hotel is <b>on the corner</b>, <b>across from</b> the market."]},
+  qs:[["Where is Victor's van?",["In front of the hotel","Behind the restaurant, next to a tree","At the market"],1],
+      ["Where is Hotel Sol?",["On the corner, across from the market","Next to La Luna","Behind the church"],0],
+      ["What does Mateo drop?",["A glass","A spoon","A bottle"],0],
+      ["Grammar: Mateo walks ___ the kitchen and out the back door.",["through","under","between"],0]],
+  challenge:"What does Victor mean: \"You see a lot, don't you?\"",
+  practice:["Excuse me, where is the restroom?","Go through the dining room, past the bar. It is next to the kitchen."]},
+];
+const COMING = ["Reservations by phone","Allergies","The big tip","Closing time"];
+
+const KEY="tableSeven.v1";
+let done = load();
+function load(){try{const v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v:[]}catch(e){return []}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}}
+const unlocked = i => i===0 || done.includes(i-1);
+const app = document.getElementById("app");
+const canSpeak = "speechSynthesis" in window;
+const MALE=["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","rishi","oliver","george","james","ryan","eric","male","andrew","brian","christopher","roger"];
+let voice=null;
+function pickVoice(){try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang));voice=vs.find(v=>v.lang=="en-US"&&MALE.some(n=>v.name.toLowerCase().includes(n)))||vs.find(v=>MALE.some(n=>v.name.toLowerCase().includes(n)))||null}catch(e){}}
+if(canSpeak){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
+
+function home(){
+  try{speechSynthesis.cancel()}catch(e){}
+  let list = EP.map((e,i)=>{
+    const st = done.includes(i)?'<span class="state done">Done ✓</span>':unlocked(i)?'<span class="state open">Read</span>':'<span class="state lock">Locked</span>';
+    return `<li><button class="ticket" data-i="${i}" ${unlocked(i)?"":"disabled"} aria-label="Episode ${i+1}: ${e.t}">
+      <span class="num">${i+1}</span><span class="t">${e.t}<span class="s">${e.s}</span></span>${st}</button></li>`;
+  }).join("");
+  list += COMING.map((c,k)=>`<li><button class="ticket" disabled><span class="num">${EP.length+k+1}</span><span class="t">Coming soon<span class="s">${c}</span></span><span class="state lock">Pronto</span></button></li>`).join("");
+  app.innerHTML = `
+  <header><span class="mono">La Luna · Oaxaca</span><h1>Table <span>Seven</span></h1>
+  <p class="sub">An English mystery for waiters.</p></header>
+  <p class="howto"><b>Cómo funciona:</b> Lee el episodio. Contesta las 4 preguntas. Cuando todas están correctas, se abre el siguiente episodio.</p>
+  <ul class="tickets">${list}</ul>
+  <footer><a href="/ell/restaurant/" style="color:inherit">Teacher Douglas · Restaurant English</a><button id="reset">Empezar de nuevo</button></footer>`;
+  app.querySelectorAll(".ticket[data-i]").forEach(b=>b.onclick=()=>episode(+b.dataset.i));
+  const r=document.getElementById("reset"); let armed=false;
+  r.onclick=()=>{ if(!armed){armed=true;r.textContent="¿Seguro? Toca otra vez";return}
+    done=[];save();home(); };
+  window.scrollTo(0,0);
+}
+
+function episode(i){
+  const e=EP[i]; const answered=new Set(); const already=done.includes(i);
+  const qs=e.qs.map((q,qi)=>`<div class="q" data-q="${qi}"><p>${qi+1}. ${q[0]}</p>
+    <div class="opts">${q[1].map((o,oi)=>`<button class="opt" data-o="${oi}">${o}</button>`).join("")}</div>
+    <p class="fb" aria-live="polite"></p></div>`).join("");
+  app.innerHTML=`
+  <button class="back" id="back">← All episodes</button>
+  <article class="slip">
+    <div class="sliphead"><span class="mono">Episode ${i+1} · ${e.s}</span><span class="mono">${e.time}</span></div>
+    <h2>${e.t}</h2>
+    ${canSpeak?'<button class="listen" id="listen">▶ Listen / Escuchar</button>':''}
+    <div class="story">${e.story.map(p=>`<p>${p}</p>`).join("")}</div>
+  </article>
+  <section class="slip section"><h3>Words · Palabras</h3>
+    <dl class="vocab">${e.vocab.map(v=>`<div><dt>${v[0]}</dt><dd>${v[1]}</dd></div>`).join("")}</dl></section>
+  <section class="slip section gram"><h3>Grammar · Gramática</h3><p class="gt">${e.gram.title}</p>${e.gram.rows.map(r=>`<p>${r}</p>`).join("")}</section>
+  <section class="slip section"><h3>Questions · Preguntas</h3>${qs}</section>
+  <div id="unlock"></div>
+  <section class="slip section extra"><h3>Practice · Practica</h3>
+    <div class="dialog">${e.practice.map((l,k)=>`<div>${e.practice.length>1?(k%2?"B: ":"A: "):""}${l}</div>`).join("")}</div></section>
+  <section class="slip section extra"><h3>⭐ Challenge · Reto</h3><p>${e.challenge}</p>
+    <p class="fb">Answer in English to your teacher on WhatsApp. / Contesta en inglés a tu maestro por WhatsApp.</p></section>`;
+  document.getElementById("back").onclick=home;
+  const L=document.getElementById("listen");
+  let playing=false;
+  const setBtn=p=>{playing=p;L.textContent=p?"■ Stop / Parar":"▶ Listen / Escuchar"};
+  if(L) L.onclick=()=>{try{
+    if(playing){speechSynthesis.cancel();setBtn(false);return}
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(e.story.join(" ").replace(/<[^>]+>/g,""));
+    if(!voice)pickVoice(); if(voice)u.voice=voice; else u.pitch=.8;
+    u.lang=voice?voice.lang:"en-US";u.rate=.8;
+    u.onend=()=>setBtn(false);u.onerror=()=>setBtn(false);
+    speechSynthesis.speak(u);setBtn(true)}catch(err){setBtn(false)}};
+  app.querySelectorAll(".q").forEach(qel=>{
+    const qi=+qel.dataset.q, fb=qel.querySelector(".fb");
+    const mark=()=>{qel.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(+b.dataset.o===e.qs[qi][2])b.classList.add("right")});fb.textContent="Correct! ✓";fb.className="fb ok";answered.add(qi)};
+    if(already) mark();
+    qel.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+      if(+b.dataset.o===e.qs[qi][2]){mark();check()}
+      else{b.classList.add("wrong");b.disabled=true;fb.textContent="Try again. Lee el texto otra vez.";fb.className="fb no"}
+    });
+  });
+  function check(){
+    if(answered.size<e.qs.length) return;
+    if(!done.includes(i)){done.push(i);save()}
+    const box=document.getElementById("unlock"); const next=i+1<EP.length;
+    box.innerHTML=`<section class="unlock" aria-live="polite"><h3>${next?`Episode ${i+2} is open!`:"You finished all the episodes!"}</h3>
+      <p>${next?"Good work. Stop here for today and come back tomorrow. / Buen trabajo. Para aquí por hoy y regresa mañana.":"More episodes are coming soon. / Pronto hay más episodios."}</p>
+      <div class="btns"><button class="primary" id="stop">Stop for today</button>${next?'<button class="secondary" id="go">Keep going →</button>':''}</div></section>`;
+    document.getElementById("stop").onclick=home;
+    const g=document.getElementById("go"); if(g) g.onclick=()=>episode(i+1);
+    box.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+  if(already) check();
+  window.scrollTo(0,0);
+}
+home();
+</script>
+</body>
+</html>

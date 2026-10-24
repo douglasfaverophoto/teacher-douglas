@@ -1,0 +1,37 @@
+/* Teacher Douglas — shared styles. Order-pad paper, carbon ink, red-wine accent. */
+:root{
+  --paper:#eef1ea; --slip:#fbfcf8; --ink:#1d2433; --muted:#5f6878; --rule:#cfd6cc;
+  --wine:#7a1f2b; --wine-soft:#f3e3e4;
+  --display:"Bodoni Moda", "Didot", Georgia, serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"Courier Prime", "Courier New", monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#12171a; --slip:#1a2125; --ink:#e8ecef; --muted:#9aa5ad; --rule:#2c363c;
+  --wine:#e0707d; --wine-soft:#3a1d22; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:max(24px,env(safe-area-inset-top,0px)) max(48px,env(safe-area-inset-bottom,0px))}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+a{color:var(--wine)}
+a:focus-visible{outline:3px solid var(--wine);outline-offset:2px}
+.mono{font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+h1{font-family:var(--display);font-style:italic;font-weight:800;font-size:clamp(42px,11vw,64px);line-height:1;margin:0;text-wrap:balance}
+h1 span{color:var(--wine)}
+h2{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:700}
+p{margin:0;max-width:62ch}
+header{display:flex;flex-direction:column;gap:10px}
+.crumbs{font-family:var(--mono);font-size:14px}
+.crumbs a{color:var(--muted);text-decoration:none}
+.cards{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.card{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:center;background:var(--slip);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;text-decoration:none;color:inherit}
+a.card:hover{border-color:var(--wine)}
+.card b{font-size:18px}
+.card small{grid-column:1;color:var(--muted);font-size:15px}
+.card .tag{grid-row:1 / span 2;grid-column:2;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:var(--wine-soft);color:var(--wine);white-space:nowrap}
+.card.soon{opacity:.6}
+.card.soon .tag{background:transparent;border:1px solid var(--rule);color:var(--muted)}
+footer{font-size:13px;color:var(--muted);border-top:1px dashed var(--rule);padding-top:10px}
