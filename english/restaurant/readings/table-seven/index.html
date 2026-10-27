@@ -236,7 +236,7 @@ function home(){
    <div class="row"><input id="studentname" autocomplete="name" placeholder="Name / Nombre" required maxlength="40"><button class="primary" type="submit">OK</button></div>
    <small>Teacher Douglas ve tu nombre y tu progreso. / Teacher Douglas can see your name and progress.</small></form>`}
   <ul class="tickets">${list}</ul>
-  <footer><a href="/ell/restaurant/" style="color:inherit">Teacher Douglas · Restaurant English</a><button id="reset">Empezar de nuevo</button></footer>`;
+  <footer><a href="/english/restaurant/" style="color:inherit">Teacher Douglas · Restaurant English</a><button id="reset">Empezar de nuevo</button></footer>`;
   app.querySelectorAll(".ticket[data-i]").forEach(b=>b.onclick=()=>episode(+b.dataset.i));
   const nf=document.getElementById("nameform");
   if(nf) nf.onsubmit=ev=>{ev.preventDefault();const v=document.getElementById("studentname").value.trim();if(v){setName(v);home()}};

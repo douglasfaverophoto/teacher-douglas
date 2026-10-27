@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mort à Montparnasse: a Max Lenoir noir mystery for beginners in French, in short episodes, by Teacher Douglas.">
+<title>Mort à Montparnasse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<style>/* Paris: the blue of the first Ulysses */
+:root{--wine:#1f3a7a;--wine-soft:#e1e7f4;--accent-dark:#8fa8e8;--accent-dark-soft:#1b2440}</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.STORY = {
+ id:"mortMontparnasse", short:"Mort à Montparnasse", lang:"fr-FR",
+ kicker:"Paris · 1924 · Français A1–A2",
+ title:"Mort à <span>Montparnasse</span>",
+ sub:"Une enquête de Max Lenoir. A private detective with no clients, a sleepy cat and a leaking office takes a case he doesn't understand.",
+ back:{href:"/french/", label:"Teacher Douglas · French"},
+ voices:["thomas","jacques","daniel","eddy","reed","rocko","grandpa","nicolas","male"],
+ coming:["Shakespeare and Company","Le salon de la Comtesse","Bouchard arrête Julien","Gare Saint-Lazare"],
+ eps:[
+ {t:"Un bureau sous la pluie", s:"Il y a · ne… jamais", time:"Novembre 1924 · Le bureau · 21h",
+  story:[
+   "Paris, novembre 1924. Il pleut sur Paris. Il pleut sur Montparnasse. Il pleut aussi sur mon bureau, parce qu'il y a un trou dans le toit.",
+   "Je m'appelle Lenoir. Max Lenoir. Je suis détective privé.",
+   "Mon bureau est petit. Il y a une table, deux chaises, un téléphone et un chat. Le téléphone ne sonne jamais. Le chat s'appelle Voltaire. Il dort toute la journée. C'est un bon chat, mais un mauvais assistant.",
+   "J'ai quarante ans. J'ai un chapeau gris, un imperméable gris et une vie grise.",
+   "Sous mon bureau, il y a un café : Le Dôme. Les artistes et les écrivains américains boivent et parlent là toute la nuit. Moi, je bois du café. Beaucoup de café. Je ne lis pas de livres. Je n'aime pas la poésie. À Montparnasse, en 1924, c'est presque un crime.",
+   "Il est neuf heures du soir. Je regarde la pluie. Voltaire regarde la pluie. La pluie ne regarde personne. <span class='clue'>Puis, quelqu'un frappe à la porte.</span>"],
+  vocab:[["il pleut","it's raining","llueve"],["le bureau","the office (also: desk)","la oficina"],["un trou","a hole","un agujero"],["le toit","the roof","el techo"],["sonner","to ring","sonar"],["il dort","he sleeps","duerme"],["un imperméable","a raincoat","un impermeable"],["la vie","life","la vida"],["un écrivain","a writer","un escritor"],["ils boivent","they drink","beben"],["ne… personne","nobody","no… nadie"],["frapper à la porte","to knock on the door","tocar a la puerta"]],
+  gram:{title:"Il y a = there is / there are = hay",rows:["<b>Il y a</b> un trou dans le toit.","<b>Il y a</b> une table, deux chaises et un chat.","Le téléphone <b>ne</b> sonne <b>jamais</b>. = never","Je <b>n'</b>aime <b>pas</b> la poésie. = not"]},
+  qs:[["Pourquoi il pleut dans le bureau ?",["La fenêtre est ouverte","Il y a un trou dans le toit","Voltaire ouvre la porte"],1],
+      ["Qui est Voltaire ?",["Le chat de Lenoir","Un écrivain américain","Le client"],0],
+      ["Qu'est-ce qu'il y a sous le bureau ?",["Un hôtel","Une librairie","Un café : Le Dôme"],2],
+      ["Grammar: Le téléphone ne sonne ___.",["pas jamais","jamais","personne"],1]],
+  bonus:["Pourquoi Voltaire est « un mauvais assistant » ?","Why is Voltaire \"a bad assistant\"?",["Il dort toute la journée","Il boit du café","Il n'aime pas Lenoir"],0],
+  practice:[["Bonsoir. Vous êtes Monsieur Lenoir ?","Good evening. Are you Mr Lenoir?"],["Oui. Je m'appelle Max Lenoir.","Yes. My name is Max Lenoir."],["Vous êtes détective ?","You're a detective?"],["Oui, détective privé. Entrez.","Yes, private detective. Come in."],["Merci. Il pleut beaucoup !","Thank you. It's raining a lot!"],["Oui. Ici, il pleut toujours.","Yes. Here it always rains."]],
+  note:"In the 1920s, <b>Montparnasse</b> was the centre of the art world, and the café <b>Le Dôme</b> on the boulevard du Montparnasse was one of its living rooms. After the First World War the dollar was strong and Paris was cheap, so many American writers moved there."},
+
+ {t:"La femme au chapeau rouge", s:"Asking and answering", time:"Le bureau · 21h05",
+  story:[
+   "Une femme entre. Elle est grande et élégante. Elle a un chapeau rouge, une robe noire et des yeux verts. Elle sent le jasmin. Les problèmes, souvent, sentent le jasmin aussi.",
+   "« Monsieur Lenoir ? Le détective ? — Oui. Asseyez-vous, madame. — Mademoiselle. Mademoiselle Violet Hart. Je suis américaine. Je suis poète. » Une poète. Bien sûr.",
+   "Elle s'assoit. Voltaire ouvre un œil. Il regarde la femme. Il ferme l'œil. Voltaire n'aime pas la poésie non plus.",
+   "« Comment est-ce que je peux vous aider, mademoiselle ? — Je cherche un homme. — Tout le monde cherche quelque chose. — Il s'appelle Julien Mercier. Il est traducteur. Il traduit le livre de Monsieur Joyce en français. <span class='clue'>— Joyce ? Connais pas.</span> »",
+   "Elle me regarde comme on regarde un chien qui parle. « James Joyce, monsieur ! Ulysse ! C'est le livre le plus important du siècle ! — Il est long ? — Sept cents pages. — Alors je ne vais pas le lire. »"],
+  vocab:[["le chapeau","the hat","el sombrero"],["la robe","the dress (≠ robar!)","el vestido"],["elle sent","she smells (of)","huele (a)"],["Asseyez-vous !","Sit down! (formal)","¡Siéntese!"],["elle s'assoit","she sits down","se sienta"],["non plus","either / neither","tampoco"],["chercher","to look for","buscar"],["tout le monde","everybody","todo el mundo"],["un traducteur","a translator","un traductor"],["Connais pas.","Don't know him.","No lo conozco."],["le siècle","the century","el siglo"]],
+  gram:{title:"Être and avoir (to be / to have)",rows:["Je <b>suis</b> américaine. Je <b>suis</b> poète.","Elle <b>est</b> grande et élégante.","Elle <b>a</b> un chapeau rouge et des yeux verts.","Casual French drops <b>ne</b>: Connais pas = Je <b>ne</b> le connais <b>pas</b>."]},
+  qs:[["De quelle couleur est le chapeau de la femme ?",["Noir","Rouge","Vert"],1],
+      ["Violet Hart est…",["française","américaine","anglaise"],1],
+      ["Qui est Julien Mercier ?",["Un traducteur","Un détective","Le chat"],0],
+      ["Grammar: Elle ___ un chapeau rouge.",["est","a","as"],1]],
+  bonus:["Pourquoi Lenoir ne va pas lire Ulysse ?","Why won't Lenoir read Ulysses?",["Il n'a pas d'argent","C'est trop long : sept cents pages","Il ne parle pas anglais"],1],
+  practice:[["Comment est-ce que je peux vous aider ?","How can I help you?"],["Je cherche un homme.","I'm looking for a man."],["Comment il s'appelle ?","What's his name?"],["Il s'appelle Julien Mercier.","His name is Julien Mercier."],["Qu'est-ce qu'il fait ?","What does he do?"],["Il est traducteur.","He's a translator."]],
+  note:"Lenoir says <b>une poète</b>. The older word <i>poétesse</i> exists, but many women writers preferred <i>poète</i>. And Lenoir's name means \"the black one\": a very noir name."},
+
+ {t:"Le cahier bleu", s:"Spot the passé composé", time:"Le bureau · 21h15",
+  story:[
+   "Elle ouvre son sac. Elle prend une photo et la pose sur mon bureau. Sur la photo, il y a un jeune homme avec des lunettes rondes et une petite moustache.",
+   "« Julien a disparu mardi soir. Il a pris un objet très précieux : le cahier bleu de Monsieur Joyce. Ce sont les notes de son nouveau livre. — Et vous voulez Julien, ou le cahier ? »",
+   "Elle ne répond pas tout de suite. Elle regarde la pluie. « Je veux… les deux. » Je remarque une chose : <span class='clue'>sur ses doigts, il y a de l'encre bleue.</span>",
+   "« Mes tarifs : cinquante francs par jour, plus les frais. » Elle met deux cents francs sur la table. Voltaire ouvre les deux yeux.",
+   "« Julien habite à l'Hôtel de la Lune, rue Delambre. Chambre 7. » Elle se lève. Elle part. Mais quand elle ferme son sac, un petit papier tombe par terre. Je le ramasse. C'est un billet de bateau : <span class='clue'>Le Havre – New York. Départ : samedi.</span> Intéressant. Très intéressant."],
+  vocab:[["des lunettes","glasses","lentes, gafas"],["il a disparu","he disappeared","ha desaparecido"],["il a pris","he took","ha tomado"],["précieux","valuable","valioso, precioso"],["les deux","both","los dos"],["remarquer","to notice","notar, fijarse"],["les doigts","the fingers","los dedos"],["l'encre","ink","la tinta"],["les frais","expenses","los gastos"],["elle se lève","she stands up","se levanta"],["ramasser","to pick up","recoger"],["un billet de bateau","a boat ticket","un boleto de barco"]],
+  gram:{title:"Passé composé: avoir + participle (like haber)",rows:["Julien <b>a disparu</b> mardi soir. = ha desaparecido","Il <b>a pris</b> le cahier bleu. = ha tomado","Je <b>le</b> ramasse. = Lo recojo.","Elle <b>la</b> pose. = La pone."]},
+  qs:[["Qu'est-ce que Julien a pris ?",["De l'argent","Le cahier bleu de Joyce","Le chat"],1],
+      ["Qu'est-ce qu'il y a sur les doigts de Violet ?",["De l'encre bleue","Du chocolat","Du sang"],0],
+      ["Où va le bateau ?",["À Londres","À New York","À Dublin"],1],
+      ["Grammar: Julien ___ disparu mardi soir.",["est","a","ai"],1]],
+  bonus:["Pourquoi Voltaire ouvre les deux yeux ?","Why does Voltaire open both eyes?",["Il voit l'argent","Il a faim","Il entend la pluie"],0],
+  practice:[["Quels sont vos tarifs ?","What are your rates?"],["Cinquante francs par jour, plus les frais.","Fifty francs a day, plus expenses."],["Voilà deux cents francs.","Here are two hundred francs."],["Merci. Où habite Julien ?","Thank you. Where does Julien live?"],["À l'Hôtel de la Lune, chambre 7.","At the Hôtel de la Lune, room 7."]],
+  note:"Nobody in Britain or America would publish <i>Ulysses</i>, so <b>Sylvia Beach</b>, an American who ran the bookshop Shakespeare and Company in Paris, published it herself in February 1922. The first edition had 732 pages and a blue cover. The blue notebook in our story is invented."},
+
+ {t:"Chambre 7", s:"Ne… pas, and describing", time:"Hôtel de la Lune · 21h40",
+  story:[
+   "L'Hôtel de la Lune est à cinq minutes de mon bureau, à pied. Sous la pluie, sans parapluie, cinq minutes, c'est long.",
+   "L'hôtel est vieux et sombre. À la réception, il y a une vieille femme sur une chaise. C'est la concierge, Madame Lune. Elle dort. Elle ronfle. « Bonsoir, madame. » Pas de réponse. Je regarde ses chaussures. <span class='clue'>Elles sont mouillées.</span> Bizarre.",
+   "Je monte l'escalier. Un étage. Deux étages. Trois étages. Chambre 7. La porte est ouverte. J'entre. Il y a des papiers partout. Et sur le sol, à côté de la fenêtre, il y a un homme. Il ne bouge pas. Il ne dort pas. Il est mort.",
+   "À côté de sa tête, il y a un très gros livre bleu : ULYSSES. Sept cents pages. Je le savais : ce livre est dangereux.",
+   "Je regarde la photo de Julien. Je regarde l'homme. L'homme a cinquante ans. Il est gros. Il n'a pas de lunettes. Il n'a pas de moustache. <span class='clue'>Ce n'est pas Julien Mercier.</span>",
+   "Dans sa main, il y a une page bleue. Sur la page, un seul mot, à l'encre bleue : <span class='clue'>riverrun</span>. Ce n'est pas du français. Ce n'est pas de l'anglais. Dehors, il pleut toujours."],
+  vocab:[["à pied","on foot","a pie"],["sans parapluie","without an umbrella","sin paraguas"],["sombre","dark, gloomy","oscuro, sombrío"],["elle ronfle","she snores","ronca"],["les chaussures","the shoes","los zapatos"],["mouillé / mouillée","wet","mojado / mojada"],["bizarre","strange (⚠ bizarro = brave!)","raro"],["monter l'escalier","to go up the stairs","subir la escalera"],["un étage","a floor, storey","un piso"],["partout","everywhere","por todas partes"],["bouger","to move","moverse"],["mort","dead","muerto"],["dehors","outside","afuera"]],
+  gram:{title:"After ne… pas, un / une / des become de",rows:["Il a <b>une</b> moustache. → Il <b>n'</b>a <b>pas de</b> moustache.","Il a <b>des</b> lunettes. → Il <b>n'</b>a <b>pas de</b> lunettes.","Il <b>ne</b> bouge <b>pas</b>. Il <b>ne</b> dort <b>pas</b>.","<b>Ce n'est pas</b> Julien Mercier."]},
+  qs:[["Comment sont les chaussures de Madame Lune ?",["Rouges","Mouillées","Neuves"],1],
+      ["L'homme mort est Julien Mercier ?",["Oui","Non, ce n'est pas Julien","On ne sait pas"],1],
+      ["Qu'est-ce qu'il y a à côté de sa tête ?",["Un parapluie","Une bouteille d'encre","Un gros livre bleu : Ulysses"],2],
+      ["Grammar: Il n'a pas ___ lunettes.",["des","de","les"],1]],
+  bonus:["Pourquoi les chaussures mouillées sont bizarres ?","Why are the wet shoes strange?",["Madame Lune dort sur sa chaise : elle n'est pas sortie… ou si ?","Les chaussures sont neuves","Il ne pleut pas"],0],
+  practice:[["Bonsoir, madame. Je cherche la chambre 7.","Good evening, madam. I'm looking for room 7."],["C'est au troisième étage.","It's on the third floor."],["Il y a un ascenseur ?","Is there a lift?"],["Non, monsieur. L'escalier, à gauche.","No, sir. The stairs, on the left."],["Merci, madame.","Thank you, madam."]],
+  note:"<b>riverrun</b> is the first word of Joyce's next book, <i>Finnegans Wake</i> (1939). In 1924 he was still writing it and called it his \"Work in Progress\". Almost nobody can read it, so Lenoir is in good company."},
+
+ {t:"Le commissaire Bouchard", s:"Asking questions", time:"Chambre 7 · 22h30",
+  story:[
+   "Je téléphone à la police. Vingt minutes plus tard, le commissaire Bouchard arrive. Il est petit et rond. Il mange un croissant. Il mange toujours un croissant.",
+   "« Lenoir. Encore vous. — Bonsoir, Bouchard. — Qu'est-ce que vous faites ici ? — Je cherche un homme. — Et vous trouvez un mort. Bravo. »",
+   "Bouchard regarde le mort. Il ne regarde pas longtemps. « Je le connais. C'est Gustave Pinchon. Il vend des livres rares. Des manuscrits. Souvent, des manuscrits volés. On l'appelle <span class='clue'>le Corbeau</span>. »",
+   "Il prend le gros livre bleu. « Et voilà l'arme du crime. Sept cents pages. — Sept cent trente-deux, je dis. — Vous lisez maintenant, Lenoir ? — Non. J'ai compté. »",
+   "Bouchard met des miettes de croissant sur le cadavre. « Rentrez chez vous, Lenoir. C'est une affaire pour la police. » Je ne rentre pas chez moi. Je descends voir Madame Lune."],
+  vocab:[["le commissaire","the police chief","el comisario"],["petit et rond","short and round","bajito y redondo"],["encore vous","you again","usted otra vez"],["un mort","a dead man","un muerto"],["vendre","to sell","vender"],["volé","stolen","robado"],["le corbeau","the crow","el cuervo"],["l'arme du crime","the murder weapon","el arma del crimen"],["compter","to count","contar"],["les miettes","crumbs","las migajas"],["rentrer chez soi","to go home","volver a casa"],["une affaire","a case","un caso"]],
+  gram:{title:"Questions with est-ce que and qu'est-ce que",rows:["<b>Qu'est-ce que</b> vous faites ici? = What are you doing here?","<b>Est-ce que</b> vous lisez? = Do you read?","Vous lisez maintenant? (just raise your voice)","<b>Qui</b> est-ce? = Who is it?"]},
+  qs:[["Qu'est-ce que Bouchard mange ?",["Un croissant","Une pomme","Un sandwich"],0],
+      ["Qui est le mort ?",["Julien Mercier","Gustave Pinchon, « le Corbeau »","Monsieur Joyce"],1],
+      ["Qu'est-ce que Pinchon vend ?",["Du café","Des chapeaux","Des livres rares et des manuscrits"],2],
+      ["Grammar: ___ vous faites ici ?",["Qu'est-ce que","Est-ce","Qui"],0]],
+  bonus:["Pourquoi Lenoir sait que le livre a 732 pages ?","How does Lenoir know the book has 732 pages?",["Il a lu le livre","Il a compté les pages","Violet lui a dit"],1],
+  practice:[["Qu'est-ce que vous faites ici ?","What are you doing here?"],["Je cherche un homme.","I'm looking for a man."],["Qui est-ce ?","Who is it?"],["C'est Julien Mercier, un traducteur.","It's Julien Mercier, a translator."],["Est-ce que vous avez une photo ?","Do you have a photo?"],["Oui, la voilà.","Yes, here it is."]]},
+
+ {t:"Madame Lune dort toujours", s:"Times and reflexive verbs", time:"La réception · 23h",
+  story:[
+   "À la réception, Madame Lune dort sur sa chaise. À côté d'elle, sur la table, il y a une tasse de thé. Je touche la tasse. <span class='clue'>Le thé est chaud.</span>",
+   "« Madame Lune ! » Elle ouvre un œil. Comme Voltaire. « Hein ? Quoi ? Qui êtes-vous ? — Lenoir, détective. Il y a un homme mort dans la chambre 7. — Oh, mon Dieu ! »",
+   "« À quelle heure est-ce que vous vous couchez, madame ? — Je ne me couche pas. Je dors ici, sur ma chaise. Toute la nuit. Je ne vois rien. Je n'entends rien. — Et ce soir ? — Ce soir, j'ai dormi. Comme toujours. »",
+   "« Vous êtes sortie ce soir ? — Moi ? Non ! Je ne sors jamais. Avec mes jambes ? »",
+   "Je regarde ses chaussures. Elles sont toujours mouillées. Elle met ses pieds sous la chaise. Puis elle ferme les yeux. Elle ronfle. Très fort. Trop fort."],
+  vocab:[["une tasse de thé","a cup of tea","una taza de té"],["toucher","to touch","tocar"],["chaud","hot","caliente"],["Hein ? Quoi ?","Huh? What?","¿Eh? ¿Qué?"],["se coucher","to go to bed","acostarse"],["toute la nuit","all night","toda la noche"],["je ne vois rien","I see nothing","no veo nada"],["entendre","to hear","oír"],["sortir","to go out","salir"],["les jambes","legs","las piernas"],["les pieds","feet","los pies"],["trop fort","too loud","demasiado fuerte"]],
+  gram:{title:"Reflexive verbs: like acostarse",rows:["Je <b>me</b> couche à dix heures. = Me acuesto a las diez.","Vous <b>vous</b> couchez à quelle heure?","Elle <b>s'</b>appelle Madame Lune.","<b>ne… rien</b> = nothing: Je <b>ne</b> vois <b>rien</b>."]},
+  qs:[["Comment est le thé de Madame Lune ?",["Froid","Chaud","Il n'y a pas de thé"],1],
+      ["Où dort Madame Lune ?",["Dans la chambre 7","Dans son lit","Sur sa chaise, à la réception"],2],
+      ["Madame Lune dit qu'elle est sortie ce soir ?",["Oui","Non, jamais"],1],
+      ["Grammar: Je ne vois ___. (nothing)",["rien","personne","jamais"],0]],
+  bonus:["Pourquoi le thé chaud est un indice ?","Why is the hot tea a clue?",["Madame Lune aime le thé","Si elle dort depuis des heures, qui a fait le thé ?","Le thé est anglais"],1],
+  practice:[["À quelle heure est-ce que vous vous couchez ?","What time do you go to bed?"],["Je me couche à onze heures.","I go to bed at eleven."],["Et vous vous levez à quelle heure ?","And what time do you get up?"],["Je me lève à sept heures.","I get up at seven."],["Moi, je ne dors jamais.","Me, I never sleep."]]},
+
+ {t:"Marcel sait tout", s:"Ordering at the café", time:"Le Dôme · 23h30",
+  story:[
+   "Je descends au Dôme. Il est tard, mais le café est plein. Marcel, le serveur, a une moustache noire et de grandes oreilles. Marcel entend tout. Et il vend tout.",
+   "« Un café, Marcel. — Un café pour Monsieur Lenoir. Et avec le café ? — Une information. — Les informations, c'est plus cher que le café. » Je mets dix francs sur la table. Marcel sourit.",
+   "« Mardi soir, Julien Mercier est passé ici, vers dix heures. Il courait. Sous le bras, il avait un cahier. Un cahier bleu. — Il allait où ? — Vers la rue Delambre. Vers l'hôtel. »",
+   "Marcel prend les dix francs. « Et autre chose, gratuit, parce que je vous aime bien : mardi soir, une femme a demandé l'adresse de Pinchon. Une femme avec <span class='clue'>un chapeau rouge</span>. »",
+   "Je bois mon café. Il est froid. Comme mes clients."],
+  vocab:[["tard","late","tarde"],["plein","full","lleno"],["le serveur","the waiter","el mesero"],["les oreilles","ears","las orejas"],["plus cher que","more expensive than","más caro que"],["sourire","to smile","sonreír"],["il courait","he was running","corría"],["sous le bras","under his arm","bajo el brazo"],["vers","towards / around (time)","hacia / hacia las"],["autre chose","something else","otra cosa"],["gratuit","free (no cost)","gratis"],["froid","cold","frío"]],
+  gram:{title:"A first look at the imparfait (was doing)",rows:["Il <b>courait</b>. = He was running. (corría)","Il <b>avait</b> un cahier. = He had a notebook. (tenía)","Il <b>allait</b> où? = Where was he going? (iba)","Spanish -aba/-ía ≈ French <b>-ait</b>."]},
+  qs:[["Qui est Marcel ?",["Le serveur du Dôme","Le commissaire","Le traducteur"],0],
+      ["Qu'est-ce que Julien avait sous le bras ?",["Un parapluie","Un cahier bleu","Un chat"],1],
+      ["Qui a demandé l'adresse de Pinchon ?",["Bouchard","Madame Lune","Une femme avec un chapeau rouge"],2],
+      ["Grammar: Il ___ un cahier sous le bras. (was having/had)",["a","avait","avoir"],1]],
+  bonus:["Violet Hart a dit à Lenoir toute la vérité ?","Did Violet Hart tell Lenoir the whole truth?",["Oui, tout","Non : elle connaît Pinchon, mais elle ne l'a pas dit","On ne sait pas qui est Violet"],1],
+  practice:[["Bonsoir ! Qu'est-ce que je vous sers ?","Good evening! What can I get you?"],["Un café, s'il vous plaît.","A coffee, please."],["Et avec ça ?","Anything else?"],["Un croissant aussi.","A croissant too."],["Ça fait trois francs.","That's three francs."],["Voilà. Merci !","Here. Thanks!"]]},
+
+ {t:"Le jeune Américain", s:"Short sentences", time:"Le Dôme · Minuit",
+  story:[
+   "À la fenêtre du café, le jeune Américain écrit toujours dans son cahier. Des phrases courtes. Très courtes. Je m'assois à sa table.",
+   "« Vous êtes ici tous les soirs ? — Oui. J'écris. Je bois. J'écris encore. — Mardi soir, vous avez vu quelque chose ? » Il pense. Il boit. Il pense encore.",
+   "« Il pleuvait. Une femme est passée. Elle avait un parapluie noir. Elle allait vite. Elle n'avait pas de chapeau rouge. Elle était vieille. C'est tout. — Vieille ? — Oui. Petite. Vieille. Vite. »",
+   "Une vieille femme qui va vite, sous la pluie. Je pense à des chaussures mouillées. Je ne dis rien.",
+   "À une heure du matin, je remonte dans mon bureau. Voltaire dort. Sous la porte, il y a une enveloppe. Dedans, un papier. Quatre mots, à l'encre bleue : <span class='clue'>« Arrêtez de chercher. — J.M. »</span>",
+   "Dehors, il pleut. Évidemment."],
+  vocab:[["une phrase","a sentence","una frase"],["court / courte","short","corto / corta"],["tous les soirs","every evening","todas las noches"],["encore","again / still","otra vez / todavía"],["quelque chose","something","algo"],["il pleuvait","it was raining","llovía"],["un parapluie","an umbrella","un paraguas"],["vite","fast","rápido"],["vieux / vieille","old","viejo / vieja"],["remonter","to go back up","volver a subir"],["une enveloppe","an envelope","un sobre"],["arrêter de","to stop (doing)","dejar de"]],
+  gram:{title:"Write like a noir writer: short sentences",rows:["Il pense. Il boit. Il pense encore.","Une femme <b>est passée</b>. (passé composé with être)","Elle <b>était</b> vieille. Elle <b>allait</b> vite. (imparfait)","Your turn: four short sentences about where you are now."]},
+  qs:[["Qu'est-ce que le jeune Américain fait au café ?",["Il dort","Il écrit et il boit","Il joue au piano"],1],
+      ["Comment était la femme sous la pluie ?",["Grande, avec un chapeau rouge","Vieille et petite","Jeune, avec des lunettes"],1],
+      ["Qu'est-ce qu'il y a sous la porte de Lenoir ?",["Une enveloppe","Un croissant","Le cahier bleu"],0],
+      ["Grammar: Elle ___ vieille. (was)",["était","est passée","a"],0]],
+  bonus:["Qui est « J.M. » ?","Who is \"J.M.\"?",["Julien Mercier","James Joyce","Madame Lune"],0],
+  practice:[["Vous écrivez un livre ?","Are you writing a book?"],["Oui. Un roman.","Yes. A novel."],["C'est long ?","Is it long?"],["Non. Les phrases sont courtes.","No. The sentences are short."],["Bravo. Moi, je ne lis pas.","Well done. Me, I don't read."],["Je sais. Ça se voit.","I know. It shows."]],
+  note:"Ernest Hemingway lived in Paris from 1921 to 1928 and wrote in café notebooks. His style is famous for short, simple sentences, which is very good news for French learners. In our story the young American is never named."}
+ ]
+};
+</script>
+<script src="/assets/reader.js"></script>
+</body>
+</html>

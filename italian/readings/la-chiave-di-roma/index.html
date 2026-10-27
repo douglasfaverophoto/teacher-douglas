@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="La Chiave di Roma: a beginner Italian noir in 8 short episodes, by Teacher Douglas.">
+<title>La Chiave di Roma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<style>/* Rome: terracotta accent */
+:root{--wine:#9a3412;--wine-soft:#f6e3d8;--accent-dark:#f0936a;--accent-dark-soft:#3a2216}</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.STORY = {
+ id:"chiaveRoma", short:"La Chiave di Roma", lang:"it-IT",
+ kicker:"Roma · 1958 · Italiano A1",
+ title:"La Chiave <span>di Roma</span>",
+ sub:"A noir mystery for beginners. Detective Nico Ombra has no money, no clients and a lot of coffee on credit. Then a girl knocks on his door.",
+ back:{href:"/italian/", label:"Teacher Douglas · Italian"},
+ voices:["luca","eddy","reed","rocko","grandpa","diego","cosimo","giorgio","male"],
+ coming:["Case 2: Il Gatto del Vaticano"],
+ eps:[
+ {t:"Una cliente sotto la pioggia", s:"Introducing yourself", time:"Lunedì · Trastevere · 22:00",
+  story:[
+   "Roma, novembre 1958. Piove. Piove su Trastevere. Piove anche nel mio ufficio, perché la finestra non chiude.",
+   "Mi chiamo Ombra. Nico Ombra. Sono un detective privato. Ho quarantacinque anni, un cappello grigio e zero clienti.",
+   "Il mio ufficio è piccolo: una scrivania, due sedie e un telefono. Il telefono non suona mai. Sotto l'ufficio c'è il Bar Gino. Gino fa il caffè migliore di Trastevere. Io bevo molto caffè. Non pago mai.",
+   "Alle dieci di sera, qualcuno bussa alla porta. È una ragazza giovane, con un cappotto blu e gli occhi rossi. Ha paura.",
+   "«Lei è il detective Ombra?» «Dipende. Chi lo chiede?» «Mi chiamo Giulia Bassi. Mio fratello Marco è sparito.»",
+   "Sulla scrivania mette una foto e una scatola di fiammiferi. Sulla scatola c'è scritto: <span class='clue'>«Club Luna Blu, Via Veneto».</span>"],
+  vocab:[["piove","it's raining"],["l'ufficio","the office"],["la finestra","the window"],["la scrivania","the desk"],["sotto","under, below"],["bussare","to knock"],["la ragazza","the girl, young woman"],["ha paura","she is afraid"],["il fratello","the brother"],["sparito","disappeared"],["i fiammiferi","matches"]],
+  gram:{title:"Essere (to be) and chiamarsi (to be called)",rows:["Io <b>sono</b> un detective privato.","Lei <b>è</b> il detective Ombra?","Il mio ufficio <b>è</b> piccolo.","<b>Mi chiamo</b> Giulia. = My name is Giulia."]},
+  qs:[["Dov'è l'ufficio di Ombra?",["A Via Veneto","A Trastevere","Al Colosseo"],1],
+      ["Perché piove nell'ufficio?",["La finestra non chiude","La porta è aperta","Non c'è il tetto"],0],
+      ["Chi è Marco?",["Il barista","Un detective","Il fratello di Giulia"],2],
+      ["Grammar: Io ___ un detective privato.",["è","sono","sei"],1]],
+  bonus:["Perché la scatola di fiammiferi è importante?","Why is the box of matches important?",["Marco fuma molto","Dice a Ombra dove cercare: il Club Luna Blu","Giulia vuole un caffè"],1],
+  practice:[["Buonasera. Come si chiama?","Good evening. What is your name? (formal)"],["Mi chiamo Giulia Bassi. E lei?","My name is Giulia Bassi. And you?"],["Ombra. Nico Ombra.","Ombra. Nico Ombra."],["Piacere.","Nice to meet you."],["Piacere mio. Si sieda, prego.","My pleasure. Sit down, please."]],
+  note:"In Italy a crime story is called a <b>giallo</b> (yellow), because from 1929 the publisher Mondadori printed its mysteries with yellow covers. <b>Trastevere</b> means \"across the Tiber\": the old neighbourhood on the other side of the river."},
+
+ {t:"Il caffè di Gino", s:"Ordering at the bar", time:"Martedì · Bar Gino · 8:00",
+  story:[
+   "La mattina scendo al Bar Gino. «Un caffè, per favore.» «Ecco, signor Ombra. Sono cinquanta lire.» «Scrivi sul mio conto.» «Il suo conto è più lungo della Via Appia.»",
+   "Gino sa tutto. Al bar tutti parlano, e Gino ascolta. Gli mostro la foto di Marco.",
+   "«Marco Bassi? Suona il pianoforte al Club Luna Blu. Tutte le sere, dalle nove a mezzanotte.» «Che tipo è?» «Un bravo ragazzo. Ma ha un problema. Deve molti soldi al Conte.»",
+   "«Quale conte?» Gino guarda la porta. Poi parla piano.",
+   "<span class='clue'>«Il Conte Orsini. È il padrone del Luna Blu. A Roma, nessuno dice di no al Conte.»</span>"],
+  vocab:[["la mattina","the morning"],["scendere","to go down"],["per favore","please"],["ecco","here it is"],["il conto","the bill, the tab"],["sapere (sa)","to know (he knows)"],["tutti","everybody"],["ascoltare","to listen"],["suonare il pianoforte","to play the piano"],["mezzanotte","midnight"],["i soldi","money"],["deve","he owes / he must"],["il padrone","the owner, the boss"],["nessuno","nobody"]],
+  gram:{title:"Ordering and prices",rows:["Un caffè, <b>per favore</b>.","<b>Ecco</b>, signore. = Here you are, sir.","<b>Quanto costa?</b> = How much is it?","<b>Sono</b> cinquanta lire. = It's fifty lire."]},
+  qs:[["Quanto costa il caffè?",["Cento lire","Dieci lire","Cinquanta lire"],2],
+      ["Cosa fa Marco al Club Luna Blu?",["Suona il pianoforte","Canta","Fa il caffè"],0],
+      ["Chi è il Conte Orsini?",["Un poliziotto","Il padrone del Luna Blu","Il fratello di Gino"],1],
+      ["Grammar: Un caffè, ___ favore.",["per","di","a"],0]],
+  bonus:["Perché Gino parla piano?","Why does Gino speak quietly?",["Ha paura del Conte","Ha mal di gola","Ombra dorme"],0],
+  practice:[["Buongiorno! Un caffè, per favore.","Good morning! A coffee, please."],["Ecco a lei.","Here you are."],["Quanto costa?","How much is it?"],["Cinquanta lire.","Fifty lire."],["Ecco. Grazie!","Here. Thank you!"],["Prego. Buona giornata!","You're welcome. Have a good day!"]],
+  note:"In Italy, <b>un caffè</b> is an espresso, and most people drink it standing at the bar, quickly. The <b>Via Appia</b> is a Roman road more than two thousand years old, so Gino's joke means the tab is very, very long."},
+
+ {t:"La donna in rosso", s:"Describing people", time:"Martedì · Via Veneto · 22:00",
+  story:[
+   "Via Veneto, ore dieci di sera. Il Club Luna Blu è pieno di fumo, di musica e di gente ricca. Al pianoforte non c'è Marco. C'è un vecchio con gli occhiali.",
+   "Poi le luci si abbassano. Una donna canta. Ha un vestito rosso, i capelli neri e una voce come il miele. Si chiama Lucia Neri. Tutti la guardano. Anche io.",
+   "Dopo la canzone, lei si siede al mio tavolo. «Lei non è un cliente normale», dice. «Ha le scarpe bagnate e un cappello vecchio. È un poliziotto?» «Peggio. Un detective.»",
+   "Le mostro la foto. «Conosce Marco Bassi?» «No. Mai visto.»",
+   "Ma quando prende il bicchiere, vedo il suo polso. Porta un orologio da uomo. Sul retro c'è una lettera: <span class='clue'>M.</span>"],
+  vocab:[["pieno di","full of"],["il fumo","smoke"],["la gente","people"],["ricco","rich"],["gli occhiali","glasses"],["le luci si abbassano","the lights go down"],["il vestito","the dress"],["i capelli","hair"],["la voce","the voice"],["il miele","honey"],["bagnato","wet"],["peggio","worse"],["il polso","the wrist"],["l'orologio","the watch"]],
+  gram:{title:"Adjectives change their ending",rows:["un vestito ross<b>o</b> (masculine)","una donna ricc<b>a</b> (feminine)","i capelli ner<b>i</b> (masculine plural)","le scarpe bagnat<b>e</b> (feminine plural)"]},
+  qs:[["Chi suona il pianoforte stasera?",["Marco","Lucia","Un vecchio con gli occhiali"],2],
+      ["Com'è il vestito di Lucia?",["Rosso","Nero","Blu"],0],
+      ["Lucia conosce Marco?",["Sì, è suo fratello","Dice di no: «Mai visto»","Sì, è il suo capo"],1],
+      ["Grammar: Lucia ha i capelli ___.",["nero","nera","neri"],2]],
+  bonus:["Perché l'orologio è importante?","Why is the watch important?",["È d'oro","Forse è l'orologio di Marco","È rotto"],1],
+  practice:[["Com'è Marco?","What is Marco like?"],["È alto e magro. Ha i capelli castani e gli occhiali.","He's tall and thin. He has brown hair and glasses."],["Quanti anni ha?","How old is he?"],["Ha ventitré anni.","He's twenty-three."],["Grazie. Lo cerco.","Thanks. I'll look for him."]],
+  note:"In the late 1950s, <b>Via Veneto</b> was the street of film stars, rich nightclubs and photographers. In 1960 Federico Fellini made it famous around the world in his film <i>La dolce vita</i>."},
+
+ {t:"Il Conte", s:"Present tense: -are verbs", time:"Martedì · Luna Blu · 23:30",
+  story:[
+   "Due uomini grandi come armadi mi prendono per le braccia. «Il Conte vuole parlare con lei.» Non è una domanda.",
+   "L'ufficio del Conte è dietro il palco. Il Conte Orsini ha sessant'anni, un abito bianco e un anello d'oro. Mangia un'arancia, lentamente.",
+   "«Signor Ombra. Lei cerca Marco Bassi.» «Le notizie corrono veloci.» «A Roma tutto corre veloce. Tranne gli autobus.»",
+   "Sorride. «Marco mi deve un milione di lire. Se lei lo trova, mi telefona. Capito?» «E se non lo trovo?» «Allora è meglio tornare a casa. E restare a casa.»",
+   "Gli armadi mi accompagnano fuori. Sulla porta, Lucia passa vicino a me. Non mi guarda. Ma dopo, nella mia tasca, trovo un biglietto: <span class='clue'>«Fontana di Trevi. Mezzanotte.»</span>"],
+  vocab:[["gli uomini","the men"],["l'armadio","the wardrobe (closet)"],["le braccia","the arms"],["dietro","behind"],["il palco","the stage"],["l'abito","the suit"],["l'anello d'oro","the gold ring"],["l'arancia","the orange"],["lentamente","slowly"],["tranne","except"],["tornare a casa","to go back home"],["la tasca","the pocket"],["il biglietto","the note / the ticket"]],
+  gram:{title:"Present tense: -are verbs (cercare, mangiare, guardare)",rows:["Io cerc<b>o</b> Marco.","Lei cerc<b>a</b> Marco Bassi.","Il Conte mangi<b>a</b> un'arancia.","Lucia non mi guard<b>a</b>."]},
+  qs:[["Dov'è l'ufficio del Conte?",["Sotto il bar","Dietro il palco","A Trastevere"],1],
+      ["Quanto deve Marco al Conte?",["Mille lire","Cinquanta lire","Un milione di lire"],2],
+      ["Cosa mangia il Conte?",["Un'arancia","Una pizza","Un gelato"],0],
+      ["Grammar: Il Conte ___ un'arancia.",["mangio","mangia","mangiare"],1]],
+  bonus:["Perché Lucia non guarda Ombra?","Why doesn't Lucia look at Ombra?",["È arrabbiata con lui","Non lo ricorda","Non vuole che il Conte la veda"],2],
+  practice:[["Pronto?","Hello? (on the phone)"],["Pronto, sono Nico Ombra. C'è Giulia?","Hello, it's Nico Ombra. Is Giulia there?"],["Sì, sono io.","Yes, it's me."],["Ho una notizia. Marco deve soldi al Conte.","I have news. Marco owes money to the Count."],["Oh no! Cosa facciamo?","Oh no! What do we do?"],["Domani ti telefono.","I'll call you tomorrow."]]},
+
+ {t:"Fontana di Trevi", s:"Numbers and time", time:"Mercoledì · Fontana di Trevi · 0:00",
+  story:[
+   "A mezzanotte la Fontana di Trevi è vuota. Solo l'acqua parla. Lucia arriva su una Vespa verde. Senza il vestito rosso sembra più giovane. E più stanca.",
+   "«Lei ha l'orologio di Marco», dico. «Sì. Marco è un amico. Un caro amico.» «Dov'è?» «Non lo so. Ma prima di sparire, Marco mi dà questa.»",
+   "È una piccola chiave. Sulla chiave c'è un numero: <span class='clue'>47.</span> «È la chiave di un armadietto alla Stazione Termini. Il Conte vuole questa chiave. Ho paura, signor Ombra.»",
+   "Prende una moneta e la getta nella fontana, sopra la spalla. «Chi getta una moneta torna a Roma», dice. «Io voglio solo andare via da Roma.»",
+   "Poi arriva una macchina nera. I fari ci illuminano. Lucia corre alla Vespa. Quando mi giro, la chiave è nella mia mano. E Lucia non c'è più."],
+  vocab:[["vuoto / vuota","empty"],["l'acqua","the water"],["la Vespa","the Vespa (scooter)"],["stanco / stanca","tired"],["la chiave","the key"],["l'armadietto","the locker"],["la stazione","the station"],["la moneta","the coin"],["gettare","to throw"],["la spalla","the shoulder"],["andare via","to leave, go away"],["la macchina","the car"],["i fari","the headlights"],["girarsi","to turn around"]],
+  gram:{title:"Numbers and time",rows:["<b>È mezzanotte.</b> = It's midnight.","<b>Sono le dieci</b> di sera. = It's ten p.m.","47 = <b>quarantasette</b>","<b>A che ora?</b> — <b>Alle</b> nove. = At what time? — At nine."]},
+  qs:[["A che ora arriva Lucia?",["Alle dieci","A mezzanotte","Alle nove"],1],
+      ["Come arriva Lucia?",["In taxi","A piedi","Su una Vespa"],2],
+      ["Qual è il numero sulla chiave?",["47","74","17"],0],
+      ["Grammar: 47 =",["quattro sette","quarantasette","settantaquattro"],1]],
+  bonus:["Chi c'è, forse, nella macchina nera?","Who is probably in the black car?",["Giulia","Gli uomini del Conte","Gino"],1],
+  practice:[["Scusi, dov'è la Stazione Termini?","Excuse me, where is Termini Station?"],["Vada dritto, poi giri a sinistra.","Go straight, then turn left."],["È lontano?","Is it far?"],["No, dieci minuti a piedi.","No, ten minutes on foot."],["Grazie mille!","Thanks a lot!"]],
+  note:"The legend says: throw a coin into the <b>Fontana di Trevi</b> with your right hand, over your left shoulder, and one day you will come back to Rome. The <b>Vespa</b> scooter was first made by Piaggio in 1946."},
+
+ {t:"Armadietto 47", s:"C'è / ci sono", time:"Mercoledì · Stazione Termini · 9:00",
+  story:[
+   "La mattina dopo vado alla Stazione Termini. C'è tanta gente: soldati, suore, turisti, una famiglia con sei valigie. Trovo l'armadietto 47. Apro.",
+   "Dentro ci sono tre cose: un biglietto del treno per Milano, una busta con molti soldi e una foto.",
+   "Guardo la foto. In un ristorante elegante ci sono due persone. Un uomo con un abito bianco: il Conte Orsini. E vicino a lui, una ragazza che ride, con un bicchiere di champagne. Conosco questa ragazza. <span class='clue'>È Giulia. La mia cliente.</span>",
+   "Sul retro della foto c'è scritto: «G. e il Conte. Capodanno 1957». La ragazza con gli occhi rossi ride con il Conte. Interessante. Molto interessante.",
+   "Metto tutto nel cappotto. Vicino al bar della stazione, un uomo legge il giornale. Il giornale è al contrario."],
+  vocab:[["la mattina dopo","the next morning"],["tanta gente","a lot of people"],["i soldati","soldiers"],["le suore","nuns"],["le valigie","suitcases"],["aprire","to open"],["dentro","inside"],["il treno","the train"],["la busta","the envelope"],["ridere","to laugh"],["Capodanno","New Year's Eve / Day"],["il retro","the back"],["il giornale","the newspaper"],["al contrario","upside down"]],
+  gram:{title:"C'è (there is) / ci sono (there are)",rows:["<b>C'è</b> tanta gente.","<b>Ci sono</b> tre cose.","<b>C'è</b> un uomo con il giornale.","<b>Non c'è</b> Marco."]},
+  qs:[["Cosa c'è nell'armadietto?",["Un cappello e un orologio","Un biglietto, una busta e una foto","Niente"],1],
+      ["Dove va il treno?",["A Napoli","A Firenze","A Milano"],2],
+      ["Chi c'è nella foto?",["Giulia e il Conte","Lucia e Marco","Gino e Ombra"],0],
+      ["Grammar: Nell'armadietto ___ tre cose.",["c'è","ci sono","è"],1]],
+  bonus:["Perché il giornale dell'uomo è al contrario?","Why is the man's newspaper upside down?",["Non legge: guarda Ombra","Non sa leggere","È un giornale straniero"],0],
+  practice:[["Buongiorno. Un biglietto per Milano, per favore.","Good morning. A ticket to Milan, please."],["Solo andata o andata e ritorno?","One way or round trip?"],["Solo andata.","One way."],["A che ora parte il treno?","What time does the train leave?"],["Alle otto e un quarto. Binario tre.","At a quarter past eight. Platform three."]],
+  note:"<b>Roma Termini</b> is the main train station of Rome. Its long modern front, finished in 1950, was brand new in the year of our story."},
+
+ {t:"La nonna di Trastevere", s:"Family", time:"Mercoledì · Via della Scala · 13:00",
+  story:[
+   "Torno al Bar Gino. «Gino, dove mangia Marco la domenica?» «Da sua nonna. Via della Scala, numero dodici. Ma attenzione: la nonna ha un mestolo, e lo usa.»",
+   "Nonna Rosa ha ottant'anni. È piccola e ha un grembiule bianco. In cucina c'è un buon odore di sugo.",
+   "«Cerco Marco Bassi. Sua sorella Giulia è molto preoccupata.» La nonna mi guarda strano. <span class='clue'>«Sorella? Marco non ha sorelle. È figlio unico.»</span>",
+   "Una porta si apre. Un ragazzo alto, con gli occhiali, entra in cucina. È Marco. «Lei lavora per il Conte?» «Lavoro per una ragazza. Dice che è tua sorella.»",
+   "Gli mostro la foto di Capodanno. Marco diventa bianco. «Giulia... è la fidanzata del Conte. Non cerca me. Cerca Lucia. Lucia vuole lasciare il Conte, e io voglio partire con lei.»"],
+  vocab:[["la domenica","on Sundays"],["la nonna","the grandmother"],["il mestolo","the ladle"],["il grembiule","the apron"],["la cucina","the kitchen"],["l'odore","the smell"],["il sugo","the (tomato) sauce"],["la sorella","the sister"],["preoccupato / -a","worried"],["figlio unico","only child"],["diventa bianco","he goes pale"],["la fidanzata","the girlfriend / fiancée"],["lasciare","to leave (someone)"],["partire","to leave (on a trip)"]],
+  gram:{title:"Family and possessives",rows:["<b>Sua</b> sorella è preoccupata. = His sister is worried.","Marco <b>non ha</b> sorelle.","È <b>figlio unico</b>. = He's an only child.","<b>mio</b> fratello · <b>mia</b> nonna · <b>tuo</b> figlio"]},
+  qs:[["Dove mangia Marco la domenica?",["Da sua nonna","Al Bar Gino","Al Club Luna Blu"],0],
+      ["Quanti anni ha nonna Rosa?",["Diciotto","Cinquanta","Ottanta"],2],
+      ["Marco ha una sorella?",["Sì, Giulia","No, è figlio unico","Sì, Lucia"],1],
+      ["Grammar: Marco è ___ unico.",["figlia","fratello","figlio"],2]],
+  bonus:["Chi è veramente Giulia?","Who is Giulia really?",["La sorella di Marco","La fidanzata del Conte","Una poliziotta"],1],
+  practice:[["Hai fratelli?","Do you have brothers or sisters?"],["Sì, ho un fratello. Ha cinquantun anni.","Yes, I have a brother. He's fifty-one."],["E tu, hai figli?","And you, do you have children?"],["Sì, ho un figlio. Ha diciassette anni.","Yes, I have a son. He's seventeen."],["Che bello!","How nice!"]]},
+
+ {t:"L'ultimo treno", s:"Telling the time", time:"Mercoledì · Stazione Termini · 19:45",
+  story:[
+   "Alle otto meno un quarto, la Stazione Termini è piena di rumore. Lucia e Marco aspettano al binario tre, con una sola valigia.",
+   "Poi la vedo. Giulia. Il cappotto blu, gli occhi asciutti. Dietro di lei ci sono i due armadi del Conte. «Signor Ombra», dice con un sorriso. «Lei ha trovato mio fratello. Bravo. Adesso mi dia la busta.»",
+   "«Tuo fratello?» rispondo. «Nonna Rosa ti saluta.» Il sorriso sparisce.",
+   "Le do la busta. Lei la apre. Dentro non ci sono soldi. C'è solo la foto di Capodanno. Dietro di lei arriva il commissario Ferri, con tre poliziotti. Ferri beve il caffè da Gino ogni mattina. <span class='clue'>Ferri vuole parlare con il Conte da molto tempo.</span>",
+   "Il treno fischia. Lucia mi guarda dal finestrino. «Grazie, signor Ombra. Come la pago?» «Getta una moneta nella fontana. Ma non tornare troppo presto.»",
+   "Il treno parte alle otto e un quarto. Io resto sul binario, con le mani in tasca e zero lire. Fuori piove su Roma. Gino mi aspetta con un caffè. Lo metto sul conto."],
+  vocab:[["il rumore","noise"],["aspettare","to wait"],["il binario","the platform (train)"],["asciutto","dry"],["il sorriso","the smile"],["adesso","now"],["mi dia","give me (formal)"],["ti saluta","says hello to you"],["sparire","to disappear"],["il commissario","the police inspector"],["fischiare","to whistle"],["il finestrino","the (train) window"],["troppo presto","too soon"],["restare","to stay"]],
+  gram:{title:"Telling the time",rows:["<b>Le otto meno un quarto</b> = 7:45","<b>Le otto e un quarto</b> = 8:15","<b>Le otto e mezza</b> = 8:30","Il treno <b>parte alle</b> otto e un quarto."]},
+  qs:[["A che ora parte il treno?",["A mezzanotte","Alle dieci","Alle otto e un quarto"],2],
+      ["Cosa c'è nella busta che Ombra dà a Giulia?",["La foto di Capodanno","Molti soldi","Una chiave"],0],
+      ["Dove vanno Lucia e Marco?",["A Milano","A Napoli","A Parigi"],0],
+      ["Grammar: 7:45 =",["Le otto e un quarto","Le otto meno un quarto","Le sette e mezza"],1]],
+  bonus:["Perché Ombra dice «Nonna Rosa ti saluta»?","Why does Ombra say \"Nonna Rosa says hello\"?",["Nonna Rosa è sua amica","È solo gentile","Vuole dire: so che non sei la sorella di Marco"],2],
+  practice:[["Buon viaggio!","Have a good trip!"],["Grazie di tutto.","Thanks for everything."],["Scrivimi da Milano.","Write to me from Milan."],["Certo. Arrivederci, signor Ombra.","Of course. Goodbye, Mr Ombra."],["Arrivederci. E non tornare troppo presto.","Goodbye. And don't come back too soon."]]}
+ ]
+};
+</script>
+<script src="/assets/reader.js"></script>
+</body>
+</html>
