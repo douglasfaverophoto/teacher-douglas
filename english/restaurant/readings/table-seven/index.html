@@ -205,10 +205,27 @@ const NKEY="tableSeven.name", BKEY="tableSeven.bonus";
 function getName(){try{return localStorage.getItem(NKEY)||""}catch(e){return ""}}
 function setName(n){try{localStorage.setItem(NKEY,n)}catch(e){}}
 let bonusDone=(()=>{try{return JSON.parse(localStorage.getItem(BKEY))||[]}catch(e){return []}})();
+const AKEY="tableSeven.answers";
+let partial=(()=>{try{const v=JSON.parse(localStorage.getItem(AKEY));return v&&typeof v==="object"&&!Array.isArray(v)?v:{}}catch(e){return {}}})();
+function savePartial(){try{localStorage.setItem(AKEY,JSON.stringify(partial))}catch(e){}}
+try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
 function report(i,event){
   if(!REPORT_URL) return;
   try{fetch(REPORT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},
-    body:JSON.stringify({name:getName()||"(sin nombre)",episode:i+1,title:EP[i].t,event})}).catch(()=>{})}catch(e){}
+    body:JSON.stringify({name:getName()||"(sin nombre)",episode:i+1,title:EP[i].t,event,story:"Table Seven"})}).catch(()=>{})}catch(e){}
+}
+// Backup: if this browser lost its progress, the student types the same name and it comes back from the Google Sheet.
+let onHome=false;
+function restore(){
+  const n=getName(); if(!n||!REPORT_URL) return;
+  try{fetch(REPORT_URL+"?story=Table%20Seven&name="+encodeURIComponent(n))
+    .then(r=>r.json()).then(d=>{
+      if(!d||getName()!==n) return;
+      let changed=false;
+      (d.done||[]).forEach(x=>{const i=x-1;if(i>=0&&i<EP.length&&!done.includes(i)){done.push(i);changed=true}});
+      (d.bonus||[]).forEach(x=>{const i=x-1;if(i>=0&&i<EP.length&&!bonusDone.includes(i))bonusDone.push(i)});
+      if(changed){save();try{localStorage.setItem(BKEY,JSON.stringify(bonusDone))}catch(e){}if(onHome)home()}
+    }).catch(()=>{})}catch(e){}
 }
 const unlocked = i => i===0 || done.includes(i-1);
 const app = document.getElementById("app");
@@ -220,6 +237,7 @@ if(canSpeak){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){
 
 function esc(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function home(){
+  onHome=true;
   try{speechSynthesis.cancel()}catch(e){}
   let list = EP.map((e,i)=>{
     const st = done.includes(i)?'<span class="state done">Done ✓</span>':unlocked(i)?'<span class="state open">Read</span>':'<span class="state lock">Locked</span>';
@@ -239,16 +257,17 @@ function home(){
   <footer><a href="/english/restaurant/" style="color:inherit">Teacher Douglas · Restaurant English</a><button id="reset">Empezar de nuevo</button></footer>`;
   app.querySelectorAll(".ticket[data-i]").forEach(b=>b.onclick=()=>episode(+b.dataset.i));
   const nf=document.getElementById("nameform");
-  if(nf) nf.onsubmit=ev=>{ev.preventDefault();const v=document.getElementById("studentname").value.trim();if(v){setName(v);home()}};
+  if(nf) nf.onsubmit=ev=>{ev.preventDefault();const v=document.getElementById("studentname").value.trim();if(v){setName(v);home();restore()}};
   const cn=document.getElementById("chname"); if(cn) cn.onclick=()=>{setName("");home()};
   const r=document.getElementById("reset"); let armed=false;
   r.onclick=()=>{ if(!armed){armed=true;r.textContent="¿Seguro? Toca otra vez";return}
-    done=[];save();home(); };
+    done=[];save();partial={};savePartial();home(); };
   window.scrollTo(0,0);
 }
 
 function episode(i){
-  const e=EP[i]; const answered=new Set(); const already=done.includes(i);
+  onHome=false;
+  const e=EP[i]; const answered=new Set(); const already=done.includes(i), saved=partial[i]||[];
   const qs=e.qs.map((q,qi)=>`<div class="q" data-q="${qi}"><p>${qi+1}. ${q[0]}</p>
     <div class="opts">${q[1].map((o,oi)=>`<button class="opt" data-o="${oi}">${o}</button>`).join("")}</div>
     <p class="fb" aria-live="polite"></p></div>`).join("");
@@ -290,9 +309,9 @@ function episode(i){
   app.querySelectorAll(".q:not(#bonus .q)").forEach(qel=>{
     const qi=+qel.dataset.q, fb=qel.querySelector(".fb");
     const mark=()=>{qel.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(+b.dataset.o===e.qs[qi][2])b.classList.add("right")});fb.textContent="Correct! ✓";fb.className="fb ok";answered.add(qi)};
-    if(already) mark();
+    if(already||saved.includes(qi)) mark();
     qel.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
-      if(+b.dataset.o===e.qs[qi][2]){mark();check()}
+      if(+b.dataset.o===e.qs[qi][2]){mark();partial[i]=[...answered];savePartial();check()}
       else{b.classList.add("wrong");b.disabled=true;fb.textContent="Try again. Lee el texto otra vez.";fb.className="fb no"}
     });
   });
@@ -311,6 +330,7 @@ function episode(i){
   window.scrollTo(0,0);
 }
 home();
+restore();
 </script>
 </body>
 </html>

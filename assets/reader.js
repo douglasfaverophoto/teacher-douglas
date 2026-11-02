@@ -17,17 +17,34 @@ const UI = Object.assign({
   endMsg:"More episodes are coming soon.", stopBtn:"Stop for today", goBtn:"Keep going →", reset:"Start over", sure:"Sure? Tap again"
 }, S.ui||{});
 
-const KEY=S.id+".v1", NKEY=S.id+".name", BKEY=S.id+".bonus";
+const KEY=S.id+".v1", NKEY=S.id+".name", BKEY=S.id+".bonus", AKEY=S.id+".answers";
 const get=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}};
 const put=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 let done=get(KEY,[]); if(!Array.isArray(done)) done=[];
 let bonusDone=get(BKEY,[]); if(!Array.isArray(bonusDone)) bonusDone=[];
+let partial=get(AKEY,{}); if(!partial||typeof partial!=="object"||Array.isArray(partial)) partial={};
 const getName=()=>get(NKEY,"")||"", setName=n=>put(NKEY,n);
+// Ask the browser to keep this site's storage (helps on phones that clear site data).
+try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
 // Same Google Sheet as Table Seven (Apps Script in tools/progress-apps-script.gs); the story name goes in the title column.
 const REPORT_URL = "https://script.google.com/macros/s/AKfycby54Hv7HCzhWeUiL0yhU11jlFpb28bkARw6l4-va9QJ_IUizPSmzuDrFBncyb8FsY9Qcg/exec";
 function report(i,event){
   try{fetch(REPORT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},
     body:JSON.stringify({name:getName()||"(no name)",episode:i+1,title:S.short+" · "+EP[i].t,event,story:S.short})}).catch(()=>{})}catch(e){}
+}
+// Backup: if this browser lost its progress (phone cleared it, new phone, other browser),
+// the student types the same name and the finished episodes come back from the Google Sheet.
+let onHome=false;
+function restore(){
+  const n=getName(); if(!n) return;
+  try{fetch(REPORT_URL+"?story="+encodeURIComponent(S.short)+"&name="+encodeURIComponent(n))
+    .then(r=>r.json()).then(d=>{
+      if(!d||getName()!==n) return;
+      let changed=false;
+      (d.done||[]).forEach(x=>{const i=x-1;if(i>=0&&i<EP.length&&!done.includes(i)){done.push(i);changed=true}});
+      (d.bonus||[]).forEach(x=>{const i=x-1;if(i>=0&&i<EP.length&&!bonusDone.includes(i)){bonusDone.push(i)}});
+      if(changed){put(KEY,done);put(BKEY,bonusDone);if(onHome)home()}
+    }).catch(()=>{})}catch(e){}
 }
 const unlocked=i=>i===0||done.includes(i-1);
 const app=document.getElementById("app");
@@ -52,6 +69,7 @@ function say(text,onend){
 }
 
 function home(){
+  onHome=true;
   try{speechSynthesis.cancel()}catch(e){}
   let list=EP.map((e,i)=>{
     const st=done.includes(i)?`<span class="state done">${UI.done}</span>`:unlocked(i)?`<span class="state open">${UI.read}</span>`:`<span class="state lock">${UI.locked}</span>`;
@@ -70,15 +88,16 @@ function home(){
   <footer><a href="${S.back.href}">${S.back.label}</a><button id="reset">${UI.reset}</button></footer>`;
   app.querySelectorAll(".ticket[data-i]").forEach(b=>b.onclick=()=>episode(+b.dataset.i));
   const nf=document.getElementById("nameform");
-  if(nf) nf.onsubmit=ev=>{ev.preventDefault();const v=document.getElementById("studentname").value.trim();if(v){setName(v);home()}};
+  if(nf) nf.onsubmit=ev=>{ev.preventDefault();const v=document.getElementById("studentname").value.trim();if(v){setName(v);home();restore()}};
   const cn=document.getElementById("chname"); if(cn) cn.onclick=()=>{setName("");home()};
   const r=document.getElementById("reset"); let armed=false;
-  r.onclick=()=>{if(!armed){armed=true;r.textContent=UI.sure;return} done=[];put(KEY,done);home()};
+  r.onclick=()=>{if(!armed){armed=true;r.textContent=UI.sure;return} done=[];partial={};put(KEY,done);put(AKEY,partial);home()};
   window.scrollTo(0,0);
 }
 
 function episode(i){
-  const e=EP[i], answered=new Set(), already=done.includes(i);
+  onHome=false;
+  const e=EP[i], answered=new Set(), already=done.includes(i), saved=partial[i]||[];
   const qs=e.qs.map((q,qi)=>`<div class="q" data-q="${qi}"><p>${qi+1}. ${q[0]}</p>
     <div class="opts">${q[1].map((o,oi)=>`<button class="opt" data-o="${oi}">${o}</button>`).join("")}</div>
     <p class="fb" aria-live="polite"></p></div>`).join("");
@@ -129,9 +148,9 @@ function episode(i){
   app.querySelectorAll(".q:not(#bonus .q)").forEach(qel=>{
     const qi=+qel.dataset.q, fb=qel.querySelector(".fb");
     const mark=()=>{qel.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(+b.dataset.o===e.qs[qi][2])b.classList.add("right")});fb.textContent=UI.right;fb.className="fb ok";answered.add(qi)};
-    if(already) mark();
+    if(already||saved.includes(qi)) mark();
     qel.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
-      if(+b.dataset.o===e.qs[qi][2]){mark();check()}
+      if(+b.dataset.o===e.qs[qi][2]){mark();partial[i]=[...answered];put(AKEY,partial);check()}
       else{b.classList.add("wrong");b.disabled=true;fb.textContent=UI.tryAgain;fb.className="fb no"}
     });
   });
@@ -150,4 +169,5 @@ function episode(i){
   window.scrollTo(0,0);
 }
 home();
+restore();
 })();
