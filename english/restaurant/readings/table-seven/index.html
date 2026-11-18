@@ -64,6 +64,17 @@ h2{font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;l
 .story p:last-child{margin:0}
 .story .clue{font-weight:700;color:var(--wine)}
 .listen{align-self:flex-start;border:1px solid var(--rule);background:var(--paper);border-radius:99px;padding:6px 14px;font-size:15px}
+.story p{border-radius:4px;cursor:pointer}
+.story p.speaking{background:var(--wine-soft)}
+.tip{font-size:13px;color:var(--muted);margin:0}
+.player{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.player .listen{align-self:auto;min-height:40px}
+.player .ghost{background:transparent}
+.player .ghost:disabled{opacity:.45;cursor:default}
+.speeds{display:inline-flex;border:1px solid var(--rule);border-radius:99px;overflow:hidden}
+.spd{border:0;background:var(--paper);padding:6px 12px;font-size:14px;min-height:40px;font-variant-numeric:tabular-nums}
+.spd+.spd{border-left:1px solid var(--rule)}
+.spd[aria-pressed="true"]{background:var(--wine);color:var(--slip);font-weight:700}
 .section h3{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:700}
 .vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;margin:0}
 .vocab div{display:flex;gap:6px;flex-wrap:wrap;font-size:15px;border-bottom:1px dotted var(--rule);padding-bottom:4px}
@@ -103,6 +114,7 @@ footer button{background:none;border:0;padding:0;text-decoration:underline;color
 <body>
 
 <div class="wrap" id="app"></div>
+<script src="/assets/player.js"></script>
 
 <script>
 const EP = [
@@ -193,8 +205,68 @@ const EP = [
       ["Grammar: Mateo walks ___ the kitchen and out the back door.",["through","under","between"],0]],
   bonus:["What does Victor mean: \"You see a lot, don't you?\"",["Mateo has very good eyes","Victor knows Mateo heard the phone call","Victor wants Mateo to work more"],1],
   practice:["Excuse me, where is the restroom?","Go through the dining room, past the bar. It is next to the kitchen.","Is it near the bar?","Yes. It is between the bar and the kitchen."]},
+ {t:"The Phone Call", s:"Reservations by phone", time:"Martes · Teléfono · 18:00",
+  story:[
+   "On Tuesday afternoon, the restaurant is quiet. The phone rings. \"Good afternoon, La Luna. This is Mateo. How can I help you?\"",
+   "\"Hello, Mateo. I'd like to make a reservation for Friday.\" I know this voice. It is the woman in red. \"Of course. For how many people?\" \"For three.\" \"And what time?\" \"At nine o'clock. Table seven, please.\" \"Can I have your name, please?\" \"Elena Cruz.\"",
+   "I write it in the reservation book: Friday, 9:00, table 7, three people, Elena Cruz. \"Anything else?\" \"Yes. I'm allergic to peanuts. And Mateo… please don't tell Victor.\"",
+   "Ten minutes later, the phone rings again. It is Victor. \"Is there a reservation for table seven on Friday?\" I look at the book. \"No, sir. Table seven is free.\"",
+   "\"Good,\" Victor says. \"Then write my name. Friday, nine o'clock, table three.\" <span class='clue'>Table three is across from table seven.</span>"],
+  vocab:[["reservation","reservación"],["make a reservation","hacer una reservación"],["how many people","cuántas personas"],["voice","voz"],["reservation book","libro de reservaciones"],["allergic","alérgico/a"],["peanuts","cacahuates"],["free (table)","libre"],["later","después"]],
+  gram:{title:"Questions for reservations",rows:["<b>I'd like</b> (I would like) to make a reservation.","<b>How many</b> people? — For three.","<b>What time</b>? — At nine o'clock.","<b>Can I have</b> your name, please?"]},
+  qs:[["What day is the reservation for?",["Tuesday","Friday","Sunday"],1],
+      ["What is the woman's name?",["Elena Cruz","Lupe Cruz","Elena Ruiz"],0],
+      ["What does Mateo tell Victor?",["Table seven is for Elena","Table three is full","Table seven is free"],2],
+      ["Grammar: ___ many people? — For three.",["What","How","Who"],1]],
+  bonus:["Why does Victor want table three?",["It is near the kitchen","It is his favorite table","He wants to watch table seven"],2],
+  practice:["Good afternoon, La Luna. How can I help you?","I'd like to make a reservation for Friday, please.","Of course. For how many people?","For three, at nine o'clock.","Can I have your name, please?","Elena Cruz.","Thank you, Ms. Cruz. See you on Friday."]},
+ {t:"Peanuts", s:"Allergies", time:"Viernes · Cocina · 21:20",
+  story:[
+   "On Friday, Victor comes at eight o'clock with his boxes of wine. Then he opens the reservation book. He reads it for a long time. He looks at me, but he doesn't say anything.",
+   "At nine o'clock, Elena comes in with two men. One man wears a black hat. The other man is tall and quiet. They sit at table seven. Victor sits at table three.",
+   "\"Are you allergic to anything?\" I ask. \"Yes, I'm allergic to peanuts,\" Elena says. \"Does the mole have peanuts?\" \"No, it doesn't. Our mole negro has no peanuts.\" \"Good. The mole, please.\"",
+   "In the kitchen, the chef puts the mole on a plate. I go to get a clean napkin. When I come back, Victor is in the kitchen, next to the plate. He has a small bag in his hand. He leaves quickly.",
+   "I look at the mole. On the black sauce there is a little brown powder. I smell it. <span class='clue'>Peanuts.</span> I take the plate back to the chef. \"Please make a new mole for table seven. No peanuts.\""],
+  vocab:[["allergic to","alérgico/a a"],["peanuts","cacahuates"],["nuts","nueces"],["plate","plato"],["chef","chef, cocinero"],["powder","polvo"],["smell","oler"],["quickly","rápido"],["quiet","callado"]],
+  gram:{title:"Talking about allergies",rows:["<b>Are you allergic to</b> anything?","I'm allergic <b>to</b> peanuts.","<b>Does</b> the mole <b>have</b> peanuts? — No, it <b>doesn't</b>.","This dish <b>has</b> nuts. / This dish <b>doesn't have</b> nuts."]},
+  qs:[["What does Victor read?",["The menu","The reservation book","A newspaper"],1],
+      ["Who sits at table three?",["Victor","Elena","Lupe"],0],
+      ["What is the brown powder?",["Chocolate","Salt","Peanuts"],2],
+      ["Grammar: I'm allergic ___ peanuts.",["of","to","for"],1]],
+  bonus:["Why does Victor put peanuts on the mole?",["He wants a better mole","He is the chef","He wants Elena to get sick"],2],
+  practice:["Are you allergic to anything?","Yes, I'm allergic to peanuts.","No problem. The mole has no peanuts. I can tell the chef.","Thank you. And the salad?","The salad has nuts. I can bring it without nuts."]},
+ {t:"The Big Tip", s:"Tips and thanks", time:"Viernes · Mesa 7 · 22:30",
+  story:[
+   "Elena eats the new mole. Table three is empty now. Victor is not in the restaurant. \"Sit down, please, Mateo,\" Elena says. \"Just for a minute.\"",
+   "The man in the black hat takes off his hat. \"My name is Tomás. Elena is my sister. Victor is my old friend. We are the two young men in the photo.\"",
+   "\"I'm a police officer,\" Elena says. \"Victor steals wine from big hotels and sells it to restaurants. Every Friday night, he sells the wine in Room 12 at Hotel Sol.\" The tall, quiet man shows me his police badge.",
+   "At ten thirty, they ask for the check. The total is nine hundred pesos. In the check folder there are two thousand pesos and a small card. \"This is a very big tip!\" I say. \"Thank you so much. That's very kind of you.\" \"You're welcome, Mateo,\" Elena says.",
+   "On the card are six words: <span class='clue'>\"Close the restaurant. Watch the bar.\"</span>"],
+  vocab:[["sister","hermana"],["take off","quitarse"],["old friend","viejo amigo"],["police officer","policía"],["steal","robar"],["sell","vender"],["badge","placa"],["check folder","portacuentas"],["kind","amable"]],
+  gram:{title:"Thanking and tips",rows:["Thank you <b>so much</b>.","That's very <b>kind</b> of you.","This is a <b>very big</b> tip!","<b>You're welcome.</b> / <b>My pleasure.</b>"]},
+  qs:[["Who is Tomás?",["The man in the black hat","The chef","Victor's brother"],0],
+      ["What is Elena's job?",["Bartender","Police officer","Teacher"],1],
+      ["Where does Victor sell the wine?",["At the market","At La Luna","In Room 12 at Hotel Sol"],2],
+      ["Grammar: That's very ___ of you.",["kind","kindly","big"],0]],
+  bonus:["Why is the tip so big?",["The mole is very good","Elena is rich","It is a thank-you: Mateo helps Elena"],2],
+  practice:["Here is your check. Take your time.","Thank you. Here you are.","Oh! This is a very big tip. Thank you so much!","You're welcome, Mateo. You're a very good waiter.","That's very kind of you. Have a good night!"]},
+ {t:"Closing Time", s:"Closing the restaurant", time:"Viernes · Cierre · 23:50",
+  story:[
+   "At eleven thirty, the last customers leave. Lupe and I clean the tables and put the chairs on the tables. I turn off the lights in the dining room.",
+   "At ten to twelve, someone knocks on the front door. It is Victor. \"Open the door, Mateo. I need my boxes. They are behind the bar.\" \"Sorry, sir. We're closed. We open tomorrow at one o'clock.\"",
+   "Victor doesn't listen. He goes around the restaurant and comes in the back door, past the dishwasher and through the kitchen. He goes behind the bar and picks up a box. In the box there are bottles of wine. Every bottle has the name of a big hotel on it.",
+   "I turn on the lights. Elena and two police officers are at the front door. Tomás is next to them. Lupe opens the door. \"Victor Ruiz, put down the box, please,\" Elena says. Victor looks at me. Then he puts down the box.",
+   "The police take Victor away. Tomás stays. He puts on his black hat and sits at table seven. \"A black coffee, please.\" \"Sorry, sir. We're closed,\" I say. Then I smile. <span class='clue'>\"But for table seven, we're always open.\"</span>"],
+  vocab:[["last","último"],["customers","clientes"],["turn off / turn on","apagar / prender"],["lights","luces"],["knock","tocar (la puerta)"],["closed","cerrado"],["pick up","levantar"],["put down","dejar, bajar"],["always","siempre"]],
+  gram:{title:"Closing time",rows:["We're <b>closed</b>. We <b>open</b> tomorrow at one.","We <b>close</b> at midnight.","We're <b>closing</b> in ten minutes. Anything else?","<b>Open</b> the door. <b>Put down</b> the box. (orders)"]},
+  qs:[["What do Mateo and Lupe do at eleven thirty?",["They eat dinner","They clean the tables","They go home"],1],
+      ["Why does Victor come?",["He wants his boxes","He wants a coffee","He wants to pay"],0],
+      ["What is in the boxes?",["Food for the kitchen","Money","Wine from big hotels"],2],
+      ["Grammar: Sorry, sir. We're ___.",["close","closing","closed"],2]],
+  bonus:["What does Mateo mean: \"For table seven, we're always open\"?",["Tomás is a special friend now","The restaurant never closes","Table seven is broken"],0],
+  practice:["Excuse me, we're closing in ten minutes. Anything else?","No, thank you. Just the check, please.","Of course. Here you are.","What time do you open tomorrow?","We open at one o'clock. Good night!"]},
 ];
-const COMING = ["Reservations by phone","Allergies","The big tip","Closing time"];
+const COMING = [];
 
 const KEY="tableSeven.v1";
 let done = load();
@@ -276,7 +348,7 @@ function episode(i){
   <article class="slip">
     <div class="sliphead"><span class="mono">Episode ${i+1} · ${e.s}</span><span class="mono">${e.time}</span></div>
     <h2>${e.t}</h2>
-    ${canSpeak?'<button class="listen" id="listen">▶ Listen / Escuchar</button>':''}
+    ${canSpeak?'<button class="listen" id="listen">▶ Listen / Escuchar</button><p class="tip">Tip: tap a paragraph to hear just that part. / Toca un párrafo para escuchar solo esa parte.</p>':''}
     <div class="story">${e.story.map(p=>`<p>${p}</p>`).join("")}</div>
   </article>
   <section class="slip section"><h3>Words · Palabras</h3>
@@ -290,17 +362,13 @@ function episode(i){
     <div class="q"><p>${e.bonus[0]}</p><div class="opts">${e.bonus[1].map((o,oi)=>`<button class="opt" data-o="${oi}">${o}</button>`).join("")}</div>
     <p class="fb" aria-live="polite">Optional. / Opcional: no la necesitas para el siguiente episodio.</p></div></section>`;
   document.getElementById("back").onclick=home;
-  const L=document.getElementById("listen");
-  let playing=false;
-  const setBtn=p=>{playing=p;L.textContent=p?"■ Stop / Parar":"▶ Listen / Escuchar"};
-  if(L) L.onclick=()=>{try{
-    if(playing){speechSynthesis.cancel();setBtn(false);return}
-    speechSynthesis.cancel();
-    const u=new SpeechSynthesisUtterance(e.story.join(" ").replace(/<[^>]+>/g,""));
-    if(!voice)pickVoice(); if(voice)u.voice=voice; else u.pitch=.8;
-    u.lang=voice?voice.lang:"en-US";u.rate=.8;
-    u.onend=()=>setBtn(false);u.onerror=()=>setBtn(false);
-    speechSynthesis.speak(u);setBtn(true)}catch(err){setBtn(false)}};
+  // Listen: sentence by sentence, so Pause keeps your place; speed 1× / 0.75× / 0.5×; tap a paragraph to hear just that part.
+  const L=document.getElementById("listen"), paras=[...app.querySelectorAll(".story p")];
+  if(L&&window.StoryPlayer){
+    const pl=StoryPlayer({mount:L,paras,lang:"en-US",base:.8,pitch:.8,getVoice:()=>{if(!voice)pickVoice();return voice},
+      labels:{listen:"▶ Listen / Escuchar",pause:"❚❚ Pause / Pausa",resume:"▶ Continue / Seguir",restart:"⟲ From the start / Desde el inicio",speed:"Speed / Velocidad"}});
+    paras.forEach((p,pi)=>p.onclick=()=>pl.playPara(pi));
+  }
   const bq=document.querySelector("#bonus .q"), bfb=bq.querySelector(".fb");
   bq.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
     if(+b.dataset.o===e.bonus[2]){bq.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(+x.dataset.o===e.bonus[2])x.classList.add("right")});bfb.textContent="Great detective work! ⭐ / ¡Buen trabajo de detective!";bfb.className="fb ok";if(!bonusDone.includes(i)){bonusDone.push(i);try{localStorage.setItem(BKEY,JSON.stringify(bonusDone))}catch(err){}report(i,"Bonus correct")}}
@@ -319,8 +387,8 @@ function episode(i){
     if(answered.size<e.qs.length) return;
     if(!done.includes(i)){done.push(i);save();report(i,"Finished")}
     const box=document.getElementById("unlock"); const next=i+1<EP.length;
-    box.innerHTML=`<section class="unlock" aria-live="polite"><h3>${next?`Episode ${i+2} is open!`:"You finished all the episodes!"}</h3>
-      <p>${next?"Good work. Stop here for today and come back tomorrow. / Buen trabajo. Para aquí por hoy y regresa mañana.":"More episodes are coming soon. / Pronto hay más episodios."}</p>
+    box.innerHTML=`<section class="unlock" aria-live="polite"><h3>${next?`Episode ${i+2} is open!`:"You solved the case!"}</h3>
+      <p>${next?"Good work. Stop here for today and come back tomorrow. / Buen trabajo. Para aquí por hoy y regresa mañana.":"You finished all 10 episodes. Great work, detective! / Terminaste los 10 episodios. ¡Buen trabajo, detective!"}</p>
       <div class="btns"><button class="primary" id="stop">Stop for today</button>${next?'<button class="secondary" id="go">Keep going →</button>':''}</div></section>`;
     document.getElementById("stop").onclick=home;
     const g=document.getElementById("go"); if(g) g.onclick=()=>episode(i+1);

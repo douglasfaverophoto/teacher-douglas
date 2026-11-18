@@ -8,7 +8,7 @@ const UI = Object.assign({
   howto:"<b>How it works:</b> Read the episode. Answer the 4 questions. When they are all correct, the next episode opens.",
   name:"What is your name?", namePh:"Name", nameNote:"Teacher Douglas can see your name and progress.", hello:"Hello", change:"Change name",
   all:"← All episodes", episode:"Episode", read:"Read", done:"Done ✓", locked:"Locked", soon:"Coming soon", soonTag:"Soon",
-  listen:"▶ Listen", stop:"■ Stop", tap:"Tip: tap any paragraph to hear just that part.",
+  listen:"▶ Listen", pause:"❚❚ Pause", resume:"▶ Continue", restart:"⟲ Start over", speed:"Speed", tap:"Tip: tap any paragraph to hear just that part.",
   novoice:"No voice for this language on this device. On iPhone: Settings → Accessibility → Spoken Content → Voices.",
   words:"Words", grammar:"Grammar", questions:"Questions", practice:"Practice dialogue", enHide:"Hide English", enShow:"Show English",
   bonus:"⭐ Bonus question", bonusNote:"Optional. You don't need it to open the next episode.", note:"Culture note",
@@ -59,15 +59,6 @@ function pickVoice(){try{const vs=speechSynthesis.getVoices().filter(v=>v.lang.r
   const male=v=>(S.voices||[]).some(n=>v.name.toLowerCase().includes(n));
   voice=vs.find(v=>v.lang.replace("_","-")===S.lang&&male(v))||vs.find(male)||vs.find(v=>v.lang.replace("_","-")===S.lang)||vs[0]||null}catch(e){}}
 if(canSpeak){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
-function say(text,onend){
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  if(!voice)pickVoice(); if(voice)u.voice=voice;
-  u.lang=voice?voice.lang:S.lang; u.rate=.8;
-  u.onend=onend; u.onerror=onend;
-  speechSynthesis.speak(u);
-}
-
 function home(){
   onHome=true;
   try{speechSynthesis.cancel()}catch(e){}
@@ -123,17 +114,13 @@ function episode(i){
   ${e.note?`<section class="slip section extra"><h3>${UI.note}</h3><p class="note">${e.note}</p></section>`:""}`;
   document.getElementById("back").onclick=home;
 
-  // Listen: whole episode, or tap one paragraph.
+  // Listen: whole episode with pause/continue and speed, or tap one paragraph.
   const L=document.getElementById("listen"), paras=[...app.querySelectorAll(".story p")];
-  let playing=false;
-  const clear=()=>paras.forEach(p=>p.classList.remove("speaking"));
-  const setBtn=p=>{playing=p;if(L)L.textContent=p?UI.stop:UI.listen;if(!p)clear()};
   const checkVoice=()=>{if(!voice){pickVoice();if(!voice){const n=document.getElementById("novoice");if(n)n.hidden=false}}};
-  if(L){
-    L.onclick=()=>{try{
-      if(playing){speechSynthesis.cancel();setBtn(false);return}
-      checkVoice(); say(e.story.map(strip).join(" "),()=>setBtn(false)); setBtn(true)}catch(err){setBtn(false)}};
-    paras.forEach(p=>p.onclick=()=>{try{checkVoice();setBtn(false);p.classList.add("speaking");say(strip(p.innerHTML),()=>p.classList.remove("speaking"))}catch(err){}});
+  if(L&&window.StoryPlayer){
+    const pl=StoryPlayer({mount:L,paras,lang:S.lang,base:.8,getVoice:()=>voice,onStart:checkVoice,
+      labels:{listen:UI.listen,pause:UI.pause,resume:UI.resume,restart:UI.restart,speed:UI.speed}});
+    paras.forEach((p,pi)=>p.onclick=()=>pl.playPara(pi));
   }
   const dlg=document.getElementById("dialog"), tg=document.getElementById("entoggle");
   tg.onclick=()=>{const h=dlg.classList.toggle("hide-en");tg.textContent=h?UI.enShow:UI.enHide};
