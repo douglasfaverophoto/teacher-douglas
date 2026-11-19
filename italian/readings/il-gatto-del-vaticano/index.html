@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Il Gatto del Vaticano: Nico Ombra's second case, a beginner Italian noir in 8 short episodes, by Teacher Douglas.">
+<title>Il Gatto del Vaticano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<style>/* Vatican: old gold accent */
+:root{--wine:#7d5d00;--wine-soft:#f4ebcf;--accent-dark:#e3c25a;--accent-dark-soft:#352c12}</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.STORY = {
+ id:"gattoVaticano", short:"Il Gatto del Vaticano", lang:"it-IT",
+ kicker:"Roma · 1958 · Caso 2 · Italiano A1",
+ title:"Il Gatto <span>del Vaticano</span>",
+ sub:"Nico Ombra's second case. December in Rome: cold sun, an elegant old lady in black gloves, and a big ginger cat who has disappeared.",
+ back:{href:"/italian/", label:"Teacher Douglas · Italian"},
+ voices:["luca","eddy","reed","rocko","grandpa","diego","cosimo","giorgio","male"],
+ ui:{endMsg:"Case 2 is closed. Nico Ombra will be back."},
+ eps:[
+ {t:"Una signora con i guanti", s:"Avere · Describing people", time:"Lunedì · Trastevere · 10:00",
+  story:[
+   "Roma, dicembre 1958. Oggi non piove. C'è il sole, ma fa freddo. Nel mio ufficio la finestra non chiude ancora. Adesso non entra la pioggia: entra il vento.",
+   "Dopo il caso della chiave, a Trastevere tutti mi conoscono. Ma non ho soldi. Il mio conto al Bar Gino è ancora più lungo della Via Appia.",
+   "Alle dieci di mattina, qualcuno bussa. È una signora anziana, piccola ed elegante. Ha i capelli bianchi, una pelliccia grigia, una collana di perle e i guanti neri.",
+   "«Lei è il detective Ombra? Mi chiamo Adelina Rinaldi. Abito a Borgo Pio, vicino al Vaticano. Il mio Leone è sparito.» «Suo marito?» «Ma no! Il mio gatto.»",
+   "Mi dà una foto. Leone è un gatto rosso, molto grande, con gli occhi verdi e un orecchio bianco. Ha un collare rosso con un campanellino d'oro. «Da sabato non torna a casa. Mio nipote Filippo dice: \"Zia, è solo un gatto.\" Ma per me Leone è la famiglia.»",
+   "Poi apre la borsa e mette sulla scrivania ventimila lire. <span class='clue'>«Per cominciare», dice.</span> Dieci minuti dopo scendo da Gino. «Gino, il conto, per favore.» Gino quasi cade per terra."],
+  vocab:[["fa freddo","it's cold"],["il vento","the wind"],["mi conoscono","they know me"],["anziana","elderly"],["i capelli bianchi","white hair"],["la pelliccia","the fur coat"],["la collana di perle","the pearl necklace"],["i guanti","gloves"],["abitare","to live"],["il marito","the husband"],["un gatto rosso","a ginger cat"],["l'orecchio","the ear"],["il collare","the collar"],["il campanellino","the little bell"],["il nipote","the nephew"],["cadere per terra","to fall to the ground"]],
+  gram:{title:"Avere (to have)",rows:["Io <b>ho</b> un problema. · Lei <b>ha</b> i capelli bianchi.","Leone <b>ha</b> gli occhi verdi e un orecchio bianco.","Age uses avere: Ombra <b>ha</b> quarantacinque anni.","ho · hai · ha · abbiamo · avete · hanno"]},
+  qs:[["Che tempo fa oggi?",["Piove","C'è il sole, ma fa freddo","Fa molto caldo"],1],
+      ["Chi è Leone?",["Il marito di Adelina","Il nipote di Adelina","Il gatto di Adelina"],2],
+      ["Com'è Leone?",["Rosso e grande, con un orecchio bianco","Nero, con gli occhi gialli","Piccolo e bianco"],0],
+      ["Grammar: Adelina ___ i capelli bianchi.",["è","ha","hai"],1]],
+  bonus:["Perché Gino quasi cade per terra?","Why does Gino almost fall to the ground?",["Ombra paga il conto, per la prima volta","Il pavimento è bagnato","Gino è stanco"],0],
+  practice:[["Come posso aiutarla?","How can I help you? (formal)"],["Il mio gatto è sparito.","My cat has disappeared."],["Com'è il gatto?","What does the cat look like?"],["È rosso e grande, con un orecchio bianco.","He's ginger and big, with one white ear."],["Da quando non torna a casa?","Since when hasn't he come home?"],["Da sabato.","Since Saturday."]],
+  note:"Rome is a city of cats. The women (and men) who feed the street cats are called <b>gattare</b>. And in Italian a ginger cat is not orange: it is <b>un gatto rosso</b>, a \"red\" cat."},
+
+ {t:"Borgo Pio", s:"Directions · Indicazioni", time:"Lunedì · Borgo Pio · 12:00",
+  story:[
+   "Da Trastevere a Borgo Pio vado a piedi. Cammino lungo il Tevere, sempre dritto. Poi giro a sinistra in Via della Conciliazione. In fondo alla strada c'è la cupola di San Pietro, enorme e bianca nel sole.",
+   "Borgo Pio è una piccola strada a destra, dietro le case. Ci sono botteghe, panni stesi e un odore di pane caldo.",
+   "Al numero 23 c'è la portinaia, la signora Pina. È una donna robusta, con un grembiule blu e una scopa in mano. Sa tutto di tutti.",
+   "«Leone? Tutti conoscono Leone. Mangia da tutti: dal macellaio, dal fornaio e alla trattoria Da Nino. Va anche dentro il Vaticano. Le guardie svizzere gli danno il prosciutto.»",
+   "«E il nipote, Filippo?» La signora Pina guarda le scale. «Filippo viene qui il sabato. Chiede soldi alla zia. Sempre soldi.»",
+   "<span class='clue'>«Questo sabato, quando esce, ha una scatola grande sotto il braccio. Dice che è per la biancheria. Ma la scatola si muove.»</span>"],
+  vocab:[["a piedi","on foot"],["lungo il fiume","along the river"],["sempre dritto","straight on"],["girare a sinistra","to turn left"],["a destra","on the right"],["in fondo a","at the end of"],["la cupola","the dome"],["le botteghe","small shops"],["la portinaia","the concierge"],["il grembiule","the apron"],["la scopa","the broom"],["il macellaio","the butcher"],["il fornaio","the baker"],["chiedere","to ask for"],["la scatola","the box"],["la biancheria","the laundry"],["si muove","it moves"]],
+  gram:{title:"Directions",rows:["Vado <b>sempre dritto</b>. = I go straight on.","<b>Giro a sinistra</b> / <b>giro a destra</b>.","<b>In fondo</b> alla strada c'è la cupola.","Leone mangia <b>dal</b> macellaio (da + il = dal) e <b>alla</b> trattoria (a + la)."]},
+  qs:[["Come va Ombra a Borgo Pio?",["In taxi","A piedi","In tram"],1],
+      ["Dove mangia Leone?",["Solo a casa","Al Bar Gino","Dal macellaio, dal fornaio e alla trattoria"],2],
+      ["Cosa chiede Filippo alla zia?",["Soldi","Un gatto","Il prosciutto"],0],
+      ["Grammar: Leone mangia ___ fornaio.",["dal","del","al"],0]],
+  bonus:["Cosa c'è, forse, nella scatola di Filippo?","What is in Filippo's box, maybe?",["La biancheria","Leone","Il prosciutto"],1],
+  practice:[["Scusi, dov'è Borgo Pio?","Excuse me, where is Borgo Pio?"],["Vada sempre dritto, poi giri a sinistra.","Go straight on, then turn left."],["È lontano?","Is it far?"],["No, è vicino. Dieci minuti a piedi.","No, it's close. Ten minutes on foot."],["Grazie mille!","Thanks a lot!"]],
+  note:"<b>Borgo</b> is the old neighbourhood between the Tiber and the Vatican. <b>Via della Conciliazione</b>, the wide street that leads to St Peter's, was finished in 1950, so in 1958 it is still new. The <b>Swiss Guard</b> has protected the Pope since 1506."},
+
+ {t:"Da Nino", s:"At the trattoria · In trattoria", time:"Lunedì · Trattoria Da Nino · 13:00",
+  story:[
+   "La trattoria Da Nino è piccola: sei tavoli, tovaglie a quadri bianche e rosse, e un odore di aglio e pecorino. Nino è grande come una porta, con i baffi neri e un grembiule sporco.",
+   "«Cosa le porto?» «Che cosa c'è oggi?» «Cacio e pepe, carbonara, coda alla vaccinara e baccalà fritto.» «Una cacio e pepe e un bicchiere di vino rosso, per favore.»",
+   "La pasta è perfetta. Mostro a Nino la foto di Leone. «Leone! Viene qui tutti i giorni all'una, per le teste di pesce. Ma da sabato non lo vedo.»",
+   "Poi Nino si ricorda una cosa. «Però ieri viene un giovane con i baffetti e compra un chilo di teste di pesce. \"Per il mio gatto\", dice. Paga con mille lire e non aspetta il resto.»",
+   "Sul tavolo, il giovane lascia una cosa: un biglietto da visita. <span class='clue'>«Bar del Biliardo · Via dei Cappellari · Campo de' Fiori».</span>",
+   "Pago il conto: quattrocento lire. In contanti. Per me è una sensazione nuova."],
+  vocab:[["le tovaglie a quadri","checked tablecloths"],["l'odore","the smell"],["l'aglio","garlic"],["i baffi","moustache"],["sporco","dirty"],["Cosa le porto?","What can I bring you? (formal)"],["la coda alla vaccinara","Roman oxtail stew"],["il baccalà","salt cod"],["le teste di pesce","fish heads"],["si ricorda","he remembers"],["i baffetti","a thin moustache"],["il resto","the change"],["il biglietto da visita","the business card"],["in contanti","in cash"]],
+  gram:{title:"Ordering",rows:["<b>Cosa le porto?</b> = What can I bring you?","<b>Che cosa c'è</b> oggi? = What is there today?","<b>Una</b> cacio e pepe e <b>un</b> bicchiere di vino, per favore.","<b>Il conto</b>, per favore. · <b>Quanto pago?</b>"]},
+  qs:[["Quando viene Leone da Nino?",["Tutti i giorni all'una","Solo la domenica","Mai"],0],
+      ["Cosa compra il giovane con i baffetti?",["Una carbonara","Un chilo di teste di pesce","Vino rosso"],1],
+      ["Cosa lascia sul tavolo?",["Mille lire","Il collare di Leone","Un biglietto da visita"],2],
+      ["Grammar: Cosa ___ porto? (formal, to Ombra)",["le","la","lo"],0]],
+  bonus:["Chi è il giovane con i baffetti, forse?","Who is the young man with the thin moustache, maybe?",["Il fornaio","Filippo, il nipote","Il commissario Ferri"],1],
+  practice:[["Buongiorno! Cosa le porto?","Good afternoon! What can I bring you?"],["Che cosa c'è oggi?","What is there today?"],["Cacio e pepe, carbonara e baccalà fritto.","Cacio e pepe, carbonara and fried salt cod."],["Una carbonara, per favore. E un'acqua minerale.","A carbonara, please. And a mineral water."],["Subito!","Right away!"]],
+  note:"<b>Cacio e pepe</b> is one of the classic pastas of Rome: only pecorino cheese, black pepper and a little of the pasta's cooking water. A <b>trattoria</b> is a simple family restaurant, cheaper than a <b>ristorante</b>."},
+
+ {t:"Il nipote", s:"Verbs in -ere · Describing people", time:"Lunedì · Via dei Cappellari · 21:00",
+  story:[
+   "Il Bar del Biliardo è in Via dei Cappellari, una strada stretta vicino a Campo de' Fiori. Dentro c'è fumo. Ci sono uomini con il cappello e tre tavoli verdi da biliardo.",
+   "Al tavolo in fondo gioca un giovane di trent'anni. È magro, con i baffetti e i capelli neri pieni di brillantina. Ha un abito grigio elegante, ma le scarpe sono vecchie. Perde. Perde ancora.",
+   "«Filippo Rinaldi?» «Chi lo chiede?» «Un amico di sua zia.» Lui ride. «Mia zia non ha amici. Ha soldi e un gatto troppo grasso.»",
+   "«Il gatto è sparito.» «Che peccato», dice. Ma non sembra triste. Quando prende la stecca, vedo le sue mani. Sono piene di graffi. «Le rose del mio giardino», dice. Ma Filippo non ha un giardino. Abita in una stanza sopra il bar.",
+   "Prima di uscire, guardo la sua giacca sulla sedia. <span class='clue'>Sulla giacca grigia ci sono tanti peli rossi.</span>"],
+  vocab:[["stretta","narrow"],["il fumo","smoke"],["giocare","to play"],["magro","thin"],["la brillantina","hair oil"],["l'abito","the suit"],["perdere (perde)","to lose (he loses)"],["troppo grasso","too fat"],["Che peccato!","What a pity!"],["sembrare","to seem"],["triste","sad"],["la stecca","the (billiard) cue"],["i graffi","scratches"],["la stanza","the room"],["la giacca","the jacket"],["i peli","hairs (of an animal)"]],
+  gram:{title:"Verbs in -ere: perdere, vedere, prendere",rows:["Filippo <b>perde</b> a biliardo.","Io <b>vedo</b> le sue mani.","Lui <b>prende</b> la stecca.","vedo · vedi · vede · vediamo · vedete · vedono"]},
+  qs:[["Com'è Filippo?",["Grasso e biondo","Magro, con i baffetti e i capelli neri","Vecchio, con la barba bianca"],1],
+      ["Cosa dice Filippo dei graffi?",["Sono del biliardo","Sono del gatto di un amico","Sono le rose del suo giardino"],2],
+      ["Cosa c'è sulla giacca di Filippo?",["Tanti peli rossi","Una macchia di vino","Una chiave"],0],
+      ["Grammar: Filippo ___ a biliardo.",["perdi","perde","perdo"],1]],
+  bonus:["Perché i graffi e i peli rossi sono importanti?","Why are the scratches and the ginger hairs important?",["Filippo ha un cane","Filippo ha Leone, e Leone non è contento","Filippo lavora in un giardino"],1],
+  practice:[["Com'è tuo fratello?","What is your brother like?"],["È alto e magro. Ha i capelli neri.","He's tall and thin. He has black hair."],["E di carattere?","And his personality?"],["È simpatico, ma un po' pigro.","He's nice, but a bit lazy."]],
+  note:"<b>Campo de' Fiori</b> means \"field of flowers\". Every morning except Sunday there is an open-air market. In the middle of the square stands the dark statue of the philosopher <b>Giordano Bruno</b>, who was burned there in 1600."},
+
+ {t:"La lettera", s:"Big numbers · I numeri grandi", time:"Martedì · Borgo Pio · 9:00",
+  story:[
+   "Martedì mattina, il telefono del mio ufficio suona. È la prima volta in un mese. È la signora Adelina. «Signor Ombra, venga subito! C'è una lettera!»",
+   "Nel salotto della signora ci sono tappeti, quadri e una poltrona vuota: la poltrona di Leone. La lettera è sul tavolo. Le parole sono lettere ritagliate dal giornale:",
+   "<span class='clue'>«CENTOMILA LIRE. SABATO. MEZZOGIORNO. PIAZZA SAN PIETRO, VICINO ALL'OBELISCO. NIENTE POLIZIA. O NIENTE GATTO.»</span>",
+   "Centomila lire. Con centomila lire un uomo come me paga il caffè per cinque anni. La signora piange. «Io pago. Io pago tutto.»",
+   "Prendo la lettera e la annuso. Odore di pesce. E nella busta c'è un pelo rosso. «Signora, lei va in piazza sabato. Ma io so già chi scrive questa lettera.»",
+   "La sera, al Bar Gino, parlo con il commissario Ferri. Lui beve il caffè e ascolta. «Niente polizia, eh?» Ferri sorride sotto i baffi. «Allora la polizia viene vestita da turista.»"],
+  vocab:[["venga subito","come right away (formal)"],["il salotto","the living room"],["i tappeti","rugs"],["i quadri","paintings"],["la poltrona","the armchair"],["vuoto","empty"],["ritagliate","cut out"],["il giornale","the newspaper"],["centomila","a hundred thousand"],["mezzogiorno","noon"],["niente","no / nothing"],["piangere","to cry"],["annusare","to sniff"],["la busta","the envelope"],["già","already"],["vestito da","dressed as"]],
+  gram:{title:"Big numbers",rows:["100 <b>cento</b> · 1.000 <b>mille</b> · 2.000 <b>duemila</b>","20.000 <b>ventimila</b> · 100.000 <b>centomila</b>","1.000.000 <b>un milione</b>","In Italian a dot separates the thousands: 100.000 lire."]},
+  qs:[["Quanti soldi chiede la lettera?",["Ventimila lire","Un milione di lire","Centomila lire"],2],
+      ["Dove e quando?",["Sabato a mezzogiorno, in Piazza San Pietro","Domenica a mezzanotte, a Trevi","Stasera, al Bar Gino"],0],
+      ["Cosa c'è nella busta?",["Una foto","Un pelo rosso","Il collare di Leone"],1],
+      ["Grammar: 100.000 =",["centomila","millecento","cento mille"],0]],
+  bonus:["Chi scrive la lettera, secondo Ombra?","Who wrote the letter, according to Ombra?",["Nino","La signora Pina","Filippo"],2],
+  practice:[["Quanto costa?","How much does it cost?"],["Duemila lire.","Two thousand lire."],["È troppo! Facciamo millecinquecento?","That's too much! Shall we say fifteen hundred?"],["Va bene, millecinquecento.","OK, fifteen hundred."]],
+  note:"In this story a coffee at the bar costs 50 lire, so 100,000 lire is a lot of money. Italy used the lira until 2002, when euro notes and coins arrived."},
+
+ {t:"Il mercato", s:"C'è / ci sono · Shopping", time:"Mercoledì · Campo de' Fiori · 8:00",
+  story:[
+   "Mercoledì sono a Campo de' Fiori alle otto. Al mercato ci sono banchi di frutta, verdura, fiori e pesce. Ci sono donne con la borsa della spesa, preti, bambini e un detective con un giornale.",
+   "Alle otto e mezza arriva Filippo. Va al banco del pesce. «Mezzo chilo di alici, per favore.» «Ecco. Trecento lire.» Filippo paga e va via con il pacchetto.",
+   "Lo seguo. Via dei Cappellari è stretta e scura, con i panni stesi tra le finestre. Filippo non entra nel bar. Entra nel portone accanto e sale le scale.",
+   "Aspetto sotto la finestra del terzo piano. Dopo un minuto sento un suono piccolo, ma chiaro. <span class='clue'>«Miao.»</span>",
+   "Filippo esce di nuovo, senza il pacchetto, e va verso il bar. Ho un'idea per sabato: quando Filippo è a San Pietro, la sua stanza è vuota. Ma per la mia idea serve un amico. Un amico con un etto di prosciutto."],
+  vocab:[["i banchi","stalls"],["la verdura","vegetables"],["la borsa della spesa","the shopping bag"],["i preti","priests"],["le alici","anchovies"],["il pacchetto","the package"],["seguire","to follow"],["scura","dark"],["i panni stesi","laundry hanging out"],["il portone","the main door of a building"],["accanto","next door"],["salire","to go up"],["il terzo piano","the third floor"],["il suono","the sound"],["di nuovo","again"],["serve","you need, it takes"]],
+  gram:{title:"C'è / ci sono · Shopping",rows:["Al mercato <b>ci sono</b> banchi di frutta. (plural)","<b>C'è</b> un detective con un giornale. (singular)","<b>Mezzo chilo di</b> alici, per favore.","<b>Un etto di</b> prosciutto = 100 grams of ham"]},
+  qs:[["Cosa compra Filippo?",["Mezzo chilo di alici","Un chilo di prosciutto","Fiori"],0],
+      ["Dove va Filippo dopo il mercato?",["Al Vaticano","In una casa di Via dei Cappellari","Al Bar Gino"],1],
+      ["Cosa sente Ombra sotto la finestra?",["Un cane","La musica","Un «miao»"],2],
+      ["Grammar: Al mercato ___ molti banchi.",["c'è","ci sono","è"],1]],
+  bonus:["Chi è l'amico con il prosciutto?","Who is the friend with the ham?",["Gino","Ferri","Filippo"],0],
+  practice:[["Buongiorno! Cosa desidera?","Good morning! What would you like?"],["Mezzo chilo di pomodori, per favore.","Half a kilo of tomatoes, please."],["Altro?","Anything else?"],["Sì, un etto di prosciutto.","Yes, a hundred grams of ham."],["Ecco. Sono duecento lire.","Here you are. That's two hundred lire."]],
+  note:"Italians buy ham and cheese by the <b>etto</b> (100 grams). <b>Via dei Cappellari</b> takes its name from the hat-makers who once worked there."},
+
+ {t:"Mezzogiorno a San Pietro", s:"Telling the time · L'ora", time:"Sabato · Piazza San Pietro · 11:50",
+  story:[
+   "Sabato. Alle dodici meno dieci, Piazza San Pietro è piena: pellegrini, suore, turisti con la macchina fotografica. Tra i turisti ci sono tre uomini con camicie a fiori. Sono i poliziotti di Ferri. Non sembrano turisti. Sembrano poliziotti con camicie a fiori.",
+   "La signora Adelina è vicino all'obelisco, con una busta in mano. Io sono dietro una colonna. Il colonnato di San Pietro ha duecentottantaquattro colonne. È facile nascondersi.",
+   "A mezzogiorno in punto suonano le campane. Arriva un uomo con gli occhiali da sole e un cappello. Ma i baffetti sono gli stessi. Prende la busta. «Il gatto è a casa sua stasera», dice.",
+   "«No, Filippo», dico io. «Stasera tu sei in prigione.» I tre turisti con le camicie a fiori lo prendono per le braccia. Ferri arriva con un gelato in mano. «Bel lavoro, Ombra.»",
+   "Alle dodici e mezza arriva Gino, rosso e senza fiato. Questa mattina, con il prosciutto e la chiave della padrona di casa, Gino entra nella stanza di Filippo. <span class='clue'>«Ombra… la finestra è aperta. Leone non c'è più!»</span>"],
+  vocab:[["le dodici meno dieci","ten to twelve"],["i pellegrini","pilgrims"],["le suore","nuns"],["le camicie a fiori","flowered shirts"],["sembrare","to look like"],["la colonna","the column"],["nascondersi","to hide"],["in punto","sharp, exactly"],["le campane","the bells"],["gli occhiali da sole","sunglasses"],["gli stessi","the same"],["la prigione","prison"],["il gelato","ice cream"],["senza fiato","out of breath"],["la padrona di casa","the landlady"]],
+  gram:{title:"Telling the time",rows:["<b>È mezzogiorno.</b> = It's noon.","<b>Sono le dodici meno dieci.</b> = 11:50","<b>Sono le dodici e mezza.</b> = 12:30","<b>A mezzogiorno in punto</b> = at twelve o'clock sharp"]},
+  qs:[["Chi sono i tre uomini con le camicie a fiori?",["Pellegrini","I poliziotti di Ferri","Amici di Filippo"],1],
+      ["Quante colonne ha il colonnato di San Pietro?",["Duecentottantaquattro","Cento","Quarantasette"],0],
+      ["Cosa dice Gino?",["Leone è a casa","Leone mangia il prosciutto","La finestra è aperta e Leone non c'è"],2],
+      ["Grammar: 11:50 =",["Sono le dodici e dieci","Sono le dodici meno dieci","Sono le undici meno dieci"],1]],
+  bonus:["Perché Ferri ha un gelato in mano?","Why does Ferri have an ice cream in his hand?",["Anche lui è vestito da turista","Ha fame","È il compleanno di Ombra"],0],
+  practice:[["Scusi, che ore sono?","Excuse me, what time is it?"],["Sono le dodici meno dieci.","It's ten to twelve."],["A che ora apre il museo?","What time does the museum open?"],["Alle nove e mezza.","At half past nine."],["Grazie!","Thanks!"]],
+  note:"St Peter's Square was designed by <b>Gian Lorenzo Bernini</b> in the 1600s. Its colonnade has 284 columns, like two great arms that embrace the visitors. The obelisk in the middle came from ancient Egypt."},
+
+ {t:"Il gatto del Papa", s:"Family · La famiglia", time:"Sabato · Porta Sant'Anna · 13:00",
+  story:[
+   "Dove va un gatto rosso, libero, a Roma? Penso alle parole della signora Pina: «Va anche dentro il Vaticano. Le guardie svizzere gli danno il prosciutto.»",
+   "Andiamo alla Porta Sant'Anna, l'entrata del Vaticano: io, la signora Adelina, Gino con il prosciutto e Ferri con il gelato. Davanti alla porta c'è una guardia svizzera, con l'uniforme a righe blu, gialle e rosse.",
+   "«Un gatto rosso, con un orecchio bianco?» La guardia sorride. «Ah, il gatto del Papa! Viene qui tutti i giorni. Oggi dorme al sole, in giardino.» Dopo cinque minuti torna con Leone in braccio. Leone è grasso e sereno, e ha ancora il suo collare rosso.",
+   "La signora Adelina piange e ride. «Leone, tesoro mio! Da Campo de' Fiori al Vaticano, da solo!» «Signora, a Roma tutte le strade portano a casa», dico io. Leone mi guarda con i suoi occhi verdi. Non sembra impressionato.",
+   "«E Filippo?» chiede Ferri. La signora sospira. «È il figlio di mia sorella. È la mia famiglia. Ma adesso un po' di prigione gli fa bene.»",
+   "Una settimana dopo torno nel mio ufficio a Trastevere. La finestra non chiude ancora. Sulla scrivania, al sole, dorme un gatto rosso con un orecchio bianco. <span class='clue'>Adesso ho un cliente fisso. Non paga mai. Come me.</span>"],
+  vocab:[["libero","free"],["l'entrata","the entrance"],["l'uniforme a righe","the striped uniform"],["dormire","to sleep"],["al sole","in the sun"],["in braccio","in his arms"],["sereno","calm, peaceful"],["tesoro mio","my darling (my treasure)"],["da solo","alone, by himself"],["portare","to lead, to take"],["impressionato","impressed"],["sospirare","to sigh"],["la sorella","the sister"],["gli fa bene","it does him good"],["un cliente fisso","a regular client"]],
+  gram:{title:"Family",rows:["Filippo è <b>il figlio di</b> mia <b>sorella</b>: è <b>mio nipote</b>.","<b>il nipote</b> = nephew or grandson · <b>la zia</b> = aunt","<b>mio</b> fratello, <b>mia</b> sorella: no article with one family member","<b>i miei</b> genitori: with plurals, the article stays"]},
+  qs:[["Dov'è Leone?",["A Campo de' Fiori","Nel giardino del Vaticano","Al Bar Gino"],1],
+      ["Come lo chiama la guardia svizzera?",["Il gatto del Papa","Il gatto di Borgo","Il signor Leone"],0],
+      ["Chi è Filippo per la signora Adelina?",["Suo fratello","Suo figlio","Il figlio di sua sorella"],2],
+      ["Grammar: È il figlio di ___ sorella.",["mia","la mia","mio"],0]],
+  bonus:["Che cosa vuole dire Ombra con «un cliente fisso»?","What does Ombra mean by \"a regular client\"?",["La signora Adelina lo paga ogni mese","Leone viene a dormire nel suo ufficio","Filippo è il suo nuovo cliente"],1],
+  practice:[["Hai fratelli o sorelle?","Do you have brothers or sisters?"],["Ho una sorella. Lei ha un figlio, Filippo.","I have a sister. She has a son, Filippo."],["Allora Filippo è tuo nipote.","So Filippo is your nephew."],["Sì. E io sono sua zia.","Yes. And I'm his aunt."]],
+  note:"The <b>Porta Sant'Anna</b> is the Vatican's everyday entrance, watched by the Swiss Guard in their famous blue, yellow and red uniforms. The old saying is <i>tutte le strade portano a Roma</i>: all roads lead to Rome. Ombra changes it a little."}
+ ]
+};
+</script>
+<script src="/assets/player.js"></script>
+<script src="/assets/reader.js"></script>
+</body>
+</html>

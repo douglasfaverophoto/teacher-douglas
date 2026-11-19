@@ -8,7 +8,7 @@ const UI = Object.assign({
   howto:"<b>How it works:</b> Read the episode. Answer the 4 questions. When they are all correct, the next episode opens.",
   name:"What is your name?", namePh:"Name", nameNote:"Teacher Douglas can see your name and progress.", hello:"Hello", change:"Change name",
   all:"← All episodes", episode:"Episode", read:"Read", done:"Done ✓", locked:"Locked", soon:"Coming soon", soonTag:"Soon",
-  listen:"▶ Listen", pause:"❚❚ Pause", resume:"▶ Continue", restart:"⟲ Start over", speed:"Speed", tap:"Tip: tap any paragraph to hear just that part.",
+  listen:"▶ Listen", pause:"❚❚ Pause", resume:"▶ Continue", restart:"⟲ Start over", speed:"Speed", helpShow:"Show translation", helpHide:"Hide translation", tap:"Tip: tap any paragraph to hear just that part.",
   novoice:"No voice for this language on this device. On iPhone: Settings → Accessibility → Spoken Content → Voices.",
   words:"Words", grammar:"Grammar", questions:"Questions", practice:"Practice dialogue", enHide:"Hide English", enShow:"Show English",
   bonus:"⭐ Bonus question", bonusNote:"Optional. You don't need it to open the next episode.", note:"Culture note",
@@ -99,7 +99,8 @@ function episode(i){
     <div class="sliphead"><span class="mono">${UI.episode} ${i+1} · ${e.s}</span><span class="mono">${e.time}</span></div>
     <h2>${e.t}</h2>
     ${canSpeak?`<button class="listen" id="listen">${UI.listen}</button><p class="tip">${UI.tap}</p><p class="novoice" id="novoice" hidden>${UI.novoice}</p>`:""}
-    <div class="story">${e.story.map(p=>`<p>${p}</p>`).join("")}</div>
+    ${e.help?`<button class="toggle" id="helptoggle" aria-expanded="false">${UI.helpShow}</button>`:""}
+    <div class="story">${e.story.map((p,k)=>`<p>${p}</p>${e.help&&e.help[k]?`<div class="help" hidden>${e.help[k]}</div>`:""}`).join("")}</div>
   </article>
   <section class="slip section"><h3>${UI.words}</h3><dl class="vocab">${voc}</dl></section>
   <section class="slip section gram"><h3>${UI.grammar}</h3><p class="gt">${e.gram.title}</p>${e.gram.rows.map(r=>`<p>${r}</p>`).join("")}</section>
@@ -122,6 +123,10 @@ function episode(i){
       labels:{listen:UI.listen,pause:UI.pause,resume:UI.resume,restart:UI.restart,speed:UI.speed}});
     paras.forEach((p,pi)=>p.onclick=()=>pl.playPara(pi));
   }
+  // Help: a translation under each paragraph, for students who need it (episode.help = one line per paragraph).
+  const ht=document.getElementById("helptoggle");
+  if(ht) ht.onclick=()=>{const on=ht.getAttribute("aria-expanded")!=="true";ht.setAttribute("aria-expanded",on);
+    ht.textContent=on?UI.helpHide:UI.helpShow;app.querySelectorAll(".story .help").forEach(h=>h.hidden=!on)};
   const dlg=document.getElementById("dialog"), tg=document.getElementById("entoggle");
   tg.onclick=()=>{const h=dlg.classList.toggle("hide-en");tg.textContent=h?UI.enShow:UI.enHide};
 

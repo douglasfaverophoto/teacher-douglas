@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Restaurant dialogues, level A2: put the lines in the right order. By Teacher Douglas.">
+<title>Dialogues A2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<link rel="stylesheet" href="/assets/dialogues.css">
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.DIALOGUES = {
+ id:"dialoguesA2", short:"Dialogues A2", lang:"en-US", level:"A2",
+ kicker:"Casa Jacaranda · English A2",
+ title:"Dia<span>logues</span> A2",
+ sub:"Five longer dialogues for real situations: waiting for a table, allergies, a steak, a mistake, and directions to the tlayudas. / Cinco diálogos más largos.",
+ back:{href:"/english/restaurant/", label:"Teacher Douglas · Restaurant English"},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ roles:{w:{name:"Waiter",es:"Mesero"}, g:{name:"Guest",es:"Cliente"}},
+ items:[
+ {t:"A Short Wait", scene:"La terraza está llena. Los clientes esperan unos minutos.",
+  lines:[["g","Good evening. Do you have a table for three on the terrace?","Buenas noches. ¿Tienen una mesa para tres en la terraza?"],
+         ["w","Good evening. The terrace is full right now, but a table will be ready in about fifteen minutes.","Buenas noches. La terraza está llena ahorita, pero una mesa estará lista en unos quince minutos."],
+         ["g","Fifteen minutes is fine. Can we wait somewhere?","Quince minutos está bien. ¿Podemos esperar en algún lugar?"],
+         ["w","Of course. Would you like to have a drink at the bar while you wait?","Claro. ¿Les gustaría tomar algo en la barra mientras esperan?"],
+         ["g","Yes, that sounds perfect.","Sí, suena perfecto."],
+         ["w","Excuse me, your table is ready upstairs. Please follow me.","Disculpen, su mesa está lista arriba. Síganme, por favor."],
+         ["g","Thank you! Can we take our drinks with us?","¡Gracias! ¿Podemos llevar nuestras bebidas?"],
+         ["w","Of course. I'll carry them for you.","Claro. Yo se las llevo."]]},
+ {t:"An Allergy", scene:"Una clienta vegetariana es alérgica al cacahuate.",
+  lines:[["w","Before you order, do you have any allergies?","Antes de ordenar, ¿tiene alguna alergia?"],
+         ["g","Yes, I'm allergic to peanuts.","Sí, soy alérgica al cacahuate."],
+         ["w","Thank you for telling me. The cauliflower comes with a peanut mole, so it's not a good choice for you.","Gracias por decirme. La coliflor viene con mole encacahuatado, así que no es buena opción para usted."],
+         ["g","Oh, I see. Can the chef make it without the mole?","Ah, ya veo. ¿El chef la puede hacer sin el mole?"],
+         ["w","I'm sorry, we don't change the ingredients of our dishes.","Lo siento, no hacemos cambios en los ingredientes de nuestros platillos."],
+         ["g","No problem. What do you recommend?","No hay problema. ¿Qué me recomienda?"],
+         ["w","Let me ask the chef which dishes are safe for you. I'll be right back.","Déjeme preguntarle al chef qué platillos son seguros para usted. Ahorita regreso."],
+         ["g","Thank you. That's very kind of you.","Gracias. Es muy amable."]]},
+ {t:"How Would You Like It?", scene:"Un cliente pide el New York.",
+  lines:[["g","I'd like the New York steak, please.","Quisiera el New York, por favor."],
+         ["w","Of course. How would you like it cooked?","Claro. ¿Qué término le gustaría?"],
+         ["g","What do you recommend?","¿Qué me recomienda?"],
+         ["w","The chef recommends medium, but we can also cook it medium well or well done.","El chef recomienda término medio, pero también lo podemos hacer tres cuartos o bien cocido."],
+         ["g","Medium well, please. What does it come with?","Tres cuartos, por favor. ¿Con qué viene?"],
+         ["w","It comes with burnt mole, potato, onion and pitiona.","Viene con mole quemado, papa, cebolla y pitiona."],
+         ["g","Perfect. And a glass of red wine, please.","Perfecto. Y una copa de vino tinto, por favor."],
+         ["w","Excellent choice. One New York steak, medium well, and a glass of red wine.","Excelente elección. Un New York tres cuartos y una copa de vino tinto."]]},
+ {t:"Something Is Wrong", scene:"El cliente recibe un platillo equivocado.",
+  lines:[["g","Excuse me. I think this isn't my order.","Disculpe. Creo que esto no es lo que pedí."],
+         ["w","Oh, I'm so sorry. What did you order?","Ay, lo siento mucho. ¿Qué pidió?"],
+         ["g","I ordered the shrimp with pipián, but this is the octopus.","Pedí los camarones con pipián, pero esto es el pulpo."],
+         ["w","You're right. I apologize. I'll bring you the shrimp right away.","Tiene razón. Le pido una disculpa. Le traigo los camarones enseguida."],
+         ["g","Thank you. How long will it take?","Gracias. ¿Cuánto va a tardar?"],
+         ["w","About ten minutes. Would you like something to drink while you wait?","Unos diez minutos. ¿Le gustaría algo de tomar mientras espera?"],
+         ["g","Yes, a sparkling water, please.","Sí, un agua mineral, por favor."],
+         ["w","Of course. Again, I'm very sorry for the mistake.","Claro. Otra vez, disculpe mucho el error."]]},
+ {t:"Tlayudas Nearby", scene:"Unos turistas preguntan dónde comer tlayudas. El puesto está en Libres, pasando Murguía.",
+  lines:[["g","Excuse me, can I ask you something? Where can we eat good tlayudas near here?","Disculpe, ¿le puedo preguntar algo? ¿Dónde podemos comer buenas tlayudas cerca de aquí?"],
+         ["w","There's a very popular tlayuda stand on Libres street, near Murguía. It's very close.","Hay un puesto de tlayudas muy popular en la calle Libres, cerca de Murguía. Está muy cerca."],
+         ["g","Great! How do we get there?","¡Qué bien! ¿Cómo llegamos?"],
+         ["w","When you go out, turn left and walk down Constitución. Go past Reforma, Juárez and Pino Suárez until you get to Libres.","Al salir, den vuelta a la izquierda y caminen por Constitución. Pasen Reforma, Juárez y Pino Suárez hasta llegar a Libres."],
+         ["g","Past three streets, to Libres. And then?","Pasando tres calles, hasta Libres. ¿Y luego?"],
+         ["w","Then turn right on Libres and walk two blocks. You'll cross Abasolo, and the tlayudas are just after Murguía.","Luego den vuelta a la derecha en Libres y caminen dos cuadras. Van a cruzar Abasolo, y las tlayudas están pasando Murguía."],
+         ["g","Is it far? Should we take a taxi?","¿Está lejos? ¿Tomamos un taxi?"],
+         ["w","No, you don't need a taxi. It's about an eight-minute walk.","No, no necesitan taxi. Son como ocho minutos caminando."],
+         ["g","Perfect. Thank you so much for your help!","Perfecto. ¡Muchas gracias por su ayuda!"],
+         ["w","You're welcome. Enjoy your tlayudas, and see you again soon!","De nada. ¡Disfruten sus tlayudas y vuelvan pronto!"]]}
+ ]
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script src="/assets/player.js"></script>
+<script src="/assets/dialogues.js"></script>
+</body>
+</html>

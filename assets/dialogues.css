@@ -1,0 +1,33 @@
+/* Dialogues — loaded after reader.css. Waiter lines in the wine accent, guest lines in teal. */
+:root{--wa:#7a1f2b;--wa-soft:#f6e6e8;--gu:#14606e;--gu-soft:#e0f0f2}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--wa:#e0707d;--wa-soft:#34191e;--gu:#6cc3d1;--gu-soft:#132d33}}
+:root[data-theme="dark"]{--wa:#e0707d;--wa-soft:#34191e;--gu:#6cc3d1;--gu-soft:#132d33}
+.scene{margin:0;color:var(--muted);font-size:15px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:99px;font-weight:700}
+.chip.w{background:var(--wa-soft);color:var(--wa)}
+.chip.g{background:var(--gu-soft);color:var(--gu)}
+.order{margin:0;font-weight:700}
+.bars{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.bar{position:relative;display:grid;grid-template-columns:auto 1fr 22px;gap:4px 12px;align-items:center;
+  padding:12px 12px 12px 14px;border-radius:8px;border:2px solid transparent;border-left-width:8px;
+  cursor:grab;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
+.bar.w{background:var(--wa-soft);border-left-color:var(--wa)}
+.bar.g{background:var(--gu-soft);border-left-color:var(--gu)}
+.bar .who{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;line-height:1.15}
+.bar .who small{display:block;font-weight:400;opacity:.8;text-transform:none;letter-spacing:0}
+.bar.w .who{color:var(--wa)} .bar.g .who{color:var(--gu)}
+.bar .txt{font-size:17px;line-height:1.4}
+.bar .tr{grid-column:2;font-size:14px;color:var(--muted)}
+.bar .mark{grid-column:3;grid-row:1;font-weight:700;text-align:center}
+.bar.ok{border-color:var(--ok)} .bar.ok .mark::after{content:"✓";color:var(--ok)}
+.bar.no .mark::after{content:"↕";color:var(--muted)}
+.bar.chosen{box-shadow:0 6px 18px rgba(0,0,0,.18);cursor:grabbing}
+.bar.ghost{opacity:.35}
+.bars.solved .bar{cursor:default}
+.bars.solved .bar .txt{cursor:pointer}
+.bars.solved .bar.speaking,.bars.solved .txt.speaking{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
+.unlock .listen{align-self:flex-start}
+@media (max-width:420px){.bar{grid-template-columns:1fr 22px}.bar .who{grid-column:1}.bar .txt,.bar .tr{grid-column:1}.bar .mark{grid-column:2;grid-row:1 / span 3}}
+.order small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.bar.picked{outline:3px solid var(--ink);outline-offset:2px}

@@ -104,3 +104,4 @@ footer button{background:none;border:0;padding:0;text-decoration:underline;color
 .spd{border:0;background:var(--paper);padding:6px 12px;font-size:14px;min-height:40px;font-variant-numeric:tabular-nums}
 .spd+.spd{border-left:1px solid var(--rule)}
 .spd[aria-pressed="true"]{background:var(--wine);color:var(--slip);font-weight:700}
+.story .help{margin:-.4em 0 .8em;padding:6px 10px;border-left:3px solid var(--rule);color:var(--muted);font-size:15px}

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="The Secret Ingredient: an English mystery for waiters, level A2, in 10 episodes, by Teacher Douglas.">
+<title>The Secret Ingredient</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<style>/* Mole negro: a dark chocolate accent */
+:root{--wine:#5b3a1e;--wine-soft:#efe4d8;--accent-dark:#d9a66b;--accent-dark-soft:#33261a}</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.STORY = {
+ id:"secretIngredient", short:"The Secret Ingredient", lang:"en-US",
+ kicker:"Casa Jacaranda · English A2",
+ title:"The Secret <span>Ingredient</span>",
+ sub:"A mystery in 10 episodes for A2 students. On a busy Friday night, Doña Elvira's mole notebook disappears from the kitchen. Daniel, a waiter on the terrace, wants to find it.",
+ back:{href:"/english/restaurant/", label:"Teacher Douglas · Restaurant English"},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ ui:{
+  howto:"<b>How it works:</b> Read or listen to the episode. Answer the 4 questions. When they are all correct, the next episode opens. / Lee, contesta las 4 preguntas y se abre el siguiente episodio.",
+  name:"What is your name? ¿Cómo te llamas?", namePh:"Name / Nombre", nameNote:"Teacher Douglas can see your name and progress. / Teacher Douglas ve tu nombre y tu progreso.",
+  all:"← All episodes", change:"Change name",
+  enHide:"Hide Spanish", enShow:"Show Spanish", practice:"Practice · Practica",
+  bonus:"⭐ Bonus question", bonusNote:"Optional. You don't need it to open the next episode. / Opcional.",
+  tryAgain:"Try again. Read the text one more time. / Intenta otra vez.",
+  finished:"You solved the case!", endMsg:"You finished all 10 episodes. Great detective work! / Terminaste los 10 episodios.",
+  stopMsg:"Good work. Stop here for today and come back tomorrow. / Buen trabajo. Para aquí por hoy."
+ },
+ eps:[
+ {t:"A Table for Six", s:"Reservations · Reservaciones", time:"Wednesday · Phone · 17:20",
+  story:[
+   "My name is Daniel. I've been a waiter at Casa Jacaranda for three years. I work upstairs, on the terrace. From my tables you can see the bell towers of Santo Domingo.",
+   "On Wednesday afternoon the phone rang. \"Good afternoon, Casa Jacaranda. Daniel speaking. How can I help you?\" \"Good afternoon. I'd like to book a table for six people on Friday at half past eight.\"",
+   "\"Of course. Inside or on the terrace?\" \"On the terrace, please. And I would like a table near the stairs.\" That was strange. Most guests ask for a table with a view, not a table near the stairs.",
+   "\"May I have your name, please?\" \"Paredes. Ricardo Paredes. I'm coming from Mexico City with some business partners.\" Then he asked one more question. <span class='clue'>\"Tell me, is Doña Elvira cooking on Friday night?\"</span>",
+   "Doña Elvira is our oldest cook. She makes the mole negro. Everybody in the kitchen knows her name, but guests don't usually ask about her."],
+  vocab:[["I've been a waiter for…","he sido mesero desde hace…"],["bell towers","campanarios"],["rang (ring)","sonó"],["book a table","reservar una mesa"],["half past eight","ocho y media"],["near the stairs","cerca de las escaleras"],["strange","raro"],["view","vista"],["business partners","socios"],["oldest","la más antigua"],["usually","normalmente"]],
+  gram:{title:"Polite requests",rows:["<b>I'd like</b> (I would like) to book a table.","<b>May I have</b> your name, please?","<b>How can I help</b> you?","<b>Inside or</b> on the terrace?"]},
+  qs:[["When is the reservation?",["Wednesday at 5:20","Friday at 8:30","Friday at 6:00"],1],
+      ["Why is the table request strange?",["He wants a table near the stairs, not a view","He wants a table in the kitchen","He wants ten tables"],0],
+      ["Where is Mr. Paredes from?",["Oaxaca","Texas","Mexico City"],2],
+      ["Grammar: \"___ I have your name, please?\"",["Do","May","Am"],1]],
+  bonus:["Why does Mr. Paredes ask about Doña Elvira?","",["He wants to say hello","He is her son","He is interested in her mole, maybe for a bad reason"],2],
+  practice:[["Good afternoon, Casa Jacaranda. How can I help you?","Buenas tardes, Casa Jacaranda. ¿En qué le puedo ayudar?"],["I'd like to book a table for Friday, please.","Quisiera reservar una mesa para el viernes, por favor."],["Of course. For how many people, and at what time?","Claro. ¿Para cuántas personas y a qué hora?"],["For six, at half past eight. On the terrace, if possible.","Para seis, a las ocho y media. En la terraza, si se puede."],["Perfect. May I have your name, please?","Perfecto. ¿Me da su nombre, por favor?"]]},
+
+ {t:"Six Guests", s:"Describing people · Describir personas", time:"Friday · Terrace · 20:30",
+  story:[
+   "On Friday the restaurant was full. At half past eight, Mr. Paredes arrived with five people. \"Good evening, welcome to Casa Jacaranda. Your table is ready upstairs. This way, please.\"",
+   "Mr. Paredes is about sixty. He has a short gray beard and he was wearing a light blue shirt and a gold watch. He was carrying a big brown leather bag. He didn't give it to me. He kept it next to his chair.",
+   "Next to him sat a young woman with long red hair and a green dress. Her name was Valeria. She had a big camera and she took photos of everything: the menu, the candles, the view, even the salt.",
+   "The other four were men in dark suits. They talked about money and new restaurants in Mexico City. They didn't look at the view.",
+   "At table two, near them, there was a tourist alone. She had short blond hair and a small backpack, and she was studying a map of Oaxaca. <span class='clue'>She looked at Mr. Paredes' brown bag twice.</span>"],
+  vocab:[["full","lleno"],["arrived","llegó"],["about sixty","como de sesenta años"],["beard","barba"],["light blue","azul claro"],["was carrying","traía, cargaba"],["leather","piel"],["kept","guardó, dejó"],["long red hair","pelo largo y pelirrojo"],["candles","velas"],["even","hasta, incluso"],["suits","trajes"],["backpack","mochila"],["twice","dos veces"]],
+  gram:{title:"Describing people",rows:["He <b>has</b> a gray beard. She <b>has</b> long red hair.","He <b>was wearing</b> a light blue shirt.","She <b>was carrying</b> a big camera.","Order: <b>long red</b> hair, <b>big brown leather</b> bag (size → color → material)"]},
+  qs:[["What was Mr. Paredes carrying?",["A big brown leather bag","A camera","A map of Oaxaca"],0],
+      ["What does Valeria look like?",["Short blond hair and a backpack","Long red hair and a green dress","A gray beard and a gold watch"],1],
+      ["What did the four men talk about?",["The view of Santo Domingo","Football","Money and new restaurants"],2],
+      ["Grammar: She has ___ hair.",["red long","long red","long hair red"],1]],
+  bonus:["Why didn't Mr. Paredes give his bag to Daniel?","",["The bag was very light","He wanted it close to him, maybe it was empty for a reason","He forgot"],1],
+  practice:[["Good evening, welcome. Do you have a reservation?","Buenas noches, bienvenidos. ¿Tienen reservación?"],["Yes, for six. The name is Paredes.","Sí, para seis. A nombre de Paredes."],["Your table is ready upstairs. This way, please.","Su mesa está lista arriba. Por aquí, por favor."],["Can I take your bag, sir?","¿Le guardo su bolsa, señor?"],["No, thank you. I'll keep it with me.","No, gracias. La traigo conmigo."]]},
+
+ {t:"Questions About the Mole", s:"Explaining the menu · Explicar el menú", time:"Friday · Terrace · 20:50",
+  story:[
+   "\"Are you ready to order?\" I asked. Valeria went first. \"I'm allergic to shellfish. Is there shellfish in the scallops?\" \"Scallops are shellfish, so I don't recommend them. The squash blossoms with ricotta and honey are a great choice.\" \"Perfect.\"",
+   "Mr. Paredes didn't open the menu. \"I want the turkey with mole negro. Tell me about the mole. How many ingredients does it have?\" \"More than thirty, sir: chiles, chocolate, nuts, seeds, spices…\"",
+   "\"And who makes it?\" \"Doña Elvira. It's her grandmother's recipe.\" \"Is the recipe written down somewhere?\"",
+   "I smiled. \"Yes, sir. Doña Elvira has an old black notebook. She keeps it on a shelf in the kitchen. Nobody else can read her handwriting!\" Everyone laughed.",
+   "<span class='clue'>Mr. Paredes didn't laugh. He looked at the stairs.</span> Later I understood: I talked too much."],
+  vocab:[["went first","fue primero"],["shellfish","mariscos"],["scallops","callos"],["squash blossoms","flores de calabaza"],["honey","miel"],["more than","más de"],["seeds","semillas"],["spices","especias"],["written down","escrita"],["shelf","repisa"],["handwriting","letra"],["laughed","se rieron"],["too much","demasiado"]],
+  gram:{title:"Recommending",rows:["<b>I don't recommend</b> it.","The squash blossoms <b>are a great choice</b>.","<b>How many</b> ingredients <b>does it have</b>?","<b>Is there</b> shellfish in the scallops?"]},
+  qs:[["What is Valeria allergic to?",["Peanuts","Shellfish","Chocolate"],1],
+      ["How many ingredients are in the mole negro?",["More than thirty","Ten","Three"],0],
+      ["Where does Doña Elvira keep her notebook?",["In her bag","At her house","On a shelf in the kitchen"],2],
+      ["Grammar: \"How many ingredients ___ it have?\"",["is","do","does"],2]],
+  bonus:["What mistake did Daniel make?","",["He told Mr. Paredes where the notebook is","He brought the wrong dish","He forgot the wine"],0],
+  practice:[["Do you have any allergies?","¿Tiene alguna alergia?"],["Yes, I'm allergic to shellfish.","Sí, soy alérgica a los mariscos."],["Then I don't recommend the scallops. The squash blossoms are a great choice.","Entonces no le recomiendo los callos. Las flores de calabaza son una gran opción."],["Great, I'll have those.","Perfecto, quiero esas."]]},
+
+ {t:"The Empty Shelf", s:"Past simple · Pasado simple", time:"Friday · Kitchen · 21:35",
+  story:[
+   "At twenty-five to ten, I went down to the kitchen to pick up the turkey with mole. Doña Elvira was standing in front of the shelf. Her face was white.",
+   "\"Daniel, my notebook! It isn't here!\" I looked. There were boxes of chocolate, jars of chiles and a bag of sesame seeds. There was no black notebook.",
+   "\"When did you see it last?\" I asked. \"At nine o'clock. I opened it to check the chiles. Then I put it back on the shelf. I'm sure.\"",
+   "The kitchen was very busy. The cooks were working fast, the plates were coming and going. Nobody saw anything. Nobody heard anything.",
+   "\"Doña Elvira, did anyone from outside come into the kitchen between nine and half past nine?\" She thought for a moment. <span class='clue'>\"Only the tortilla boy. And a woman looking for the restroom. And a man who wanted to make a phone call.\"</span>"],
+  vocab:[["went down","bajé"],["pick up","recoger"],["was standing","estaba parada"],["in front of","frente a"],["jars","frascos"],["sesame seeds","ajonjolí"],["last","por última vez"],["check","revisar"],["put back","volver a poner"],["I'm sure","estoy segura"],["busy","con mucho trabajo"],["anyone","alguien"],["from outside","de fuera"],["restroom","baño"]],
+  gram:{title:"Past simple",rows:["Regular: open → <b>opened</b>, look → <b>looked</b>, ask → <b>asked</b>","Irregular: go → <b>went</b>, see → <b>saw</b>, put → <b>put</b>, think → <b>thought</b>","Questions: <b>Did</b> anyone <b>come</b> in?","Negative: Nobody <b>saw</b> anything. / I <b>didn't see</b> it."]},
+  qs:[["What time did Doña Elvira last see her notebook?",["At nine o'clock","At half past nine","At twenty-five to ten"],0],
+      ["What was on the shelf?",["The black notebook","Chocolate, chiles and sesame seeds","Plates and glasses"],1],
+      ["How many people came into the kitchen from outside?",["One","Two","Three"],2],
+      ["Grammar: \"I ___ it back on the shelf.\"",["putted","put","puts"],1]],
+  bonus:["Who wanted to make a phone call in the kitchen?","",["Probably Mr. Paredes","Doña Elvira","Daniel"],0],
+  practice:[["When did you see it last?","¿Cuándo lo vio por última vez?"],["At nine o'clock. I put it back on the shelf.","A las nueve. Lo volví a poner en la repisa."],["Did anyone come into the kitchen?","¿Entró alguien a la cocina?"],["Yes, three people from outside.","Sí, tres personas de fuera."]]},
+
+ {t:"Where Were You?", s:"Was / were", time:"Friday · Terrace · 21:45",
+  story:[
+   "I started with the tortilla boy. His name is Tomás and he wears a yellow cap. \"I was here at ten past nine. I left forty tortillas, I got my money and I went back to the market. My boss can tell you.\" He showed me his phone. At 9:16 he sent a photo to his boss from the market: \"Back at the market.\"",
+   "Then I went to Valeria. \"Yes, I was downstairs at a quarter past nine. I went to the restroom. The restroom is next to the kitchen door. The door was open.\" \"Did you see anyone?\" \"Yes. Ricardo. He was standing at the kitchen door. He said he was looking for a quiet place to make a call.\"",
+   "\"Is he a friend of yours?\" \"No. I met him tonight. He invited me because I write a food blog. He wants me to write about his new restaurants.\"",
+   "Finally, I spoke to Mr. Paredes. \"Where were you at twenty past nine, sir?\" \"I was downstairs, on the phone. The terrace was too noisy. Is there a problem?\" \"No, sir. Just a question.\"",
+   "<span class='clue'>But the terrace wasn't noisy at twenty past nine. The musicians were on their break.</span>"],
+  vocab:[["cap","gorra"],["left (leave)","dejé"],["got (get)","recibí"],["boss","jefe"],["Hurry!","¡Apúrate!"],["a quarter past nine","nueve y cuarto"],["downstairs","abajo"],["quiet","tranquilo"],["met (meet)","conocí"],["invited","invitó"],["finally","por último"],["noisy","ruidoso"],["break","descanso"]],
+  gram:{title:"Was / were",rows:["I / he / she <b>was</b> downstairs.","You / we / they <b>were</b> on the terrace.","<b>Where were</b> you at twenty past nine?","The terrace <b>wasn't</b> noisy. The musicians <b>were</b> on their break."]},
+  qs:[["What does Tomás's phone show?",["A photo of the notebook","A message from Valeria","He was back at the market at 9:16"],2],
+      ["Who did Valeria see at the kitchen door?",["Mr. Paredes","Tomás","Doña Elvira"],0],
+      ["Why did Mr. Paredes say he went downstairs?",["To pay the check","To make a phone call, because the terrace was noisy","To go to the restroom"],1],
+      ["Grammar: \"Where ___ you at twenty past nine?\"",["was","were","did"],1]],
+  bonus:["What is Mr. Paredes' lie?","",["He said he has a phone","He said the terrace was noisy, but the musicians were on a break","He said his name is Ricardo"],1],
+  practice:[["Excuse me, where were you at nine fifteen?","Disculpe, ¿dónde estaba a las nueve y cuarto?"],["I was downstairs, in the restroom.","Estaba abajo, en el baño."],["Did you see anyone near the kitchen?","¿Vio a alguien cerca de la cocina?"],["Yes, a man with a gray beard.","Sí, a un hombre de barba gris."]]},
+
+ {t:"Valeria's Photos", s:"Present continuous · Presente continuo", time:"Friday · Terrace · 22:00",
+  story:[
+   "\"Can I see your photos?\" I asked Valeria. \"Of course. Every photo has the time on it.\" We looked at the camera together.",
+   "Photo at 9:18: the restroom door, with blue and yellow tiles. Photo at 9:19: the hallway. In the back, a man is standing next to the kitchen door. He is wearing a light blue shirt. He is holding a phone, but he isn't talking. He is looking inside the kitchen.",
+   "Photo at 9:21: the same hallway. The man is walking toward the stairs. His big brown bag is under his arm. <span class='clue'>In the earlier photos, the bag was flat. Now it isn't flat. Something square is inside.</span>",
+   "Valeria looked at me. \"Oh no. He told me he only wanted a nice dinner in Oaxaca.\" \"Please don't say anything to him,\" I said. \"Not yet.\"",
+   "I went to my manager, Sofía, and told her everything. \"Don't do anything dangerous, Daniel,\" she said. \"Watch him. I'm going to call the police.\""],
+  vocab:[["together","juntos"],["tiles","azulejos"],["hallway","pasillo"],["in the back","al fondo"],["holding","sosteniendo"],["toward","hacia"],["under his arm","bajo el brazo"],["earlier","anteriores"],["flat","plano"],["square","cuadrado"],["not yet","todavía no"],["manager","gerente"],["dangerous","peligroso"],["watch","vigilar"]],
+  gram:{title:"Describing a photo",rows:["A man <b>is standing</b> next to the door.","He <b>is holding</b> a phone, but he <b>isn't talking</b>.","He <b>is looking</b> inside the kitchen.","I'<b>m going to</b> call the police. (a plan)"]},
+  qs:[["What is the man doing in the photo at 9:19?",["Looking inside the kitchen","Talking on the phone","Eating mole"],0],
+      ["What changed in the photo at 9:21?",["His shirt is different","The bag has something square inside","He has a new watch"],1],
+      ["What is Sofía going to do?",["Go home","Talk to Mr. Paredes","Call the police"],2],
+      ["Grammar: \"He ___ holding a phone.\"",["are","is","does"],1]],
+  bonus:["What is the square thing in the bag, probably?","",["A box of chocolate","Doña Elvira's notebook","A laptop"],1],
+  practice:[["What is he doing in this photo?","¿Qué está haciendo en esta foto?"],["He is standing next to the kitchen door.","Está parado junto a la puerta de la cocina."],["Is he talking on the phone?","¿Está hablando por teléfono?"],["No, he isn't. He is looking inside.","No. Está mirando hacia adentro."]]},
+
+ {t:"Cash, Please", s:"The check · La cuenta", time:"Friday · Terrace · 22:20",
+  story:[
+   "At twenty past ten, Mr. Paredes raised his hand. \"The check, please. We're in a hurry.\" The bill was four thousand eight hundred and fifty pesos.",
+   "\"Would you like to pay by card or in cash?\" \"Cash.\" He gave me five thousand-peso bills and two hundred pesos more. \"Keep the change.\" It was a big tip, and he was in a big hurry.",
+   "While I was bringing his change, the blond tourist at table two stopped me. \"Excuse me, can you recommend a good place for tlayudas near here?\" \"Sure. The tlayuda stand on Libres, near Murguía. It's the most famous one in this part of the city.\"",
+   "Mr. Paredes was listening. He stood up with his bag. \"Libres and Murguía? Excellent. My partners are hungry,\" he said. But his partners were still drinking mezcal at the table. <span class='clue'>Only he was leaving.</span>",
+   "The tourist watched him go down the stairs. Then she whispered, \"I saw that bag in the hallway. Something is wrong, isn't it?\" \"Yes,\" I said. \"Something is very wrong.\""],
+  vocab:[["raised his hand","levantó la mano"],["in a hurry","con prisa"],["bill","cuenta / billete"],["four thousand eight hundred and fifty","cuatro mil ochocientos cincuenta"],["by card / in cash","con tarjeta / en efectivo"],["thousand-peso bills","billetes de mil"],["keep the change","quédese con el cambio"],["tip","propina"],["while","mientras"],["the most famous","el más famoso"],["still","todavía"],["whispered","susurró"]],
+  gram:{title:"Big numbers and prices",rows:["4,850 = four thousand <b>eight hundred and fifty</b>","5,200 = five thousand two hundred","<b>Would you like to pay</b> by card or in cash?","It's <b>the most famous</b> one. (superlative)"]},
+  qs:[["How much was the bill?",["$4,850 pesos","$5,200 pesos","$485 pesos"],0],
+      ["How did Mr. Paredes pay?",["By card","In cash","He didn't pay"],1],
+      ["What did the tourist ask Daniel?",["Where the restroom is","The name of the chef","Where to eat good tlayudas"],2],
+      ["Grammar: \"___ you like to pay by card or in cash?\"",["Do","Would","Are"],1]],
+  bonus:["Why did Mr. Paredes leave alone?","",["He wanted to meet someone and give them the notebook","He didn't like the mezcal","He was tired"],0],
+  practice:[["Here is your check. Would you like to pay by card or in cash?","Aquí está su cuenta. ¿Le gustaría pagar con tarjeta o en efectivo?"],["In cash. Here you are.","En efectivo. Aquí tiene."],["Thank you. I'll be right back with your change.","Gracias. Ahorita le traigo su cambio."],["Keep the change.","Quédese con el cambio."],["That's very kind of you. Thank you!","Es muy amable. ¡Gracias!"]]},
+
+ {t:"Directions to Libres", s:"Giving directions · Dar indicaciones", time:"Friday · Constitución · 22:30",
+  story:[
+   "Sofía said, \"The police are on their way. Go, but don't do anything stupid.\" The tourist, whose name was Emma, came with me. \"I want to see the tlayudas anyway,\" she said, and smiled.",
+   "\"How do we get there?\" she asked as we went out. \"When you come out of the restaurant, you turn left and walk down Constitución,\" I explained. \"You go past Reforma, Juárez and Pino Suárez. At the corner of Libres, you turn right.\"",
+   "\"And then?\" \"Then you walk two blocks on Libres. You cross Abasolo, then Murguía. The stand is just after Murguía. It takes about eight minutes on foot.\"",
+   "We walked fast. The streets were quieter now. At the corner of Pino Suárez, I saw a light blue shirt one block ahead of us. <span class='clue'>Mr. Paredes turned right on Libres. He was looking at his phone and walking quickly.</span>",
+   "\"He's going to meet someone,\" Emma said. \"Why else would he leave his friends and his mezcal?\""],
+  vocab:[["on their way","en camino"],["stupid","tonto"],["anyway","de todos modos"],["come out of","salir de"],["walk down","caminar por"],["go past","pasar"],["at the corner of","en la esquina de"],["it takes about…","se hace como…"],["on foot","a pie"],["quieter","más tranquilas"],["ahead of us","delante de nosotros"],["why else","por qué otra razón"]],
+  gram:{title:"Giving directions",rows:["<b>Turn left</b> and <b>walk down</b> Constitución.","<b>Go past</b> Reforma, Juárez and Pino Suárez.","<b>At the corner of</b> Libres, <b>turn right</b>.","<b>It takes about</b> eight minutes <b>on foot</b>."]},
+  qs:[["When you come out of the restaurant, you turn…",["right","left","around"],1],
+      ["Which streets do you go past on Constitución?",["Reforma, Juárez and Pino Suárez","Abasolo and Murguía","Alcalá and Gurrión"],0],
+      ["How long does it take to walk to the stand?",["About twenty minutes","About two minutes","About eight minutes"],2],
+      ["Grammar: \"It ___ about eight minutes on foot.\"",["takes","does","makes"],0]],
+  bonus:["Why does Emma think Mr. Paredes is going to meet someone?","",["He told her","He left his friends and his mezcal and is walking quickly","He is hungry"],1],
+  practice:[["Excuse me, how do I get to the tlayudas on Libres?","Disculpe, ¿cómo llego a las tlayudas de Libres?"],["Turn left and walk down Constitución, past three streets.","Dé vuelta a la izquierda y camine por Constitución, pasando tres calles."],["And at Libres?","¿Y en Libres?"],["Turn right and walk two blocks. It's just after Murguía.","Dé vuelta a la derecha y camine dos cuadras. Está pasando Murguía."],["Is it far?","¿Está lejos?"],["No, it takes about eight minutes on foot.","No, se hace como ocho minutos a pie."]]},
+
+ {t:"At the Stand", s:"Could you…? · ¿Podría…?", time:"Friday · Libres y Murguía · 22:40",
+  story:[
+   "The tlayuda stand was full of people and smoke. The comales were hot and the tasajo smelled wonderful. Mr. Paredes was standing at the end of a long table, next to a young man in a white chef's jacket.",
+   "Emma and I sat at the next table. \"Two tlayudas with tasajo, please,\" Emma ordered. \"And could you bring us two hot chocolates?\" Then she whispered, \"These tlayudas smell better than the ones in my guidebook.\"",
+   "Mr. Paredes opened his brown bag. He took out an old black notebook and gave it to the young chef. \"Here it is. Copy every page tonight. Our new restaurant in Mexico City opens next month, with the best mole in the country.\"",
+   "The young chef opened the notebook and frowned. \"I can't read this. The handwriting is terrible.\" \"Then learn,\" said Mr. Paredes.",
+   "I stood up. My heart was beating fast. \"Excuse me, sir. Could you give me that notebook, please? <span class='clue'>It belongs to Doña Elvira.</span>\""],
+  vocab:[["smoke","humo"],["comales","comales"],["smelled wonderful","olía delicioso"],["at the end of","al final de"],["chef's jacket","filipina"],["could you bring us…?","¿nos podría traer…?"],["better than","mejor que"],["guidebook","guía de viaje"],["took out","sacó"],["copy","copiar"],["next month","el próximo mes"],["frowned","frunció el ceño"],["heart","corazón"],["beating","latiendo"],["belongs to","pertenece a, es de"]],
+  gram:{title:"Polite requests and comparisons",rows:["<b>Could you</b> bring us two hot chocolates?","<b>Could you</b> give me that notebook, please?","These tlayudas smell <b>better than</b> the ones in my guidebook.","the <b>best</b> mole in the country"]},
+  qs:[["Who was with Mr. Paredes?",["Valeria","A young man in a chef's jacket","Doña Elvira"],1],
+      ["What did Mr. Paredes give the young chef?",["Doña Elvira's notebook","Money","A tlayuda"],0],
+      ["Why couldn't the young chef read the notebook?",["It was in English","It was wet","The handwriting was terrible"],2],
+      ["Grammar: \"___ you give me that notebook, please?\"",["Could","Are","Have"],0]],
+  bonus:["What was Mr. Paredes' plan?","",["To give the notebook back tomorrow","To copy the recipe for his new restaurant in Mexico City","To learn to cook"],1],
+  practice:[["Good evening! What would you like?","¡Buenas noches! ¿Qué van a querer?"],["Two tlayudas with tasajo, please.","Dos tlayudas con tasajo, por favor."],["Anything to drink?","¿Algo de tomar?"],["Could you bring us two hot chocolates?","¿Nos podría traer dos chocolates calientes?"],["Of course. Right away.","Claro. Enseguida."]]},
+
+ {t:"The Secret Ingredient", s:"Telling the story · Contar la historia", time:"Saturday · Kitchen · 12:00",
+  story:[
+   "Mr. Paredes laughed. \"This? It's just an old notebook.\" Then two police officers walked up behind him. Emma was holding up her phone. \"I recorded everything,\" she said. \"Copy every page tonight.\"",
+   "Mr. Paredes stopped laughing. He gave me the notebook. The police took him to their car, and the young chef disappeared into the night, without his tlayuda.",
+   "The next day, I gave the notebook back to Doña Elvira. She held it with both hands. Then she smiled. \"Did they copy it?\" \"No. They couldn't read your handwriting.\"",
+   "She laughed and laughed. \"Daniel, anyone can read a recipe. But my mole has a secret ingredient, and it isn't in this notebook.\" \"What is it?\" \"Fifty years of practice. And patience. You can't steal that.\"",
+   "That afternoon, Doña Elvira made a special mole for Emma, Valeria, Sofía and me. We ate it upstairs, on the terrace, in front of Santo Domingo. <span class='clue'>Valeria took a photo of the plate. And then, for the first time, she ate.</span>"],
+  vocab:[["walked up","se acercaron"],["holding up","levantando"],["recorded","grabé"],["stopped laughing","dejó de reírse"],["disappeared","desapareció"],["gave back","devolví"],["held","sostuvo"],["both hands","las dos manos"],["anyone","cualquiera"],["practice","práctica"],["patience","paciencia"],["steal","robar"],["for the first time","por primera vez"]],
+  gram:{title:"Past simple: irregular verbs",rows:["give → <b>gave</b> · take → <b>took</b> · hold → <b>held</b>","can → <b>could</b>: They <b>couldn't</b> read it.","make → <b>made</b> · eat → <b>ate</b>","<b>Did</b> they copy it? — No, they <b>didn't</b>."]},
+  qs:[["How did Emma help?",["She called Doña Elvira","She recorded everything on her phone","She took the notebook"],1],
+      ["What happened to the young chef?",["He disappeared into the night","He ate his tlayuda","He went to the police car"],0],
+      ["What is the secret ingredient, Doña Elvira says?",["Chocolate","A special chile","Fifty years of practice and patience"],2],
+      ["Grammar: \"They ___ read your handwriting.\"",["can't","couldn't","didn't could"],1]],
+  bonus:["Why is it important that Valeria ate the mole?","",["She was very hungry","She always took photos but never ate; this mole was special","She was allergic"],1],
+  practice:[["What happened last night?","¿Qué pasó anoche?"],["A guest took Doña Elvira's notebook, but we found it.","Un cliente se llevó la libreta de Doña Elvira, pero la encontramos."],["Where did you find it?","¿Dónde la encontraron?"],["At the tlayuda stand on Libres.","En el puesto de tlayudas de Libres."],["Wow! And did they copy the recipe?","¡Órale! ¿Y copiaron la receta?"],["No, they couldn't read her handwriting!","¡No, no pudieron leer su letra!"]],
+  note:"<b>Mole negro</b> is one of the famous seven moles of Oaxaca. It is dark because the chiles (like chilhuacle negro) are toasted until they are almost black. Many families keep their own recipe, and it can take two days to make."}
+ ]
+};
+</script>
+<script src="/assets/player.js"></script>
+<script src="/assets/reader.js"></script>
+</body>
+</html>

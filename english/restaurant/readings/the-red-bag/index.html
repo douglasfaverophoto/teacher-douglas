@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="The Red Bag: an easy English mystery for waiters in 8 short episodes, by Teacher Douglas.">
+<title>The Red Bag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<style>/* Red bag: a brighter red accent */
+:root{--wine:#b4232c;--wine-soft:#f9e1e2;--accent-dark:#f08a90;--accent-dark-soft:#3b1a1c}</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.STORY = {
+ id:"redBag", short:"The Red Bag", lang:"en-US",
+ kicker:"Casa Jacaranda · English A1",
+ title:"The Red <span>Bag</span>",
+ sub:"An easy mystery in 8 short episodes. / Un misterio fácil en 8 episodios cortos.",
+ back:{href:"/english/restaurant/", label:"Teacher Douglas · Restaurant English"},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ ui:{
+  howto:"<b>Cómo funciona:</b> Lee el episodio (o escúchalo). Si necesitas ayuda, toca <b>Ver en español</b>. Contesta las 3 preguntas. Cuando todas están correctas, se abre el siguiente episodio.",
+  name:"What is your name? ¿Cómo te llamas?", namePh:"Name / Nombre", nameNote:"Teacher Douglas ve tu nombre y tu progreso.", hello:"Hello", change:"Cambiar nombre",
+  all:"← All episodes / Todos", episode:"Episode", read:"Read", done:"Done ✓", locked:"Locked", soon:"Coming soon", soonTag:"Pronto",
+  listen:"▶ Listen / Escuchar", pause:"❚❚ Pause / Pausa", resume:"▶ Continue / Seguir", restart:"⟲ From the start / Desde el inicio", speed:"Speed / Velocidad",
+  tap:"Tip: tap a paragraph to hear just that part. / Toca un párrafo para escuchar solo esa parte.",
+  novoice:"No hay voz en inglés en este teléfono. iPhone: Ajustes → Accesibilidad → Contenido leído → Voces.",
+  helpShow:"Ver en español", helpHide:"Ocultar español",
+  words:"Words · Palabras", grammar:"Grammar · Gramática", questions:"Questions · Preguntas", practice:"Practice · Practica",
+  enHide:"Ocultar español", enShow:"Ver en español",
+  bonus:"⭐ Bonus · Pregunta extra", bonusNote:"Optional. / Opcional: no la necesitas para el siguiente episodio.",
+  right:"Correct! ✓", tryAgain:"Try again. / Intenta otra vez. Lee el texto otra vez.", bonusRight:"Great detective work! ⭐ / ¡Buen trabajo de detective!", bonusWrong:"Not quite. Try again. / Intenta otra vez.",
+  open:n=>`Episode ${n} is open!`, finished:"You solved the case! / ¡Resolviste el caso!",
+  stopMsg:"Good work. Stop here for today and come back tomorrow. / Buen trabajo. Para aquí por hoy y regresa mañana.",
+  endMsg:"You finished all 8 episodes. Great work! / Terminaste los 8 episodios. ¡Muy bien!",
+  stopBtn:"Stop for today", goBtn:"Keep going →", reset:"Empezar de nuevo", sure:"¿Seguro? Toca otra vez"
+ },
+ eps:[
+ {t:"Table Five", s:"Upstairs · Arriba", time:"Martes · 14:00",
+  story:[
+   "My name is Ana. I am a waiter at Casa Jacaranda. The restaurant is on Constitución street, near Santo Domingo church.",
+   "It is two o'clock. A woman and a man come in. \"Good afternoon! A table for two?\" I ask. \"Yes, please.\"",
+   "\"Your table is ready upstairs. This way, please.\" Table five is upstairs, on the terrace. The woman has short gray hair. She wears a yellow dress. The man wears a blue shirt.",
+   "They eat and they leave. Then I see a bag under table five. <span class='clue'>It is a red bag.</span>"],
+  help:[
+   "Me llamo Ana. Soy mesera en Casa Jacaranda. El restaurante está en la calle Constitución, cerca de la iglesia de Santo Domingo.",
+   "Son las dos. Entran una mujer y un hombre. «¡Buenas tardes! ¿Una mesa para dos?», pregunto. «Sí, por favor.»",
+   "«Su mesa está lista arriba. Por aquí, por favor.» La mesa cinco está arriba, en la terraza. La mujer tiene el pelo corto y gris. Lleva un vestido amarillo. El hombre lleva una camisa azul.",
+   "Comen y se van. Luego veo una bolsa debajo de la mesa cinco. Es una bolsa roja."],
+  vocab:[["waiter","mesero, mesera"],["near","cerca de"],["church","iglesia"],["upstairs","arriba"],["This way, please.","Por aquí, por favor."],["hair","pelo"],["short (hair)","corto"],["gray","gris"],["dress","vestido"],["yellow","amarillo"],["under","debajo de"],["bag","bolsa"],["red","rojo"]],
+  gram:{title:"Colors · Colores",rows:["a <b>red</b> bag","a <b>yellow</b> dress","a <b>blue</b> shirt","In English, the color goes <b>before</b> the thing. / En inglés, el color va <b>antes</b>."]},
+  qs:[["Where is table five?<small>¿Dónde está la mesa cinco?</small>",["Upstairs","In the kitchen","Next to the door"],0],
+      ["What color is the woman's dress?<small>¿De qué color es el vestido de la mujer?</small>",["Red","Yellow","Blue"],1],
+      ["What is under table five?<small>¿Qué hay debajo de la mesa cinco?</small>",["A menu","A black hat","A red bag"],2]],
+  bonus:["Whose bag is it, maybe?","¿De quién es la bolsa, tal vez?",["Ana's bag","The woman's bag","The chef's bag"],1],
+  practice:[["Good afternoon! A table for two?","¡Buenas tardes! ¿Una mesa para dos?"],["Yes, please.","Sí, por favor."],["Your table is ready upstairs. This way, please.","Su mesa está lista arriba. Por aquí, por favor."],["Thank you!","¡Gracias!"]]},
+
+ {t:"What Is in the Bag?", s:"Numbers and things · Números y cosas", time:"Martes · 15:30",
+  story:[
+   "I open the red bag. In the bag there is a camera, a black notebook, three pens and a map of Oaxaca.",
+   "There is money too: two hundred pesos. There is no name. There is no phone number.",
+   "I open the notebook. On page one there are some words: \"Casa Jacaranda. Mole: 10. Service: 10.\"",
+   "On the map there is a red circle. <span class='clue'>The circle is on Libres street and Murguía street.</span>"],
+  help:[
+   "Abro la bolsa roja. En la bolsa hay una cámara, una libreta negra, tres plumas y un mapa de Oaxaca.",
+   "También hay dinero: doscientos pesos. No hay nombre. No hay número de teléfono.",
+   "Abro la libreta. En la página uno hay unas palabras: «Casa Jacaranda. Mole: 10. Servicio: 10.»",
+   "En el mapa hay un círculo rojo. El círculo está en la calle Libres y la calle Murguía."],
+  vocab:[["open","abrir"],["camera","cámara"],["notebook","libreta"],["pen","pluma"],["map","mapa"],["money","dinero"],["name","nombre"],["phone number","número de teléfono"],["page","página"],["words","palabras"],["circle","círculo"],["street","calle"]],
+  gram:{title:"There is / There are · Hay",rows:["There <b>is</b> a camera. (1)","There <b>are</b> three pens. (2, 3, 4…)","There <b>is no</b> name. / No hay nombre.","1 one · 2 two · 3 three · 5 five · 10 ten · 200 two hundred"]},
+  qs:[["How many pens are there?<small>¿Cuántas plumas hay?</small>", ["Two", "Ten", "Three"], 2],
+      ["How much money is in the bag?<small>¿Cuánto dinero hay en la bolsa?</small>", ["Two hundred pesos", "Five hundred pesos", "One hundred pesos"], 0],
+      ["Where is the red circle on the map?<small>¿Dónde está el círculo rojo en el mapa?</small>", ["On Santo Domingo church", "On Libres and Murguía", "On Casa Jacaranda"], 1]],
+  bonus:["Why does the notebook say \"Mole: 10. Service: 10\"?","¿Por qué la libreta dice eso?",["It is a phone number","The woman writes about restaurants","It is the price"],1],
+  practice:[["Excuse me, is this your bag?","Disculpe, ¿es su bolsa?"],["No, it isn't.","No, no es mía."],["What color is your bag?","¿De qué color es su bolsa?"],["My bag is black.","Mi bolsa es negra."]]},
+
+ {t:"The Man in the Black Jacket", s:"Clothes · La ropa", time:"Martes · 16:00",
+  story:[
+   "At four o'clock, a man comes in. He is tall. He has brown hair. He wears a black jacket and white shoes.",
+   "\"Excuse me. I'm looking for my bag,\" he says. \"My table is table five.\"",
+   "I look at him. The man at table five wears a blue shirt, not a black jacket. \"What color is your bag?\" I ask. \"Blue,\" he says.",
+   "\"I'm sorry, sir. This is not your bag.\" The man is angry. He leaves. <span class='clue'>But he looks at the red bag.</span>"],
+  help:[
+   "A las cuatro entra un hombre. Es alto. Tiene el pelo café. Lleva una chamarra negra y zapatos blancos.",
+   "«Disculpe. Estoy buscando mi bolsa», dice. «Mi mesa es la mesa cinco.»",
+   "Lo miro. El hombre de la mesa cinco lleva una camisa azul, no una chamarra negra. «¿De qué color es su bolsa?», pregunto. «Azul», dice.",
+   "«Lo siento, señor. Esta no es su bolsa.» El hombre está enojado. Se va. Pero mira la bolsa roja."],
+  vocab:[["tall","alto"],["brown","café"],["jacket","chamarra"],["black","negro"],["shoes","zapatos"],["white","blanco"],["I'm looking for…","estoy buscando…"],["shirt","camisa"],["blue","azul"],["angry","enojado"],["leave","irse"]],
+  gram:{title:"Has / wears · Tiene / lleva",rows:["He <b>has</b> brown hair. / Tiene el pelo café.","He <b>wears</b> a black jacket. / Lleva una chamarra negra.","She <b>has</b> short gray hair.","She <b>wears</b> a yellow dress."]},
+  qs:[["What color is the man's jacket?<small>¿De qué color es la chamarra del hombre?</small>", ["Blue", "Black", "Brown"], 1],
+      ["The man says: \"My bag is…\"<small>El hombre dice que su bolsa es…</small>", ["red", "white", "blue"], 2],
+      ["Is it his bag?<small>¿Es su bolsa?</small>", ["No, it isn't", "Ana doesn't know", "Yes, it is"], 0]],
+  bonus:["Why does the man say \"blue\"?","¿Por qué dice «azul»?",["He likes blue","Blue is his favorite color","He doesn't know the bag. It is not his bag."],2],
+  practice:[["Can I help you?","¿Le puedo ayudar?"],["Yes. I'm looking for my bag.","Sí. Estoy buscando mi bolsa."],["What color is it?","¿De qué color es?"],["It's blue.","Es azul."],["I'm sorry. This bag is red.","Lo siento. Esta bolsa es roja."]]},
+
+ {t:"The Red Circle", s:"Directions · Direcciones", time:"Martes · 17:00",
+  story:[
+   "I show the map to Luis. Luis is a waiter too. He is short and he has black hair.",
+   "\"Libres and Murguía? That is the tlayuda stand!\" Luis says. \"It is very close. Maybe the woman is there tonight.\"",
+   "\"How do I get there?\" I ask. \"Go out the door and turn left. Walk on Constitución. Cross Reforma, Juárez and Pino Suárez. At Libres, turn right. Walk two blocks.\"",
+   "\"OK. After work, at ten o'clock, I go to the tlayudas,\" I say. <span class='clue'>Outside the window, the man in the black jacket is on the phone.</span>"],
+  help:[
+   "Le enseño el mapa a Luis. Luis también es mesero. Es bajo y tiene el pelo negro.",
+   "«¿Libres y Murguía? ¡Es el puesto de tlayudas!», dice Luis. «Está muy cerca. Tal vez la mujer está ahí esta noche.»",
+   "«¿Cómo llego?», pregunto. «Sal por la puerta y da vuelta a la izquierda. Camina por Constitución. Cruza Reforma, Juárez y Pino Suárez. En Libres, da vuelta a la derecha. Camina dos cuadras.»",
+   "«OK. Después del trabajo, a las diez, voy a las tlayudas», digo. Afuera de la ventana, el hombre de la chamarra negra está hablando por teléfono."],
+  vocab:[["show","enseñar"],["too","también"],["short (person)","bajo"],["stand","puesto"],["close","cerca"],["tonight","esta noche"],["turn left","da vuelta a la izquierda"],["turn right","da vuelta a la derecha"],["cross","cruza"],["block","cuadra"],["after work","después del trabajo"],["on the phone","hablando por teléfono"]],
+  gram:{title:"Directions · Direcciones",rows:["<b>Turn left.</b> / Da vuelta a la izquierda. ⬅","<b>Turn right.</b> / Da vuelta a la derecha. ➡","<b>Walk two blocks.</b> / Camina dos cuadras.","<b>Cross</b> the street. / Cruza la calle. · Short <b>hair</b> = corto · a short <b>man</b> = bajo"]},
+  qs:[["Where is the tlayuda stand?<small>¿Dónde está el puesto de tlayudas?</small>", ["On Libres and Murguía", "On Constitución", "Next to the church"], 0],
+      ["Go out the door and turn…<small>Sal por la puerta y da vuelta a la…</small>", ["right", "back", "left"], 2],
+      ["What time does Ana go to the tlayudas?<small>¿A qué hora va Ana?</small>", ["At eight", "At ten", "At nine"], 1]],
+  bonus:["What does the man in the black jacket want?","¿Qué quiere el hombre de la chamarra negra?",["A tlayuda","The red bag","A job at Casa Jacaranda"],1],
+  practice:[["Excuse me, where are the tlayudas on Libres?","Disculpe, ¿dónde están las tlayudas de Libres?"],["Go out and turn left. Walk to Libres.","Sal y da vuelta a la izquierda. Camina hasta Libres."],["And then?","¿Y luego?"],["Turn right and walk two blocks.","Da vuelta a la derecha y camina dos cuadras."],["Thank you!","¡Gracias!"]]},
+
+ {t:"The Photos", s:"Describing people · Describir a las personas", time:"Martes · 19:00",
+  story:[
+   "I look at the photos in the camera. There are photos of food: mole, tlayudas, tacos and a cup of hot chocolate.",
+   "There is a photo of the woman with the yellow dress. She has short gray hair and big green glasses. She is happy.",
+   "Then I see a photo of a street. There is a man in the photo. He has brown hair and a black jacket. <span class='clue'>It is the man from the restaurant!</span>",
+   "In the next photo, he is behind the woman again. And again. \"He follows her,\" I think. \"She needs her bag. And she needs help.\""],
+  help:[
+   "Veo las fotos de la cámara. Hay fotos de comida: mole, tlayudas, tacos y una taza de chocolate caliente.",
+   "Hay una foto de la mujer del vestido amarillo. Tiene el pelo corto y gris y lentes grandes y verdes. Está feliz.",
+   "Luego veo una foto de una calle. Hay un hombre en la foto. Tiene el pelo café y una chamarra negra. ¡Es el hombre del restaurante!",
+   "En la siguiente foto, está detrás de la mujer otra vez. Y otra vez. «La sigue», pienso. «Ella necesita su bolsa. Y necesita ayuda.»"],
+  vocab:[["photo","foto"],["food","comida"],["cup","taza"],["hot chocolate","chocolate caliente"],["big","grande"],["glasses","lentes"],["green","verde"],["happy","feliz"],["next","siguiente"],["behind","detrás de"],["again","otra vez"],["follow","seguir"],["help","ayuda"]],
+  gram:{title:"Describing a person · Describir",rows:["She <b>has</b> short gray hair.","She <b>has</b> big green glasses.","He <b>has</b> brown hair.","She <b>is</b> happy. He <b>is</b> tall."]},
+  qs:[["What color are the woman's glasses?<small>¿De qué color son los lentes de la mujer?</small>", ["Red", "Black", "Green"], 2],
+      ["Who is behind the woman in the photos?<small>¿Quién está detrás de la mujer en las fotos?</small>", ["Luis", "The man in the black jacket", "The chef"], 1],
+      ["What does Ana think?<small>¿Qué piensa Ana?</small>", ["The man follows the woman", "The woman is a chef", "The photos are bad"], 0]],
+  bonus:["Why does the man follow the woman?","¿Por qué sigue a la mujer?",["He wants her bag","He is her son","He wants a photo with her"],0],
+  practice:[["What does she look like?","¿Cómo es ella?"],["She has short gray hair and green glasses.","Tiene el pelo corto y gris y lentes verdes."],["What is she wearing?","¿Qué lleva puesto?"],["She is wearing a yellow dress.","Lleva un vestido amarillo."]]},
+
+ {t:"On Libres Street", s:"Walking · Caminar", time:"Martes · 22:00",
+  story:[
+   "At ten o'clock, I finish work. I take the red bag. I go out the door and turn left.",
+   "I walk on Constitución. I cross Reforma, Juárez and Pino Suárez. Then I turn right on Libres.",
+   "The street is dark. I hear steps behind me. I stop. The steps stop. I walk. The steps walk.",
+   "I look back. <span class='clue'>A man in a black jacket is behind me.</span> I walk fast. One block. Two blocks. I see lights and people. The tlayudas!"],
+  help:[
+   "A las diez termino de trabajar. Tomo la bolsa roja. Salgo por la puerta y doy vuelta a la izquierda.",
+   "Camino por Constitución. Cruzo Reforma, Juárez y Pino Suárez. Luego doy vuelta a la derecha en Libres.",
+   "La calle está oscura. Oigo pasos detrás de mí. Me paro. Los pasos se paran. Camino. Los pasos caminan.",
+   "Volteo. Un hombre con chamarra negra está detrás de mí. Camino rápido. Una cuadra. Dos cuadras. Veo luces y gente. ¡Las tlayudas!"],
+  vocab:[["finish","terminar"],["take","tomar"],["dark","oscuro"],["hear","oír"],["steps","pasos"],["stop","pararse"],["look back","voltear"],["fast","rápido"],["lights","luces"],["people","gente"]],
+  gram:{title:"I + verb · Yo + verbo",rows:["I <b>walk</b> on Constitución.","I <b>cross</b> Reforma.","I <b>turn</b> right on Libres.","I <b>don't stop</b>. / No me paro."]},
+  qs:[["What time does Ana finish work?<small>¿A qué hora termina Ana de trabajar?</small>", ["At nine", "At ten", "At eleven"], 1],
+      ["Which streets does Ana cross?<small>¿Qué calles cruza Ana?</small>", ["Reforma, Juárez and Pino Suárez", "Alcalá and García Vigil", "Libres and Murguía"], 0],
+      ["Who is behind Ana?<small>¿Quién está detrás de Ana?</small>", ["Luis", "The woman", "A man in a black jacket"], 2]],
+  bonus:["Why does Ana walk fast?","¿Por qué camina rápido Ana?",["She is hungry","She is afraid of the man","She is late for the bus"],1],
+  practice:[["Excuse me, is this Libres street?","Disculpe, ¿esta es la calle Libres?"],["Yes, it is.","Sí, es esta."],["Where are the tlayudas?","¿Dónde están las tlayudas?"],["Two blocks. Just after Murguía.","A dos cuadras. Pasando Murguía."]]},
+
+ {t:"At the Tlayuda Stand", s:"Ordering food · Pedir comida", time:"Martes · 22:15",
+  story:[
+   "At the tlayuda stand there are many people. It smells of corn and tasajo. A woman says, \"One tlayuda with tasajo, please. And an horchata water.\"",
+   "She has short gray hair and green glasses. <span class='clue'>It is the woman from table five!</span> \"Excuse me. Is this your bag?\" I ask. \"My bag! Yes! Thank you!\" she says.",
+   "Then the man in the black jacket comes. \"That is my bag!\" he says. He is very angry.",
+   "I take my phone and I call the police. \"There is a tall man. He has brown hair. He wears a black jacket and white shoes. We are on Libres and Murguía. Please come!\""],
+  help:[
+   "En el puesto de tlayudas hay mucha gente. Huele a maíz y a tasajo. Una mujer dice: «Una tlayuda con tasajo, por favor. Y un agua de horchata.»",
+   "Tiene el pelo corto y gris y lentes verdes. ¡Es la mujer de la mesa cinco! «Disculpe. ¿Es su bolsa?», pregunto. «¡Mi bolsa! ¡Sí! ¡Gracias!», dice.",
+   "Luego llega el hombre de la chamarra negra. «¡Esa es mi bolsa!», dice. Está muy enojado.",
+   "Tomo mi teléfono y llamo a la policía. «Hay un hombre alto. Tiene el pelo café. Lleva una chamarra negra y zapatos blancos. Estamos en Libres y Murguía. ¡Por favor, vengan!»"],
+  vocab:[["many people","mucha gente"],["it smells of","huele a"],["corn","maíz"],["horchata water","agua de horchata"],["Is this your…?","¿Es su…?"],["comes","llega"],["call","llamar"],["police","policía"],["Please come!","¡Por favor, vengan!"]],
+  gram:{title:"Ordering · Pedir",rows:["<b>One</b> tlayuda with tasajo, <b>please</b>.","<b>Two</b> tlayudas, please.","<b>Is this</b> your bag?","Yes, <b>it is</b>. / No, <b>it isn't</b>."]},
+  qs:[["What does the woman order?<small>¿Qué pide la mujer?</small>", ["Tacos", "Mole", "A tlayuda with tasajo"], 2],
+      ["Is it the woman's bag?<small>¿Es la bolsa de la mujer?</small>", ["Yes", "No", "Maybe"], 0],
+      ["Ana tells the police: the man is…<small>Ana le dice a la policía: el hombre es…</small>", ["short, with black hair and a blue shirt", "tall, with brown hair, a black jacket and white shoes", "tall, with gray hair and a yellow dress"], 1]],
+  bonus:["Why does Ana say \"white shoes\" to the police?","¿Por qué dice «zapatos blancos»?",["To help the police find the right man","She likes his shoes","White is her favorite color"],0],
+  practice:[["Good evening! What would you like?","¡Buenas noches! ¿Qué le doy?"],["One tlayuda with tasajo, please.","Una tlayuda con tasajo, por favor."],["Anything to drink?","¿Algo de tomar?"],["An horchata water, please. How much is it?","Un agua de horchata, por favor. ¿Cuánto es?"],["One hundred and twenty pesos.","Ciento veinte pesos."]]},
+
+ {t:"Ten Out of Ten", s:"Thanking · Dar las gracias", time:"Domingo · 13:00",
+  story:[
+   "The police take the man in the black jacket. \"He takes bags from tourists,\" a police officer says. \"Thank you for your help.\"",
+   "The woman smiles. \"My name is Rosa. I write about restaurants for a newspaper. Your restaurant is in my notebook. Mole: ten. Service: ten.\"",
+   "On Sunday, Luis comes to work with a newspaper. \"Ana! Look!\" On page five there is a photo of Casa Jacaranda.",
+   "Under the photo are the words: <span class='clue'>\"Casa Jacaranda: ten out of ten. And the best waiter in Oaxaca: Ana.\"</span> I smile. Then I go upstairs. Table five is ready."],
+  help:[
+   "La policía se lleva al hombre de la chamarra negra. «Roba bolsas a los turistas», dice un policía. «Gracias por su ayuda.»",
+   "La mujer sonríe. «Me llamo Rosa. Escribo sobre restaurantes para un periódico. Su restaurante está en mi libreta. Mole: diez. Servicio: diez.»",
+   "El domingo, Luis llega al trabajo con un periódico. «¡Ana! ¡Mira!» En la página cinco hay una foto de Casa Jacaranda.",
+   "Debajo de la foto están las palabras: «Casa Jacaranda: diez de diez. Y la mejor mesera de Oaxaca: Ana.» Sonrío. Luego subo. La mesa cinco está lista."],
+  vocab:[["take (bags)","robar, llevarse"],["tourists","turistas"],["police officer","policía"],["smile","sonreír"],["write","escribir"],["newspaper","periódico"],["Sunday","domingo"],["Look!","¡Mira!"],["ten out of ten","diez de diez"],["the best","el mejor, la mejor"],["go upstairs","subir"]],
+  gram:{title:"Thank you · Gracias",rows:["<b>Thank you for</b> your help.","<b>You're welcome.</b> / De nada.","the <b>best</b> waiter / el mejor mesero","<b>ten out of ten</b> = 10/10"]},
+  qs:[["What does the man in the black jacket do?<small>¿Qué hace el hombre de la chamarra negra?</small>",["He is a chef","He takes bags from tourists","He writes for a newspaper"],1],
+      ["What is Rosa's job?<small>¿Cuál es el trabajo de Rosa?</small>",["Waiter","Police officer","She writes about restaurants"],2],
+      ["What is on page five of the newspaper?<small>¿Qué hay en la página cinco?</small>",["A photo of Casa Jacaranda","A map of Oaxaca","The menu"],0]],
+  bonus:["Why is Ana \"the best waiter in Oaxaca\"?","¿Por qué Ana es «la mejor mesera de Oaxaca»?",["She is very tall","She helps Rosa and finds her bag","She sings at work"],1],
+  practice:[["Thank you for your help!","¡Gracias por su ayuda!"],["You're welcome.","De nada."],["Your restaurant is very good.","Su restaurante es muy bueno."],["Thank you! Come back soon.","¡Gracias! Regrese pronto."]]}
+ ]
+};
+</script>
+<script src="/assets/player.js"></script>
+<script src="/assets/reader.js"></script>
+</body>
+</html>
