@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mezcal English, lesson 4: how to describe mezcal cocktails. Vocabulary and dialogues for waiters.">
+<title>Mezcal 4 · Cocktails</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<link rel="stylesheet" href="/assets/dialogues.css?v=3">
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.DIALOGUES = {
+ id:"mezcalCocktails", short:"Mezcal 4 Cocktails", lang:"en-US", level:"A2",
+ kicker:"Casa Jacaranda · Mezcal · Lesson 4 of 5",
+ title:"Mezcal <span>cocktails</span>",
+ sub:"How to describe the mezcal cocktails: ginger, paloma, mezcalita, jamaica, negroni and old fashioned. / Cómo describir los cocteles de mezcal.",
+ prevPage:{href:"/english/restaurant/mezcal/joven-anejo/#4", t:"Lesson 3 · Check"},
+ nextPage:{href:"/english/restaurant/mezcal/choose/", t:"Lesson 5 · Choose your path"},
+ back:{href:"/english/restaurant/#mezcal", label:"Teacher Douglas · Restaurant English"},
+ ui:{howto:"<b>Cómo funciona:</b> Primero lee y escucha el vocabulario. Luego pon cada diálogo en orden: arrastra una línea, o toca dos líneas para cambiarlas de lugar. Al final, contesta el <b>Check</b>."},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ roles:{w:{name:"Waiter",es:"Mesero"}, g:{name:"Guest",es:"Cliente"}},
+
+ vocab:[
+ {h:"Our cocktails · Nuestros cocteles", words:[
+  ["Mezcal and ginger (mezcal mule)","mezcal, ginger beer y limón","It's fizzy, fresh and a little spicy."],
+  ["paloma","mezcal, refresco de toronja y limón","It's citrusy and a little bitter."],
+  ["mezcalita","como margarita, con mezcal","Mezcal, fresh lime, orange liqueur and a little agave syrup."],
+  ["jamaica mezcalita","mezcalita de jamaica","It's pink, tart and fruity."],
+  ["mezcal negroni","mezcal, Campari y vermut rojo","It's strong and bitter."],
+  ["Oaxaca old fashioned","mezcal, jarabe de agave y bitter de chocolate","It's strong and a little sweet."]]},
+ {h:"Ingredients · Ingredientes", words:[
+  ["ginger beer","ginger beer (refresco de jengibre)","It's made with ginger beer."],
+  ["grapefruit soda","refresco de toronja",""],
+  ["fresh lime juice","jugo de limón fresco",""],
+  ["orange liqueur","licor de naranja",""],
+  ["agave syrup","jarabe de agave",""],
+  ["hibiscus (jamaica)","flor de jamaica",""],
+  ["sweet vermouth","vermut rojo",""],
+  ["bitters","bitter (gotas amargas)","chocolate bitters"]]},
+ {h:"How it tastes · Cómo sabe", words:[
+  ["refreshing","refrescante","Something refreshing, please."],
+  ["fizzy","con gas","It's fizzy."],
+  ["sour / tart","ácido","It's sour and sweet."],
+  ["citrusy","cítrico","The paloma is citrusy."],
+  ["bitter","amargo","Is it bitter?"],
+  ["not too sweet","no muy dulce","Something not too sweet."]]},
+ {h:"At the bar · En la barra", words:[
+  ["the rim","el borde del vaso","Salt on the rim?"],
+  ["a salt rim","escarchado con sal","It comes with a salt rim."],
+  ["chile salt","sal con chile",""],
+  ["with ice / on the rocks","con hielo / en las rocas",""],
+  ["shaken","agitado (en coctelera)","The mezcalita is shaken."],
+  ["stirred","mezclado (con cuchara)","The negroni is stirred."]]}
+ ],
+ items:[
+ {t:"Something Refreshing", scene:"El mesero empieza. La clienta quiere un coctel antes de cenar.",
+  lines:[["w","Would you like a cocktail before dinner?","¿Le gustaría un coctel antes de cenar?"],
+         ["g","Yes, something refreshing with mezcal.","Sí, algo refrescante con mezcal."],
+         ["w","Do you like ginger or grapefruit?","¿Le gusta el jengibre o la toronja?"],
+         ["g","Ginger. What's in that one?","Jengibre. ¿Qué lleva ese?"],
+         ["w","Mezcal, ginger beer and fresh lime. It's fizzy and a little spicy.","Mezcal, ginger beer y limón fresco. Tiene gas y es un poco picante."],
+         ["g","Is it sweet?","¿Es dulce?"],
+         ["w","Just a little. The ginger and the lime make it fresh.","Solo un poco. El jengibre y el limón lo hacen fresco."],
+         ["g","Perfect, I'll have one.","Perfecto, quiero uno."]]},
+ {t:"The Paloma", scene:"El cliente empieza. Pregunta qué es una paloma.",
+  lines:[["g","What is a paloma?","¿Qué es una paloma?"],
+         ["w","It's mezcal with grapefruit soda and lime, with a salt rim.","Es mezcal con refresco de toronja y limón, con el vaso escarchado con sal."],
+         ["g","Is it sweet or sour?","¿Es dulce o ácida?"],
+         ["w","It's citrusy and a little bitter, from the grapefruit. Very refreshing.","Es cítrica y un poco amarga, por la toronja. Muy refrescante."],
+         ["g","Can I have it with chile salt on the rim?","¿Me la puede dar con sal con chile en el borde?"],
+         ["w","Of course. Chile salt or worm salt?","Claro. ¿Sal con chile o sal de gusano?"],
+         ["g","Worm salt, please. I'm in Oaxaca!","Sal de gusano, por favor. ¡Estoy en Oaxaca!"]]},
+ {t:"Strong, Not Sweet", scene:"El cliente quiere un coctel fuerte y poco dulce.",
+  lines:[["g","Do you have a strong mezcal cocktail that is not too sweet?","¿Tienen un coctel de mezcal fuerte que no sea muy dulce?"],
+         ["w","Yes, the mezcal negroni: mezcal, Campari and sweet vermouth.","Sí, el negroni de mezcal: mezcal, Campari y vermut rojo."],
+         ["g","Is it bitter?","¿Es amargo?"],
+         ["w","Yes, it's bitter and strong, with a little smoke.","Sí, es amargo y fuerte, con un poco de humo."],
+         ["g","Hmm, maybe too bitter for me.","Mmm, tal vez muy amargo para mí."],
+         ["w","Then try the Oaxaca old fashioned: mezcal, a little agave syrup and chocolate bitters.","Entonces pruebe el Oaxaca old fashioned: mezcal, un poco de jarabe de agave y bitter de chocolate."],
+         ["g","Strong, but not too bitter. I'll have that one.","Fuerte, pero no tan amargo. Ese voy a tomar."]]},
+ {t:"The Most Popular", scene:"La clienta pregunta por el coctel más popular.",
+  lines:[["g","What's the most popular cocktail here?","¿Cuál es el coctel más popular aquí?"],
+         ["w","The mezcalita. It's like a margarita, but with mezcal.","La mezcalita. Es como una margarita, pero con mezcal."],
+         ["g","What's in it?","¿Qué lleva?"],
+         ["w","Mezcal, fresh lime, orange liqueur and a little agave syrup. It's sour and sweet.","Mezcal, limón fresco, licor de naranja y un poco de jarabe de agave. Es ácida y dulce."],
+         ["g","Do you have other flavors?","¿Tienen otros sabores?"],
+         ["w","Yes, we have jamaica. It's pink, tart and fruity.","Sí, tenemos de jamaica. Es rosa, ácida y afrutada."],
+         ["g","Jamaica, like agua de jamaica? I'll try that one!","¿Jamaica, como el agua de jamaica? ¡Esa voy a probar!"]]},
+ {t:"Check: Cocktails", quiz:[
+  ["A guest wants something fizzy with ginger. What do you recommend?","",["Mezcal and ginger (mezcal mule)","Mezcal negroni","Añejo, neat"],0],
+  ["What is in a paloma?","¿Qué lleva una paloma?",["Mezcal, grapefruit soda and lime","Mezcal, Campari and vermouth","Mezcal and hibiscus only"],0],
+  ["A guest says: \"Nothing sweet, and I like bitter.\" What do you recommend?","",["Jamaica mezcalita","Mezcal negroni","Mezcalita"],1],
+  ["How do you say \"escarchado con sal\"?","",["with a salt rim","with salt inside","salty ice"],0],
+  ["The jamaica mezcalita is…","",["pink, tart and fruity","brown, strong and bitter","clear and smoky"],0],
+  ["How do you say \"ácido\" when you talk about a cocktail?","",["sour","sweet","spicy"],0],
+  ["Choose the right question.","Escoge la pregunta correcta.",["Would you like salt on the rim?","Do you want the rim salt on?","You like salt in the rim?"],0]]}
+ ]
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script src="/assets/player.js"></script>
+<script src="/assets/dialogues.js?v=3"></script>
+</body>
+</html>

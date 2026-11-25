@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mezcal English, lesson 5: a conversation that changes with every answer. By Teacher Douglas.">
+<title>Mezcal 5 · Choose</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<link rel="stylesheet" href="/assets/dialogues.css?v=3">
+<link rel="stylesheet" href="/assets/branch.css?v=1">
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+// Each waiter line is a function of what the guest has said so far (s).
+// s.path: neat | cocktail | first (then s.after: neat | cocktail) · s.strength: strong | smooth · s.smoke: smoky | clean
+// s.age: joven | anejo · s.wild: classic | wild · s.drink: mule | paloma | mezcalita | jamaica | negroni | oldf · s.rim · s.serve
+const STR={strong:"strong",smooth:"smooth"};
+const RIM={salt:["with a salt rim","escarchada con sal"],chile:["with chile salt on the rim","con sal con chile en el borde"],
+  worm:["with worm salt on the rim","con sal de gusano en el borde"],none:["with no salt","sin sal"]};
+function rec(s){
+  if(s.age==="anejo") return ["Then I recommend our añejo espadín. It rested for one year in an oak barrel, so it's golden and smooth, with notes of vanilla and caramel"+(s.smoke==="smoky"?", and a soft smoky finish.":", and very little smoke."),
+    "Entonces le recomiendo nuestro espadín añejo. Reposó un año en barrica de roble, así que es dorado y suave, con notas de vainilla y caramelo"+(s.smoke==="smoky"?", y un final ahumado suave.":", y muy poco humo.")];
+  if(s.wild==="classic") return s.smoke==="smoky"
+    ?["Then try our smoky espadín. It's "+(s.strength==="strong"?"50% alcohol, ":"45% alcohol, ")+"very smoky and a little sweet, with a long finish.",
+      "Entonces pruebe nuestro espadín ahumado. Tiene "+(s.strength==="strong"?"50%":"45%")+" de alcohol, es muy ahumado y un poco dulce, con un final largo."]
+    :["Then try our clean espadín. It has just a hint of smoke, and it tastes sweet and fruity, like cooked maguey. "+(s.strength==="strong"?"It's 48%, so it's strong but balanced.":"It's 45% and very easy to drink."),
+      "Entonces pruebe nuestro espadín limpio. Tiene solo un toque de humo, y sabe dulce y afrutado, como a maguey cocido. "+(s.strength==="strong"?"Tiene 48%, así que es fuerte pero balanceado.":"Tiene 45% y es muy fácil de tomar.")];
+  const k=s.strength+"-"+s.smoke;
+  return {"smooth-clean":["Then you'll love the tobalá. It's a small wild maguey. It's floral and fruity, very delicate, with almost no smoke.","Entonces le va a encantar el tobalá. Es un maguey silvestre pequeño. Es floral y afrutado, muy delicado, casi sin humo."],
+    "smooth-smoky":["Then try the arroqueño. It's a very big maguey, and it takes about fifteen years to grow. It's rich and sweet, with a soft smoky taste.","Entonces pruebe el arroqueño. Es un maguey muy grande, y tarda unos quince años en crecer. Es rico y dulce, con un sabor ahumado suave."],
+    "strong-smoky":["Then you have to try the tepeztate. It takes about twenty-five years to grow. It's intense: green, smoky and spicy, like black pepper.","Entonces tiene que probar el tepeztate. Tarda unos veinticinco años en crecer. Es intenso: verde, ahumado y picante, como a pimienta negra."],
+    "strong-clean":["Then try the madrecuixe. It's a tall, thin wild maguey. It's dry and herbal, with very little smoke.","Entonces pruebe el madrecuixe. Es un maguey silvestre alto y delgado. Es seco y herbal, con muy poco humo."]}[k];
+}
+function drinkLine(s){
+  const r=RIM[s.rim]||["",""];
+  return {mule:["One mezcal and ginger, coming right up. It's fizzy and refreshing, with a little spice from the ginger.","Un mezcal con ginger, enseguida. Tiene gas y es refrescante, con un poco de picor del jengibre."],
+    paloma:["One paloma "+r[0]+", coming right up. It's citrusy, a little bitter and very refreshing.","Una paloma "+r[1]+", enseguida. Es cítrica, un poco amarga y muy refrescante."],
+    mezcalita:["One mezcalita "+r[0]+", coming right up. It's sour and a little sweet.","Una mezcalita "+r[1]+", enseguida. Es ácida y un poco dulce."],
+    jamaica:["One jamaica mezcalita "+r[0]+", coming right up. It's pink, tart and fruity.","Una mezcalita de jamaica "+r[1]+", enseguida. Es rosa, ácida y afrutada."],
+    negroni:["One mezcal negroni, coming right up. It's stirred and served on a big ice cube. Strong and bitter, just how you like it.","Un negroni de mezcal, enseguida. Va mezclado y servido con un hielo grande. Fuerte y amargo, como le gusta."],
+    oldf:["One Oaxaca old fashioned, coming right up. It's strong and a little sweet, with a hint of chocolate and smoke.","Un Oaxaca old fashioned, enseguida. Es fuerte y un poco dulce, con un toque de chocolate y humo."]}[s.drink];
+}
+const RIMMED=["paloma","mezcalita","jamaica"];
+
+window.BRANCH = {
+ id:"mezcalChoose", short:"Mezcal 5 Choose", lang:"en-US", level:"A2",
+ kicker:"Casa Jacaranda · Mezcal · Lesson 5 of 5",
+ title:"Choose your <span>mezcal</span>",
+ sub:"A conversation that changes with every answer: strong or smooth, smoky or clean, joven or añejo, neat or in a cocktail. / Una conversación que cambia con cada respuesta.",
+ scene:"At the bar · En la barra",
+ back:{href:"/english/restaurant/#mezcal", label:"Teacher Douglas · Restaurant English"},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ roles:{w:{name:"Waiter",es:"Mesero"}, g:{name:"Guest",es:"Cliente"}},
+ starts:{w:{label:"The waiter starts",es:"El mesero se acerca y ofrece algo de tomar.",node:"w0"},
+         g:{label:"The guest starts",es:"El cliente llama al mesero y pregunta.",node:"g0"}},
+ nodes:{
+  w0:{w:s=>["Good evening, welcome to Casa Jacaranda. Can I bring you something to drink? We have a great list of mezcals.","Buenas noches, bienvenido a Casa Jacaranda. ¿Le traigo algo de tomar? Tenemos una muy buena carta de mezcales."], next:s=>"g1"},
+  g1:{g:"path", opts:[
+    {v:"neat",en:"I'd love a mezcal. Can you help me choose?",es:"Me encantaría un mezcal. ¿Me ayuda a escoger?"},
+    {v:"cocktail",en:"Do you have mezcal cocktails?",es:"¿Tienen cocteles de mezcal?"},
+    {v:"first",en:"I've never tried mezcal. What is it like?",es:"Nunca he probado el mezcal. ¿Cómo es?"}],
+    next:s=>({neat:"wStrength",cocktail:"wStyle",first:"wFirst"})[s.path]},
+  g0:{g:"path", opts:[
+    {v:"neat",en:"Excuse me, I'd like a mezcal, but I don't know which one.",es:"Disculpe, quisiera un mezcal, pero no sé cuál."},
+    {v:"cocktail",en:"Excuse me, can you recommend a mezcal cocktail?",es:"Disculpe, ¿me recomienda un coctel de mezcal?"},
+    {v:"first",en:"Excuse me, I've never tried mezcal. What is it like?",es:"Disculpe, nunca he probado el mezcal. ¿Cómo es?"}],
+    next:s=>({neat:"wStrength",cocktail:"wStyle",first:"wFirst"})[s.path]},
+  wFirst:{w:s=>["Mezcal is made from the maguey plant. The heart of the maguey is cooked in an oven under the ground, so mezcal often tastes a little smoky. Would you like to try it neat, or in a cocktail?",
+    "El mezcal se hace de la planta del maguey. El corazón del maguey se cuece en un horno bajo la tierra, por eso el mezcal muchas veces sabe un poco ahumado. ¿Le gustaría probarlo solo, o en un coctel?"], next:s=>"gFirst"},
+  gFirst:{g:"after", opts:[
+    {v:"neat",en:"Neat, please. I want to taste the real thing.",es:"Solo, por favor. Quiero probarlo de verdad."},
+    {v:"cocktail",en:"In a cocktail, please. Something easy to start.",es:"En un coctel, por favor. Algo fácil para empezar."}],
+    next:s=>s.after==="neat"?"wStrength":"wStyle"},
+  // --- neat ---
+  wStrength:{w:s=>[(s.path==="first"?"Great choice. ":"Of course! Let's find the right one for you. ")+"First: do you like your drinks strong, or more smooth?",
+    (s.path==="first"?"Muy buena elección. ":"¡Claro! Vamos a encontrar el ideal para usted. ")+"Primero: ¿le gustan las bebidas fuertes, o más suaves?"], next:s=>"gStrength"},
+  gStrength:{g:"strength", opts:[
+    {v:"strong",en:"Strong, please. I like to feel it.",es:"Fuerte, por favor. Me gusta sentirlo."},
+    {v:"smooth",en:"Something smooth, please. Not too strong.",es:"Algo suave, por favor. No muy fuerte."},
+    {v:"diff",en:"I'm not sure. What's the difference?",es:"No estoy seguro. ¿Cuál es la diferencia?"}],
+    next:s=>s.strength==="diff"?"wStrengthX":"wSmoke"},
+  wStrengthX:{w:s=>["Most mezcal has between 45% and 50% alcohol. A strong one feels warm and spicy in your mouth. A smooth one is softer and easier to drink. Which do you prefer?",
+    "La mayoría del mezcal tiene entre 45% y 50% de alcohol. Uno fuerte se siente calientito y picante en la boca. Uno suave es más ligero y más fácil de tomar. ¿Cuál prefiere?"], next:s=>"gStrength2"},
+  gStrength2:{g:"strength", opts:[
+    {v:"strong",en:"Then strong, please.",es:"Entonces fuerte, por favor."},
+    {v:"smooth",en:"Then smooth, please.",es:"Entonces suave, por favor."}], next:s=>"wSmoke"},
+  wSmoke:{w:s=>[(s.strength==="strong"?"Strong, perfect. ":"Smooth, of course. ")+"And the smoke: do you like a very smoky mezcal, or a clean taste with just a little smoke?",
+    (s.strength==="strong"?"Fuerte, perfecto. ":"Suave, claro. ")+"Y el humo: ¿le gusta un mezcal muy ahumado, o un sabor limpio con poquito humo?"], next:s=>"gSmoke"},
+  gSmoke:{g:"smoke", opts:[
+    {v:"smoky",en:"Smoky, please. I love that flavor.",es:"Ahumado, por favor. Me encanta ese sabor."},
+    {v:"clean",en:"Clean, please. Not too smoky.",es:"Limpio, por favor. No muy ahumado."}], next:s=>"wAge"},
+  wAge:{w:s=>[(s.smoke==="smoky"?"Smoky, got it. ":"A clean taste, got it. ")+"Now, do you want a joven, which is young and clear, or an añejo, which rested in an oak barrel for at least a year?",
+    (s.smoke==="smoky"?"Ahumado, entendido. ":"Un sabor limpio, entendido. ")+"Ahora, ¿quiere un joven, que es transparente y sin barrica, o un añejo, que reposó en barrica de roble por lo menos un año?"], next:s=>"gAge"},
+  gAge:{g:"age", opts:[
+    {v:"joven",en:"Joven, please. I want to taste the maguey.",es:"Joven, por favor. Quiero sentir el maguey."},
+    {v:"anejo",en:"Añejo, please. I usually drink whiskey.",es:"Añejo, por favor. Normalmente tomo whisky."},
+    {v:"diff",en:"How are they different in taste?",es:"¿En qué son diferentes de sabor?"}],
+    next:s=>({joven:"wWild",anejo:"wRec",diff:"wAgeX"})[s.age]},
+  wAgeX:{w:s=>["A joven tastes more like the maguey: green, fresh, sometimes fruity. An añejo is softer and golden, with notes of vanilla, caramel and wood. Which one sounds better?",
+    "Un joven sabe más a maguey: verde, fresco, a veces afrutado. Un añejo es más suave y dorado, con notas de vainilla, caramelo y madera. ¿Cuál se le antoja más?"], next:s=>"gAge2"},
+  gAge2:{g:"age", opts:[
+    {v:"joven",en:"The joven, please.",es:"El joven, por favor."},
+    {v:"anejo",en:"The añejo, please.",es:"El añejo, por favor."}],
+    next:s=>s.age==="anejo"?"wRec":"wWild"},
+  wWild:{w:s=>["Joven, great choice. Last question: a classic espadín, or something special from a wild maguey? Wild magueys grow in the mountains for many years, so they are rare and have more complex flavors.",
+    "Joven, muy buena elección. Última pregunta: ¿un espadín clásico, o algo especial de un maguey silvestre? Los magueyes silvestres crecen en los cerros por muchos años, así que son difíciles de encontrar y tienen sabores más complejos."], next:s=>"gWild"},
+  gWild:{g:"wild", opts:[
+    {v:"classic",en:"A classic espadín, please.",es:"Un espadín clásico, por favor."},
+    {v:"wild",en:"Something wild and special, please!",es:"¡Algo silvestre y especial, por favor!"}], next:s=>"wRec"},
+  wRec:{w:rec, next:s=>"gServe"},
+  gServe:{g:"serve", opts:[
+    {v:"how",en:"Sounds perfect. How should I drink it?",es:"Suena perfecto. ¿Cómo me lo tomo?"},
+    {v:"salt",en:"Sounds perfect. Does it come with orange and worm salt?",es:"Suena perfecto. ¿Viene con naranja y sal de gusano?"},
+    {v:"plain",en:"Sounds perfect. Just the mezcal, please, nothing else.",es:"Suena perfecto. Solo el mezcal, por favor, nada más."}], next:s=>"wServe"},
+  wServe:{w:s=>({
+    how:["Take small sips and let it rest in your mouth for a moment. In Oaxaca we say you kiss the mezcal. I'll bring it with orange slices and worm salt, too.","Tome traguitos pequeños y déjelo un momento en la boca. En Oaxaca decimos que al mezcal se le dan besitos. Se lo traigo también con rodajas de naranja y sal de gusano."],
+    salt:["Yes, it comes with orange slices and worm salt: salt with chile and toasted maguey worms. I'll be right back.","Sí, viene con rodajas de naranja y sal de gusano: sal con chile y gusanos de maguey tostados. Ahorita regreso."],
+    plain:["Of course. I'll bring it in a copita, with a glass of water on the side.","Claro. Se lo traigo en una copita, con un vaso de agua aparte."]})[s.serve], next:s=>null},
+  // --- cocktails ---
+  wStyle:{w:s=>[(s.path==="first"?"Good idea. ":"Of course. ")+"What kind of cocktail do you like: something fresh and fizzy, something sour with lime, or something strong and bitter?",
+    (s.path==="first"?"Buena idea. ":"Claro. ")+"¿Qué tipo de coctel le gusta: algo fresco y con gas, algo ácido con limón, o algo fuerte y amargo?"], next:s=>"gStyle"},
+  gStyle:{g:"style", opts:[
+    {v:"fizzy",en:"Something fresh and fizzy.",es:"Algo fresco y con gas."},
+    {v:"sour",en:"Something sour, with lime.",es:"Algo ácido, con limón."},
+    {v:"bitter",en:"Something strong and bitter.",es:"Algo fuerte y amargo."}],
+    next:s=>({fizzy:"wFizzy",sour:"wSour",bitter:"wBitter"})[s.style]},
+  wFizzy:{w:s=>["Fresh and fizzy, perfect. We have two: mezcal and ginger, with ginger beer and lime, or the paloma, with grapefruit soda. Do you prefer ginger or grapefruit?",
+    "Fresco y con gas, perfecto. Tenemos dos: mezcal con ginger, con ginger beer y limón, o la paloma, con refresco de toronja. ¿Prefiere jengibre o toronja?"], next:s=>"gFizzy"},
+  gFizzy:{g:"drink", opts:[
+    {v:"mule",en:"Ginger, please. I like it a little spicy.",es:"Jengibre, por favor. Me gusta un poco picante."},
+    {v:"paloma",en:"Grapefruit, please. I love citrus.",es:"Toronja, por favor. Me encantan los cítricos."}],
+    next:s=>s.drink==="paloma"?"wRim":"wDrink"},
+  wSour:{w:s=>["Sour, perfect. Our mezcalita is like a margarita: mezcal, fresh lime and orange liqueur. We make it classic, or with jamaica, the hibiscus flower. Which one?",
+    "Ácido, perfecto. Nuestra mezcalita es como una margarita: mezcal, limón fresco y licor de naranja. La hacemos clásica, o de jamaica. ¿Cuál prefiere?"], next:s=>"gSour"},
+  gSour:{g:"drink", opts:[
+    {v:"mezcalita",en:"The classic, please.",es:"La clásica, por favor."},
+    {v:"jamaica",en:"Jamaica! I love agua de jamaica.",es:"¡De jamaica! Me encanta el agua de jamaica."}], next:s=>"wRim"},
+  wBitter:{w:s=>["Strong and bitter, perfect. Try the mezcal negroni, with Campari and sweet vermouth. Or, if you want it less bitter, the Oaxaca old fashioned, with agave syrup and chocolate bitters.",
+    "Fuerte y amargo, perfecto. Pruebe el negroni de mezcal, con Campari y vermut rojo. O, si lo quiere menos amargo, el Oaxaca old fashioned, con jarabe de agave y bitter de chocolate."], next:s=>"gBitter"},
+  gBitter:{g:"drink", opts:[
+    {v:"negroni",en:"The negroni, please. The more bitter, the better.",es:"El negroni, por favor. Entre más amargo, mejor."},
+    {v:"oldf",en:"The old fashioned, please. Not too bitter.",es:"El old fashioned, por favor. No tan amargo."}], next:s=>"wDrink"},
+  wRim:{w:s=>[(s.drink==="paloma"?"A paloma, great choice. ":s.drink==="jamaica"?"Jamaica, great choice. ":"The classic, great choice. ")+"Would you like a salt rim? We have regular salt, chile salt or worm salt.",
+    (s.drink==="paloma"?"Una paloma, muy buena elección. ":s.drink==="jamaica"?"De jamaica, muy buena elección. ":"La clásica, muy buena elección. ")+"¿La quiere escarchada? Tenemos sal normal, sal con chile o sal de gusano."], next:s=>"gRim"},
+  gRim:{g:"rim", opts:[
+    {v:"salt",en:"Regular salt, please.",es:"Sal normal, por favor."},
+    {v:"chile",en:"Chile salt, please. I like it spicy!",es:"Sal con chile, por favor. ¡Me gusta picante!"},
+    {v:"worm",en:"Worm salt, please. I'm in Oaxaca!",es:"Sal de gusano, por favor. ¡Estoy en Oaxaca!"},
+    {v:"none",en:"No salt, thank you.",es:"Sin sal, gracias."}], next:s=>"wDrink"},
+  wDrink:{w:drinkLine, next:s=>null}
+ },
+ ending:s=>s.path==="neat"||s.after==="neat"
+   ? (s.age==="anejo"?"anejo":s.wild==="classic"?(s.smoke==="smoky"?"espadin-smoky":"espadin-clean")
+     :({"smooth-clean":"tobala","smooth-smoky":"arroqueno","strong-smoky":"tepeztate","strong-clean":"madrecuixe"})[s.strength+"-"+s.smoke])
+   : s.drink,
+ endings:["espadin-smoky","espadin-clean","tobala","arroqueno","tepeztate","madrecuixe","anejo","mule","paloma","mezcalita","jamaica","negroni","oldf"],
+ endingNames:{
+  "espadin-smoky":["Smoky espadín","Espadín joven muy ahumado."],
+  "espadin-clean":["Clean espadín","Espadín joven con solo un toque de humo."],
+  "tobala":["Tobalá","Silvestre, suave y limpio: floral y afrutado."],
+  "arroqueno":["Arroqueño","Silvestre, suave y ahumado: rico y dulce."],
+  "tepeztate":["Tepeztate","Silvestre, fuerte y ahumado: intenso y picante."],
+  "madrecuixe":["Madrecuixe","Silvestre, fuerte y limpio: seco y herbal."],
+  "anejo":["Añejo espadín","Un año en barrica: vainilla, caramelo y madera."],
+  "mule":["Mezcal and ginger","Con gas, fresco y un poco picante."],
+  "paloma":["Paloma","Cítrica, un poco amarga y refrescante."],
+  "mezcalita":["Mezcalita","Ácida y un poco dulce, como margarita."],
+  "jamaica":["Jamaica mezcalita","Rosa, ácida y afrutada."],
+  "negroni":["Mezcal negroni","Fuerte y amargo."],
+  "oldf":["Oaxaca old fashioned","Fuerte, un poco dulce, con chocolate."]}
+};
+</script>
+<script src="/assets/player.js"></script>
+<script src="/assets/branch.js?v=1"></script>
+</body>
+</html>

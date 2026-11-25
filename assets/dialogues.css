@@ -44,3 +44,16 @@
 .dn:hover{border-color:var(--ink)}
 .dn{min-width:0}
 @media (max-width:420px){.dn small{display:none}.dn{font-size:13px;padding:8px}}
+
+/* Vocabulary lists (lesson pages) */
+.vocabset{display:flex;flex-direction:column;gap:8px}
+.vocabset .vh{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0;font-style:normal;font-weight:700}
+.vgroup{background:var(--slip);border:1px solid var(--rule);border-radius:6px;padding:0 14px}
+.vgroup summary{cursor:pointer;font-weight:700;padding:12px 0;list-style-position:inside}
+.vgroup[open] summary{border-bottom:1px dashed var(--rule);margin-bottom:8px}
+.words{list-style:none;margin:0 0 12px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px}
+.word{display:flex;flex-direction:column;align-items:flex-start;gap:1px;width:100%;text-align:left;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:8px 10px;font-size:16px;line-height:1.35}
+.word:hover{border-color:var(--ink)}
+.word b::after{content:" 🔊";font-size:12px;opacity:.55}
+.word .es{color:var(--muted);font-size:14px}
+.word i{font-size:14px;color:var(--ink);opacity:.85}

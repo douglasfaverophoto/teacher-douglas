@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mezcal English, lesson 3: joven, reposado and añejo. Vocabulary and dialogues for waiters.">
+<title>Mezcal 3 · Joven or Añejo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<link rel="stylesheet" href="/assets/dialogues.css?v=3">
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.DIALOGUES = {
+ id:"mezcalAge", short:"Mezcal 3 Joven Anejo", lang:"en-US", level:"A2",
+ kicker:"Casa Jacaranda · Mezcal · Lesson 3 of 5",
+ title:"Joven or <span>añejo?</span>",
+ sub:"How to explain young and aged mezcal, and how to compare them. / Cómo explicar el mezcal joven, reposado y añejo.",
+ prevPage:{href:"/english/restaurant/mezcal/magueys/#4", t:"Lesson 2 · Check"},
+ nextPage:{href:"/english/restaurant/mezcal/cocktails/#1", t:"Lesson 4 · Something Refreshing"},
+ back:{href:"/english/restaurant/#mezcal", label:"Teacher Douglas · Restaurant English"},
+ ui:{howto:"<b>Cómo funciona:</b> Primero lee y escucha el vocabulario. Luego pon cada diálogo en orden: arrastra una línea, o toca dos líneas para cambiarlas de lugar. Al final, contesta el <b>Check</b>."},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ roles:{w:{name:"Waiter",es:"Mesero"}, g:{name:"Guest",es:"Cliente"}},
+
+ vocab:[
+ {h:"Young or aged? · ¿Joven o añejo?", words:[
+  ["joven (young)","joven: sin tiempo en barrica","Joven means young."],
+  ["blanco","blanco (lo mismo que joven)","Blanco and joven are the same."],
+  ["reposado (rested)","reposado: de 2 a 12 meses en barrica","Reposado rests for two months to one year."],
+  ["añejo (aged)","añejo: por lo menos un año en barrica","Añejo rests for at least one year."],
+  ["an oak barrel","una barrica de roble","It rests in an oak barrel."],
+  ["to rest","reposar","The mezcal rests in the barrel."]]},
+ {h:"Color and taste · Color y sabor", words:[
+  ["clear","transparente","Joven mezcal is clear, like water."],
+  ["golden","dorado","Añejo is golden."],
+  ["vanilla","vainilla","It has notes of vanilla."],
+  ["caramel","caramelo","Notes of caramel and wood."],
+  ["woody","amaderado (a madera)","It's not too woody."],
+  ["You taste the maguey.","Se siente el maguey.","With a joven, you really taste the maguey."]]},
+ {h:"Comparing · Comparar", words:[
+  ["smoother than","más suave que","Añejo is smoother than joven."],
+  ["not as … as","no tan … como","It's not as woody as añejo."],
+  ["in the middle","en medio","Reposado is in the middle."],
+  ["the most …","el más …","Which one is the most popular?"]]}
+ ],
+ items:[
+ {t:"Young or Aged?", scene:"El cliente lee la carta y no entiende las palabras.",
+  lines:[["g","What does \"joven\" mean on the menu?","¿Qué significa \"joven\" en el menú?"],
+         ["w","Joven means young. The mezcal goes in the bottle with no time in a barrel.","Joven significa que el mezcal se embotella sin pasar tiempo en barrica."],
+         ["g","And añejo?","¿Y añejo?"],
+         ["w","Añejo rests in an oak barrel for at least one year.","El añejo reposa en barrica de roble por lo menos un año."],
+         ["g","Which one do you recommend?","¿Cuál me recomienda?"],
+         ["w","For your first mezcal, try a joven. You really taste the maguey.","Para su primer mezcal, pruebe un joven. Se siente mucho el maguey."],
+         ["g","Okay, a joven espadín, please.","Ok, un espadín joven, por favor."]]},
+ {t:"I Usually Drink Whiskey", scene:"El mesero empieza. Al cliente le gusta el whisky.",
+  lines:[["w","Can I help you choose a mezcal?","¿Le ayudo a escoger un mezcal?"],
+         ["g","Yes, please. I usually drink whiskey.","Sí, por favor. Normalmente tomo whisky."],
+         ["w","Then you might like our añejo. It's smooth, with notes of vanilla, caramel and wood.","Entonces le puede gustar nuestro añejo. Es suave, con notas de vainilla, caramelo y madera."],
+         ["g","Is it still smoky?","¿Todavía es ahumado?"],
+         ["w","A little, but the barrel makes the smoke softer.","Un poco, pero la barrica suaviza el humo."],
+         ["g","Great. And why is it golden?","Muy bien. ¿Y por qué es dorado?"],
+         ["w","The color comes from the oak. Joven mezcal is clear, like water.","El color viene del roble. El mezcal joven es transparente, como el agua."]]},
+ {t:"Something in the Middle", scene:"La clienta probó el joven y el añejo. Quiere algo en medio.",
+  lines:[["g","The joven is too strong for me, and the añejo is too woody.","El joven está muy fuerte para mí, y el añejo está muy amaderado."],
+         ["w","Then try a reposado. It's in the middle.","Entonces pruebe un reposado. Está en medio."],
+         ["g","How long does it rest?","¿Cuánto tiempo reposa?"],
+         ["w","Between two months and one year in a barrel.","Entre dos meses y un año en barrica."],
+         ["g","So it's smoother than joven, but not as woody as añejo?","¿Entonces es más suave que el joven, pero no tan amaderado como el añejo?"],
+         ["w","Exactly. You still taste the maguey, with a little vanilla.","Exacto. Todavía se siente el maguey, con un poco de vainilla."],
+         ["g","Perfect. A reposado, please.","Perfecto. Un reposado, por favor."]]},
+ {t:"Check: Joven or Añejo", quiz:[
+  ["What does joven mean?","",["Aged in a barrel","Young, with no time in a barrel","Mixed with fruit"],1],
+  ["How long does añejo rest in a barrel?","",["At least one year","One week","No time"],0],
+  ["Reposado rests…","",["for ten years","between two months and one year","in a clay pot"],1],
+  ["Why is añejo golden?","¿Por qué es dorado el añejo?",["The color comes from the oak barrel.","They add orange.","It's very old maguey."],0],
+  ["A guest usually drinks whiskey. What do you recommend?","",["A joven tepeztate","An añejo","A paloma"],1],
+  ["Choose the right sentence.","Escoge la oración correcta.",["Añejo is smoother than joven.","Añejo is more smooth that joven.","Añejo is smoothest than joven."],0],
+  ["\"No tan amaderado como el añejo\" in English is…","",["not as woody as añejo","not so woody than añejo","less woody like añejo"],0]]}
+ ]
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script src="/assets/player.js"></script>
+<script src="/assets/dialogues.js?v=3"></script>
+</body>
+</html>

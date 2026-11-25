@@ -2,13 +2,17 @@
 // A page sets window.DIALOGUES, then loads Sortable (cdnjs), player.js and this file.
 // DIALOGUES = {id, short, lang, kicker, title, sub, back:{href,label}, voices:[…], ui:{…},
 //   roles:{w:{name, es}, g:{name, es}}, items:[{t, scene, lines:[[role, text, translation?]]}]}
+// Optional: vocab:[{h, words:[[english, spanish, example?]]}] shows tap-to-hear word lists above the list,
+//   and an item {t, quiz:[[question, help, [options…], rightIndex]]} is a multiple-choice check.
 (function(){
 const D=window.DIALOGUES, IT=D.items;
 const UI=Object.assign({
   howto:"<b>Cómo funciona:</b> Las líneas están en desorden. Arrastra una línea a su lugar, o toca dos líneas para cambiarlas de lugar. Luego toca <b>Revisar</b>.",
   name:"What is your name? ¿Cómo te llamas?", namePh:"Name / Nombre", nameNote:"Teacher Douglas ve tu nombre y tu progreso.",
   hello:"Hello", change:"Cambiar nombre", all:"← All dialogues / Todos los diálogos", dialog:"Dialogue",
-  open:"Start", done:"Done ✓", lines:n=>`${n} lines · ${n} líneas`,
+  open:"Start", done:"Done ✓", lines:n=>`${n} lines · ${n} líneas`, qs:n=>`${n} questions · ${n} preguntas`,
+  vocab:"Vocabulary · Vocabulario", vocabTip:"Tap a word to hear it. / Toca una palabra para escucharla.", quiz:"Check",
+  quizTip:"Choose the right answer. / Escoge la respuesta correcta.", quizLeft:n=>`${n} to go · faltan ${n}`, quizRight:"All right! / ¡Todo bien!", quizMsg:"You know the words for this lesson. / Ya sabes las palabras de esta lección.",
   order:"Put the dialogue in order. / Pon el diálogo en orden.", orderTip:"Drag a line, or tap two lines to swap them. / Arrastra una línea, o toca dos para cambiarlas.",
   check:"Check / Revisar", again:n=>`${n} line${n===1?" is":"s are"} in the right place. Move the others. / ${n} en su lugar. Mueve las otras.`,
   right:"Perfect! / ¡Perfecto!", rightMsg:"Now listen and read it out loud with a partner. / Ahora escucha y léelo en voz alta con un compañero.",
@@ -59,7 +63,7 @@ function home(){
   onHome=true; try{speechSynthesis.cancel()}catch(e){}
   try{if(location.hash) history.replaceState(null,"",location.pathname+location.search)}catch(e){}
   const list=IT.map((d,i)=>`<li><button class="ticket" data-i="${i}" aria-label="${UI.dialog} ${i+1}: ${esc(d.t)}">
-    <span class="num">${i+1}</span><span class="t">${d.t}<span class="s">${UI.lines(d.lines.length)}</span></span>
+    <span class="num">${i+1}</span><span class="t">${d.t}<span class="s">${d.quiz?UI.qs(d.quiz.length):UI.lines(d.lines.length)}</span></span>
     ${done.includes(i)?`<span class="state done">${UI.done}</span>`:`<span class="state open">${UI.open}</span>`}</button></li>`).join("");
   app.innerHTML=`
   <header><span class="mono">${D.kicker}</span><h1>${D.title}</h1><p class="sub">${D.sub}</p></header>
@@ -68,14 +72,60 @@ function home(){
   `<form class="namecard" id="nameform"><label for="studentname"><b>${UI.name}</b></label>
    <div class="row"><input id="studentname" autocomplete="name" placeholder="${UI.namePh}" required maxlength="40"><button class="primary" type="submit">OK</button></div>
    <small>${UI.nameNote}</small></form>`}
+  ${vocabHTML()}
   <ul class="tickets">${list}</ul>
   <footer><a href="${D.back.href}">${D.back.label}</a><button id="reset">${UI.reset}</button></footer>`;
   app.querySelectorAll(".ticket[data-i]").forEach(b=>b.onclick=()=>show(+b.dataset.i));
+  app.querySelectorAll(".word").forEach(b=>b.onclick=()=>say(b.dataset.say));
   const nf=document.getElementById("nameform");
   if(nf) nf.onsubmit=ev=>{ev.preventDefault();const v=document.getElementById("studentname").value.trim();if(v){setName(v);home();restore()}};
   const cn=document.getElementById("chname"); if(cn) cn.onclick=()=>{setName("");home()};
   const r=document.getElementById("reset"); let armed=false;
   r.onclick=()=>{if(!armed){armed=true;r.textContent=UI.sure;return} done=[];put(KEY,done);home()};
+  window.scrollTo(0,0);
+}
+
+function say(t){if(!canSpeak)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);if(!voice)pickVoice();
+  if(voice)u.voice=voice;u.lang=voice?voice.lang:D.lang;u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
+function vocabHTML(){
+  if(!D.vocab) return "";
+  return `<section class="vocabset"><h2 class="vh">${UI.vocab}</h2>${canSpeak?`<p class="tip">${UI.vocabTip}</p>`:""}
+  ${D.vocab.map((g,gi)=>`<details class="vgroup"${gi===0?" open":""}><summary>${g.h}</summary><ul class="words">
+    ${g.words.map(([en,es,ex])=>`<li><button class="word" type="button" data-say="${esc(en+(ex?". "+ex:""))}"><b>${en}</b><span class="es">${es}</span>${ex?`<i>${ex}</i>`:""}</button></li>`).join("")}
+  </ul></details>`).join("")}</section>`;
+}
+function showQuiz(i){
+  const d=IT[i], solved=done.includes(i), got=new Set();
+  const P=i>0?{t:IT[i-1].t,go:i-1}:D.prevPage, N=i+1<IT.length?{t:IT[i+1].t,go:i+1}:D.nextPage;
+  const navBtn=(x,cls,label)=>x?(x.href?`<a class="dn ${cls}" href="${x.href}">${label}<small>${x.t}</small></a>`:
+    `<button class="dn ${cls}" data-go="${x.go}">${label}<small>${x.t}</small></button>`):`<span class="dn ${cls} off"></span>`;
+  const dnav=`<nav class="dnav" aria-label="Dialogues">${navBtn(P,"p",UI.prev)}<button class="dn all" data-home>${UI.allShort}</button>${navBtn(N,"n",UI.nextNav)}</nav>`;
+  app.innerHTML=`<button class="back" id="back">${UI.all}</button>${dnav}
+  <article class="slip"><div class="sliphead"><span class="mono">${UI.quiz} · ${D.level}</span><span class="mono">${UI.qs(d.quiz.length)}</span></div>
+    <h2>${d.t}</h2><p class="order">${UI.quizTip}</p>
+    <div class="section">${d.quiz.map(([q,h,opts,r],qi)=>`<div class="q" data-q="${qi}"><p>${q}${h?`<small>${h}</small>`:""}</p>
+      <div class="opts">${opts.map((o,oi)=>`<button class="opt${solved&&oi===r?" right":""}" type="button" data-o="${oi}"${solved?" disabled":""}>${o}</button>`).join("")}</div></div>`).join("")}</div>
+    <p class="fb" id="fb" aria-live="polite"></p><div id="after"></div></article>${dnav}`;
+  document.getElementById("back").onclick=home;
+  app.querySelectorAll(".dnav [data-go]").forEach(b=>b.onclick=()=>show(+b.dataset.go));
+  app.querySelectorAll(".dnav [data-home]").forEach(b=>b.onclick=home);
+  const fb=document.getElementById("fb");
+  const finish=fresh=>{
+    if(fresh&&!done.includes(i)){done.push(i);put(KEY,done);report(i,"Finished")}
+    const next=i+1<IT.length||!!D.nextPage; fb.textContent="";
+    document.getElementById("after").innerHTML=`<section class="unlock" aria-live="polite"><h3>${UI.quizRight}</h3><p>${UI.quizMsg}</p>
+      <div class="btns">${next?`<button class="primary" id="nx">${UI.next}</button>`:""}<button class="secondary" id="bk">${UI.back}</button></div></section>`;
+    const nx=document.getElementById("nx"); if(nx) nx.onclick=()=>{if(i+1<IT.length) show(i+1); else location.href=D.nextPage.href};
+    document.getElementById("bk").onclick=home;
+    if(fresh) document.getElementById("after").scrollIntoView({behavior:"smooth",block:"nearest"});
+  };
+  if(solved){finish(false);window.scrollTo(0,0);return}
+  app.querySelectorAll(".q").forEach(qd=>{const qi=+qd.dataset.q, r=d.quiz[qi][3];
+    qd.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+      if(+b.dataset.o===r){qd.querySelectorAll(".opt").forEach(x=>x.disabled=true);b.classList.add("right");got.add(qi);
+        const left=d.quiz.length-got.size; if(!left) finish(true); else{fb.textContent=UI.quizLeft(left);fb.className="fb ok"}}
+      else{b.classList.add("wrong");b.disabled=true}
+    })});
   window.scrollTo(0,0);
 }
 
@@ -92,6 +142,7 @@ function mix(n){
 function show(i){
   onHome=false; try{speechSynthesis.cancel()}catch(e){}
   try{history.replaceState(null,"","#"+(i+1))}catch(e){}
+  if(IT[i].quiz) return showQuiz(i);
   const d=IT[i], R=D.roles, solved=done.includes(i);
   const bar=(k)=>{const [role,text,tr]=d.lines[k];
     return `<li class="bar ${role}" data-k="${k}"><span class="who">${R[role].name}<small>${R[role].es}</small></span>

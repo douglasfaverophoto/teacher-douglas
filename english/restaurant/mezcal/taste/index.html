@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mezcal English, lesson 1: strong or smooth, smoky or clean. Vocabulary and dialogues for waiters.">
+<title>Mezcal 1 · Taste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<link rel="stylesheet" href="/assets/dialogues.css?v=3">
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.DIALOGUES = {
+ id:"mezcalTaste", short:"Mezcal 1 Taste", lang:"en-US", level:"A2",
+ kicker:"Casa Jacaranda · Mezcal · Lesson 1 of 5",
+ title:"Strong or <span>smooth?</span>",
+ sub:"How to ask a guest what they like: strong or smooth, smoky or clean, fruity or herbal. / Cómo preguntar qué le gusta al cliente.",
+ nextPage:{href:"/english/restaurant/mezcal/magueys/#1", t:"Lesson 2 · What Is Espadín?"},
+ back:{href:"/english/restaurant/#mezcal", label:"Teacher Douglas · Restaurant English"},
+ ui:{howto:"<b>Cómo funciona:</b> Primero lee y escucha el vocabulario. Luego pon cada diálogo en orden: arrastra una línea, o toca dos líneas para cambiarlas de lugar. Al final, contesta el <b>Check</b>."},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ roles:{w:{name:"Waiter",es:"Mesero"}, g:{name:"Guest",es:"Cliente"}},
+
+ vocab:[
+ {h:"Strong or smooth? · ¿Fuerte o suave?", words:[
+  ["strong","fuerte","Do you like it strong?"],
+  ["smooth","suave (fácil de tomar)","This one is very smooth."],
+  ["light","ligero","Something light, please."],
+  ["It's 48% alcohol.","Tiene 48% de alcohol.",""],
+  ["It feels warm.","Se siente calientito.","It feels warm in your mouth."],
+  ["It burns.","Raspa. / Quema.","Strong mezcal can burn a little."]]},
+ {h:"Smoky or clean? · ¿Ahumado o limpio?", words:[
+  ["smoky","ahumado","This mezcal is very smoky."],
+  ["a little smoky","un poco ahumado","It's just a little smoky."],
+  ["a hint of smoke","un toque de humo","It has a hint of smoke."],
+  ["clean","limpio (poco humo, sabor fresco)","Do you prefer a clean taste?"],
+  ["the smoke","el humo","Do you like the smoke?"]]},
+ {h:"How does it taste? · ¿A qué sabe?", words:[
+  ["sweet","dulce","It's a little sweet, like cooked maguey."],
+  ["fruity","afrutado","Something fruity, maybe?"],
+  ["floral","floral (a flores)","Tobalá is floral and delicate."],
+  ["herbal","herbal (a hierbas)","Madrecuixe is dry and herbal."],
+  ["earthy","terroso (a tierra)","It has an earthy taste."],
+  ["spicy / peppery","picante / a pimienta","Tepeztate is green and peppery."],
+  ["dry","seco","I like a dry mezcal."]]},
+ {h:"Serving mezcal · Servir el mezcal", words:[
+  ["neat","solo, sin nada","Would you like it neat?"],
+  ["a sip / to sip","un traguito / tomar a traguitos","Take small sips."],
+  ["orange slices","rodajas de naranja","It comes with orange slices."],
+  ["worm salt","sal de gusano","Would you like worm salt?"],
+  ["a copita","una copita","We serve it in a copita."],
+  ["Cheers!","¡Salud!",""]]}
+ ],
+ items:[
+ {t:"Do You Like It Strong?", scene:"El mesero empieza. El cliente no sabe mucho de mezcal.",
+  lines:[["w","Good evening. Would you like to try one of our mezcals?","Buenas noches. ¿Le gustaría probar uno de nuestros mezcales?"],
+         ["g","Yes, but I don't know much about mezcal.","Sí, pero no sé mucho de mezcal."],
+         ["w","No problem. Do you like your drinks strong, or more smooth?","No hay problema. ¿Le gustan las bebidas fuertes, o más suaves?"],
+         ["g","Smooth, please. Not too strong.","Suave, por favor. No muy fuerte."],
+         ["w","And do you like a smoky taste?","¿Y le gusta el sabor ahumado?"],
+         ["g","Just a little smoke.","Solo un poco de humo."],
+         ["w","Then I recommend our espadín. It's smooth, a little smoky and a bit sweet.","Entonces le recomiendo nuestro espadín. Es suave, un poco ahumado y algo dulce."],
+         ["g","Perfect. I'll have that.","Perfecto. Ese voy a tomar."]]},
+ {t:"Smoky or Clean?", scene:"La clienta empieza. No quiere un mezcal muy ahumado.",
+  lines:[["g","Excuse me. I'd like a mezcal, but not a very smoky one.","Disculpe. Quisiera un mezcal, pero no uno muy ahumado."],
+         ["w","Of course. Do you prefer a clean, fresh taste?","Claro. ¿Prefiere un sabor limpio y fresco?"],
+         ["g","Yes, clean and fresh. Something fruity, maybe?","Sí, limpio y fresco. ¿Algo afrutado, tal vez?"],
+         ["w","Try the tobalá. It's floral and fruity, with very little smoke.","Pruebe el tobalá. Es floral y afrutado, con muy poco humo."],
+         ["g","Is it strong?","¿Es fuerte?"],
+         ["w","It's 46% alcohol, but it feels soft.","Tiene 46% de alcohol, pero se siente suave."],
+         ["g","Sounds good. One tobalá, please.","Suena bien. Un tobalá, por favor."]]},
+ {t:"How Do I Drink It?", scene:"El mesero sirve el mezcal. El cliente nunca lo ha tomado.",
+  lines:[["w","Here is your mezcal, with orange slices and worm salt.","Aquí está su mezcal, con rodajas de naranja y sal de gusano."],
+         ["g","Worm salt? What is that?","¿Sal de gusano? ¿Qué es eso?"],
+         ["w","It's salt with chile and toasted maguey worms. It's a tradition in Oaxaca.","Es sal con chile y gusanos de maguey tostados. Es una tradición en Oaxaca."],
+         ["g","Interesting! Do I drink the mezcal in one shot?","¡Interesante! ¿Me tomo el mezcal de un trago?"],
+         ["w","No, take small sips. In Oaxaca we say you kiss the mezcal.","No, tome traguitos pequeños. En Oaxaca decimos que al mezcal se le dan besitos."],
+         ["g","And the orange?","¿Y la naranja?"],
+         ["w","Take a sip, then bite the orange with a little salt.","Tome un traguito y luego muerda la naranja con un poco de sal."],
+         ["g","Okay, let's try it. Cheers!","Ok, vamos a probarlo. ¡Salud!"]]},
+ {t:"Check: Taste Words", quiz:[
+  ["A guest says: \"Not too strong, please.\" What does the guest want?","Un cliente dice: \"Not too strong, please.\"",["Something smooth","Something smoky","Something sweet"],0],
+  ["How do you say \"ahumado\" in English?","",["smooth","smoky","sweet"],1],
+  ["A guest wants very little smoke. Which word do you use?","El cliente quiere muy poco humo.",["a strong taste","a clean taste","an earthy taste"],1],
+  ["How do you say \"afrutado\" in English?","",["floral","fruity","herbal"],1],
+  ["What is worm salt?","¿Qué es la sal de gusano?",["Salt with lime and sugar","Salt with chile and toasted maguey worms","Salt with orange"],1],
+  ["How do people in Oaxaca drink mezcal?","",["In one shot","With a lot of ice","In small sips"],2],
+  ["Choose the right question.","Escoge la pregunta correcta.",["Do you like it strong, or more smooth?","Do you like strong it, or more smooth?","You like it strong or smooth more?"],0]]}
+ ]
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script src="/assets/player.js"></script>
+<script src="/assets/dialogues.js?v=3"></script>
+</body>
+</html>

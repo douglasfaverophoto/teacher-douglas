@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mezcal English, lesson 2: espadín, tobalá, tepeztate and the other magueys. Vocabulary and dialogues for waiters.">
+<title>Mezcal 2 · Magueys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<link rel="stylesheet" href="/assets/dialogues.css?v=3">
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.DIALOGUES = {
+ id:"mezcalMagueys", short:"Mezcal 2 Magueys", lang:"en-US", level:"A2",
+ kicker:"Casa Jacaranda · Mezcal · Lesson 2 of 5",
+ title:"The <span>magueys</span>",
+ sub:"How to explain the different magueys: espadín, tobalá, tepeztate, madrecuixe, arroqueño and the ensamble. / Cómo explicar los tipos de maguey.",
+ prevPage:{href:"/english/restaurant/mezcal/taste/#4", t:"Lesson 1 · Check"},
+ nextPage:{href:"/english/restaurant/mezcal/joven-anejo/#1", t:"Lesson 3 · Young or Aged?"},
+ back:{href:"/english/restaurant/#mezcal", label:"Teacher Douglas · Restaurant English"},
+ ui:{howto:"<b>Cómo funciona:</b> Primero lee y escucha el vocabulario. Luego pon cada diálogo en orden: arrastra una línea, o toca dos líneas para cambiarlas de lugar. Al final, contesta el <b>Check</b>."},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ roles:{w:{name:"Waiter",es:"Mesero"}, g:{name:"Guest",es:"Cliente"}},
+
+ vocab:[
+ {h:"The maguey · El maguey", words:[
+  ["maguey / agave","maguey / agave","Mezcal is made from maguey."],
+  ["the heart of the maguey","el corazón del maguey (la piña)","They cook the heart of the maguey."],
+  ["an underground oven","un horno de tierra","It's cooked in an underground oven."],
+  ["a clay pot","una olla de barro","Ancestral mezcal is made in clay pots."],
+  ["wild","silvestre","Tobalá is a wild maguey."],
+  ["cultivated","cultivado","Espadín is cultivated."],
+  ["rare","difícil de encontrar","Wild magueys are rare."],
+  ["It takes … years to grow.","Tarda … años en crecer.","It takes about seven years to grow."]]},
+ {h:"Types of maguey · Tipos de maguey", words:[
+  ["espadín","espadín: el más común, unos 7 años","It's balanced, a little sweet and a little smoky."],
+  ["tobalá","tobalá: silvestre y pequeño, 12 a 15 años","It's floral, fruity and delicate."],
+  ["tepeztate","tepeztate: silvestre, unos 25 años","It's intense, green and spicy, like pepper."],
+  ["madrecuixe","madrecuixe: silvestre, alto y delgado","It's dry and herbal."],
+  ["arroqueño","arroqueño: muy grande, 15 a 20 años","It's rich and sweet."],
+  ["an ensamble","un ensamble (mezcla de magueyes)","An ensamble is a blend of different magueys."]]},
+ {h:"Tasting · Probar", words:[
+  ["a flight","una degustación","Would you like a flight?"],
+  ["a small pour","una copita (porción pequeña)","You get three small pours."],
+  ["balanced","balanceado","Espadín is very balanced."],
+  ["intense","intenso","Which one is the most intense?"],
+  ["delicate","delicado","Tobalá is delicate."],
+  ["complex","complejo","Wild magueys have complex flavors."]]}
+ ],
+ items:[
+ {t:"What Is Espadín?", scene:"El cliente ve la carta de mezcales y tiene preguntas.",
+  lines:[["g","What's the difference between these mezcals?","¿Cuál es la diferencia entre estos mezcales?"],
+         ["w","Each one is made from a different type of maguey.","Cada uno está hecho de un tipo diferente de maguey."],
+         ["g","What is espadín?","¿Qué es el espadín?"],
+         ["w","Espadín is the most common maguey. It takes about seven years to grow.","El espadín es el maguey más común. Tarda unos siete años en crecer."],
+         ["g","And how does it taste?","¿Y a qué sabe?"],
+         ["w","It's balanced: a little sweet and a little smoky. It's a good place to start.","Es balanceado: un poco dulce y un poco ahumado. Es un buen lugar para empezar."],
+         ["g","Great, I'll start with an espadín.","Muy bien, empiezo con un espadín."]]},
+ {t:"Something Wild", scene:"La clienta ya conoce el espadín y quiere algo diferente.",
+  lines:[["g","I already know espadín. Do you have something different?","Ya conozco el espadín. ¿Tiene algo diferente?"],
+         ["w","Yes. We have three wild magueys: tobalá, tepeztate and madrecuixe.","Sí. Tenemos tres magueyes silvestres: tobalá, tepeztate y madrecuixe."],
+         ["g","Wild? What does that mean?","¿Silvestre? ¿Qué significa?"],
+         ["w","They grow wild in the mountains, and they take many years to grow.","Crecen solos en los cerros, y tardan muchos años en crecer."],
+         ["g","Which one is the most intense?","¿Cuál es el más intenso?"],
+         ["w","The tepeztate. It takes about twenty-five years to grow, and it tastes green and spicy, like pepper.","El tepeztate. Tarda unos veinticinco años en crecer, y sabe verde y picante, como a pimienta."],
+         ["g","Twenty-five years! I have to try it.","¡Veinticinco años! Lo tengo que probar."]]},
+ {t:"A Flight", scene:"Dos clientes no pueden decidir. El mesero ofrece una degustación.",
+  lines:[["g","We can't decide. They all sound good.","No nos podemos decidir. Todos suenan bien."],
+         ["w","Would you like a flight? You get three small pours to taste.","¿Les gustaría una degustación? Les servimos tres copitas para probar."],
+         ["g","Yes! Which three?","¡Sí! ¿Cuáles tres?"],
+         ["w","I suggest espadín, tobalá and madrecuixe: sweet, floral and herbal.","Les sugiero espadín, tobalá y madrecuixe: dulce, floral y herbal."],
+         ["g","What about an ensamble?","¿Y un ensamble?"],
+         ["w","An ensamble is a blend of different magueys in one mezcal. We can add it as a fourth one.","Un ensamble es una mezcla de diferentes magueyes en un solo mezcal. Lo podemos agregar como cuarto."],
+         ["g","Perfect, let's have four.","Perfecto, que sean cuatro."]]},
+ {t:"Check: The Magueys", quiz:[
+  ["Which maguey is the most common?","¿Cuál maguey es el más común?",["Tepeztate","Espadín","Tobalá"],1],
+  ["A guest asks: \"What does wild mean?\" What do you say?","",["It grows wild in the mountains and takes many years to grow.","It is very strong.","It is cooked with chile."],0],
+  ["Which mezcal is floral, fruity and delicate?","",["Tobalá","Tepeztate","Añejo"],0],
+  ["Which mezcal takes about 25 years to grow and tastes spicy, like pepper?","",["Espadín","Tepeztate","Arroqueño"],1],
+  ["What is an ensamble?","¿Qué es un ensamble?",["A mezcal cocktail","A blend of different magueys in one mezcal","A small glass"],1],
+  ["What is a flight?","",["Three or four small pours to taste","A big bottle","A mezcal with ice"],0],
+  ["How do you say \"tarda siete años en crecer\"?","",["It takes seven years to grow.","It has seven years growing.","It takes seven years for grow."],0]]}
+ ]
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script src="/assets/player.js"></script>
+<script src="/assets/dialogues.js?v=3"></script>
+</body>
+</html>
