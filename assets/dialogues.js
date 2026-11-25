@@ -14,7 +14,8 @@ const UI=Object.assign({
   right:"Perfect! / ¡Perfecto!", rightMsg:"Now listen and read it out loud with a partner. / Ahora escucha y léelo en voz alta con un compañero.",
   listen:"▶ Listen / Escuchar", pause:"❚❚ Pause / Pausa", resume:"▶ Continue / Seguir", restart:"⟲ From the start / Desde el inicio", speed:"Speed / Velocidad",
   showEs:"Ver en español", hideEs:"Ocultar español", next:"Next dialogue →", back:"All dialogues", shuffle:"Mix again / Mezclar otra vez",
-  reset:"Empezar de nuevo", sure:"¿Seguro? Toca otra vez"
+  reset:"Empezar de nuevo", sure:"¿Seguro? Toca otra vez",
+  prev:"← Previous / Anterior", nextNav:"Next / Siguiente →", allShort:"All / Todos"
 }, D.ui||{});
 
 const KEY=D.id+".v1", NKEY=D.id+".name";
@@ -56,6 +57,7 @@ if(canSpeak){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){
 let onHome=false;
 function home(){
   onHome=true; try{speechSynthesis.cancel()}catch(e){}
+  try{if(location.hash) history.replaceState(null,"",location.pathname+location.search)}catch(e){}
   const list=IT.map((d,i)=>`<li><button class="ticket" data-i="${i}" aria-label="${UI.dialog} ${i+1}: ${esc(d.t)}">
     <span class="num">${i+1}</span><span class="t">${d.t}<span class="s">${UI.lines(d.lines.length)}</span></span>
     ${done.includes(i)?`<span class="state done">${UI.done}</span>`:`<span class="state open">${UI.open}</span>`}</button></li>`).join("");
@@ -89,13 +91,21 @@ function mix(n){
 
 function show(i){
   onHome=false; try{speechSynthesis.cancel()}catch(e){}
+  try{history.replaceState(null,"","#"+(i+1))}catch(e){}
   const d=IT[i], R=D.roles, solved=done.includes(i);
   const bar=(k)=>{const [role,text,tr]=d.lines[k];
     return `<li class="bar ${role}" data-k="${k}"><span class="who">${R[role].name}<small>${R[role].es}</small></span>
       <span class="txt">${text}</span>${tr?`<span class="tr" hidden>${tr}</span>`:""}<span class="mark" aria-hidden="true"></span></li>`};
   const order=solved?d.lines.map((_,k)=>k):mix(d.lines.length);
+  // Previous / next bar, so students can move between dialogues without going back to the list.
+  // D.prevPage / D.nextPage = {href, t} link the first/last dialogue to the other level's page.
+  const P=i>0?{t:IT[i-1].t,go:i-1}:D.prevPage, N=i+1<IT.length?{t:IT[i+1].t,go:i+1}:D.nextPage;
+  const navBtn=(x,cls,label)=>x?(x.href?`<a class="dn ${cls}" href="${x.href}">${label}<small>${x.t}</small></a>`:
+    `<button class="dn ${cls}" data-go="${x.go}">${label}<small>${x.t}</small></button>`):`<span class="dn ${cls} off"></span>`;
+  const dnav=`<nav class="dnav" aria-label="Dialogues">${navBtn(P,"p",UI.prev)}<button class="dn all" data-home>${UI.allShort}</button>${navBtn(N,"n",UI.nextNav)}</nav>`;
   app.innerHTML=`
   <button class="back" id="back">${UI.all}</button>
+  ${dnav}
   <article class="slip">
     <div class="sliphead"><span class="mono">${UI.dialog} ${i+1} · ${D.level}</span><span class="mono">${UI.lines(d.lines.length)}</span></div>
     <h2>${d.t}</h2>
@@ -106,8 +116,11 @@ function show(i){
     <p class="fb" id="fb" aria-live="polite"></p>
     <div class="btns" id="btns">${solved?"":`<button class="primary" id="check">${UI.check}</button><button class="secondary" id="mix">${UI.shuffle}</button>`}</div>
     <div id="after"></div>
-  </article>`;
+  </article>
+  ${dnav}`;
   document.getElementById("back").onclick=home;
+  app.querySelectorAll(".dnav [data-go]").forEach(b=>b.onclick=()=>show(+b.dataset.go));
+  app.querySelectorAll(".dnav [data-home]").forEach(b=>b.onclick=home);
   const ol=document.getElementById("bars"), fb=document.getElementById("fb");
   let sortable=null;
   if(!solved&&window.Sortable){
@@ -135,7 +148,7 @@ function show(i){
     document.getElementById("btns").innerHTML="";
     fb.textContent=""; fb.className="fb";
     if(fresh&&!done.includes(i)){done.push(i);put(KEY,done);report(i,"Finished")}
-    const next=i+1<IT.length, hasTr=d.lines.some(l=>l[2]);
+    const next=i+1<IT.length||!!D.nextPage, hasTr=d.lines.some(l=>l[2]);
     document.getElementById("after").innerHTML=`<section class="unlock" aria-live="polite"><h3>${UI.right}</h3><p>${UI.rightMsg}</p>
       ${canSpeak?`<button class="listen" id="listen">${UI.listen}</button>`:""}
       ${hasTr?`<button class="toggle" id="es">${UI.showEs}</button>`:""}
@@ -144,7 +157,7 @@ function show(i){
     if(L&&window.StoryPlayer) StoryPlayer({mount:L,paras:[...ol.querySelectorAll(".txt")],lang:D.lang,base:.8,getVoice:()=>{if(!voice)pickVoice();return voice},labels:UI});
     const es=document.getElementById("es");
     if(es) es.onclick=()=>{const on=es.textContent===UI.showEs;es.textContent=on?UI.hideEs:UI.showEs;ol.querySelectorAll(".tr").forEach(t=>t.hidden=!on)};
-    const nx=document.getElementById("nx"); if(nx) nx.onclick=()=>show(i+1);
+    const nx=document.getElementById("nx"); if(nx) nx.onclick=()=>{if(i+1<IT.length) show(i+1); else location.href=D.nextPage.href};
     document.getElementById("bk").onclick=home;
     if(fresh) document.getElementById("after").scrollIntoView({behavior:"smooth",block:"nearest"});
   };
@@ -158,6 +171,7 @@ function show(i){
   document.getElementById("mix").onclick=()=>show(i);
   window.scrollTo(0,0);
 }
-home();
+const h=/^#(\d+)$/.exec(location.hash||""), hi=h?+h[1]-1:-1;
+if(hi>=0&&hi<IT.length) show(hi); else home();
 restore();
 })();
