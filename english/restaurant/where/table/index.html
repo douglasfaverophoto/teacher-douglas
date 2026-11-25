@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Prepositions for waiters, lesson 2: where things are on the table. Is it…? It is… Where are…? They are…">
+<title>Where 2 · On the Table</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<link rel="stylesheet" href="/assets/dialogues.css?v=4">
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.DIALOGUES = {
+ id:"whereTable", short:"Where 2 Table", lang:"en-US", level:"A1",
+ kicker:"Casa Jacaranda · Where is it? · Lesson 2 of 4",
+ title:"On the <span>table</span>",
+ sub:"Where things go on the table: the fork, the knife, the glasses, the salt, the check. / Dónde van las cosas en la mesa.",
+ prevPage:{href:"/english/restaurant/where/restaurant/#6", t:"Lesson 1 · Check"},
+ nextPage:{href:"/english/restaurant/where/centro/#1", t:"Lesson 3 · Santo Domingo"},
+ back:{href:"/english/restaurant/#where", label:"Teacher Douglas · Restaurant English"},
+ ui:{howto:"<b>Cómo funciona:</b> Primero lee y escucha la gramática y el vocabulario (toca una frase para escucharla). Luego pon cada diálogo en orden: arrastra una línea, o toca dos líneas para cambiarlas de lugar. Al final, contesta el <b>Check</b>."},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ roles:{w:{name:"Waiter",es:"Mesero"}, g:{name:"Guest",es:"Cliente"}},
+
+ grammar:[
+ {h:"Is it…? / Are they…? on the table", words:[
+  ["Where's the salt?","¿Dónde está la sal?",""],
+  ["It's next to the pepper.","Está junto a la pimienta.",""],
+  ["Is the fork on the right?","¿El tenedor va a la derecha?",""],
+  ["No, it isn't. It's on the left.","No. Va a la izquierda.",""],
+  ["Where are the glasses?","¿Dónde están los vasos?",""],
+  ["They're above the knife.","Están arriba del cuchillo.",""],
+  ["Are they on the left?","¿Están a la izquierda?",""],
+  ["No, they aren't. They're on the right.","No. Están a la derecha.",""]]},
+ {h:"Where does it go? · ¿Dónde va?", words:[
+  ["Where does the fork go?","¿Dónde va el tenedor?","one thing: does … go"],
+  ["It goes on the left.","Va a la izquierda.",""],
+  ["Where do the glasses go?","¿Dónde van los vasos?","two or more: do … go"],
+  ["They go above the knife.","Van arriba del cuchillo.",""]]}
+ ],
+ vocab:[
+ {h:"On the table · En la mesa", words:[
+  ["on","sobre / en","The fork is on the napkin."],
+  ["under","debajo de","The napkin is under the fork."],
+  ["above","arriba de","The glasses are above the knife."],
+  ["to the left of","a la izquierda de","The fork is to the left of the plate."],
+  ["to the right of","a la derecha de","The knife is to the right of the plate."],
+  ["in the middle of","en medio de","The salt is in the middle of the table."],
+  ["next to","junto a","The spoon is next to the knife."],
+  ["between","entre","The knife is between the plate and the spoon."],
+  ["inside","dentro de","The check is inside the folder."]]},
+ {h:"Things on the table · Cosas en la mesa", words:[
+  ["the plate","el plato",""],
+  ["the bread plate","el plato del pan",""],
+  ["the fork","el tenedor",""],
+  ["the knife","el cuchillo",""],
+  ["the spoon","la cuchara",""],
+  ["the dessert spoon","la cuchara de postre",""],
+  ["the napkin","la servilleta",""],
+  ["the water glass","el vaso de agua",""],
+  ["the wine glass","la copa de vino",""],
+  ["the salt and pepper","la sal y la pimienta",""],
+  ["the tortilla basket","el tortillero",""],
+  ["the check folder","la carpeta de la cuenta",""]]}
+ ],
+ items:[
+ {t:"Pass the Salt", scene:"Una clienta busca la sal.",
+  lines:[["g","Excuse me, where's the salt?","Disculpe, ¿dónde está la sal?"],
+         ["w","It's right there, in the middle of the table, next to the flowers.","Ahí está, en medio de la mesa, junto a las flores."],
+         ["g","Oh, I see it. And the pepper?","Ah, ya la vi. ¿Y la pimienta?"],
+         ["w","The pepper is in the small black grinder, next to the salt.","La pimienta está en el molinito negro, junto a la sal."],
+         ["g","Thank you. Can we have more tortillas, please?","Gracias. ¿Nos trae más tortillas, por favor?"],
+         ["w","Of course. I'll put the basket here, between you two.","Claro. Les pongo el tortillero aquí, entre ustedes dos."]]},
+ {t:"Setting the Table", roles:{w:{name:"Captain",es:"Capitán"}, g:{name:"New waiter",es:"Mesero nuevo"}}, scene:"El capitán le enseña al mesero nuevo a poner la mesa.",
+  lines:[["w","Today you're going to set the tables. Do you know where everything goes?","Hoy vas a poner las mesas. ¿Sabes dónde va todo?"],
+         ["g","I think so. The fork goes on the left of the plate, right?","Creo que sí. El tenedor va a la izquierda del plato, ¿verdad?"],
+         ["w","Yes. And it goes on the napkin.","Sí. Y va sobre la servilleta."],
+         ["g","And the knife and the spoon?","¿Y el cuchillo y la cuchara?"],
+         ["w","They go on the right. The knife is next to the plate, and the spoon is next to the knife.","Van a la derecha. El cuchillo junto al plato, y la cuchara junto al cuchillo."],
+         ["g","Where do the glasses go?","¿Dónde van los vasos?"],
+         ["w","They go above the knife: the water glass, and then the wine glass on the right.","Van arriba del cuchillo: el vaso de agua, y luego la copa de vino a la derecha."],
+         ["g","And the bread plate goes on the left, above the fork.","Y el plato del pan va a la izquierda, arriba del tenedor."]]},
+ {t:"Which Glass Is Mine?", scene:"Un cliente no sabe cuál vaso es el suyo.",
+  lines:[["g","Sorry, which glass is mine?","Perdón, ¿cuál vaso es el mío?"],
+         ["w","Your glass is on your right, above your knife.","Su vaso está a su derecha, arriba de su cuchillo."],
+         ["g","Oh! So this glass on my left is my friend's?","¡Ah! ¿Entonces este vaso a mi izquierda es de mi amigo?"],
+         ["w","Yes, it is. And your bread plate is on your left.","Sí. Y su plato del pan está a su izquierda."],
+         ["g","That's easy to remember: drinks on the right, bread on the left.","Es fácil de recordar: bebidas a la derecha, pan a la izquierda."],
+         ["w","Exactly! Enjoy your dinner.","¡Exacto! Que disfrute su cena."]]},
+ {t:"The Check", scene:"Los clientes piden la cuenta.",
+  lines:[["g","Can we have the check, please?","¿Nos trae la cuenta, por favor?"],
+         ["w","Of course. Here it is. The check is inside the folder.","Claro. Aquí está. La cuenta está dentro de la carpeta."],
+         ["g","Is the tip included?","¿Está incluida la propina?"],
+         ["w","No, it isn't. You can add it on the card machine.","No. La puede agregar en la terminal."],
+         ["g","Perfect. My card is on top of the folder.","Perfecto. Mi tarjeta está encima de la carpeta."],
+         ["w","Thank you. I'll be right back with the machine.","Gracias. Ahorita regreso con la terminal."]]},
+ {t:"Check: The Table", img:'<svg viewBox="0 0 360 230" role="img" aria-label="A table setting"><circle class="thing" cx="95" cy="45" r="18"/><path class="ln" style="stroke-width:2" d="M84 38h22"/><text class="sm" x="95" y="80" text-anchor="middle">bread plate</text><rect x="70" y="95" width="36" height="95" rx="3" style="fill:var(--wine-soft);stroke:var(--wine)"/><path class="ln" d="M88 115v70M83 100v15M88 100v15M93 100v15M83 115h10"/><text class="sm" x="64" y="140" text-anchor="end">fork</text><text class="sm" x="88" y="205" text-anchor="middle">napkin</text><circle cx="180" cy="140" r="52" style="fill:var(--slip);stroke:currentColor;stroke-width:1.5"/><circle cx="180" cy="140" r="36" style="fill:none;stroke:currentColor;opacity:.5"/><text class="lb" x="180" y="144" text-anchor="middle">plate</text><path class="ln" d="M155 78h50"/><ellipse cx="208" cy="78" rx="7" ry="4" style="fill:currentColor"/><text class="sm" x="180" y="70" text-anchor="middle">dessert spoon</text><path class="ln" d="M250 95v90"/><text class="sm" x="250" y="200" text-anchor="middle">knife</text><path class="ln" d="M274 110v75"/><ellipse cx="274" cy="102" rx="6" ry="10" style="fill:currentColor"/><text class="sm" x="276" y="215" text-anchor="middle">spoon</text><circle class="thing" cx="250" cy="40" r="12"/><text class="sm" x="236" y="18" text-anchor="middle">water glass</text><circle class="thing" cx="284" cy="30" r="12"/><text class="sm" x="300" y="58" text-anchor="start">wine glass</text></svg>', quiz:[
+  ["Where is the fork?","Mira el dibujo.",["It's on the right of the plate.","It's on the left of the plate, on the napkin.","It's under the plate."],1],
+  ["Where are the glasses?","",["They're above the knife.","It's above the knife.","They're on the left, next to the fork."],0],
+  ["Is the spoon next to the knife?","",["Yes, it is.","No, it isn't.","Yes, they are."],0],
+  ["Is the bread plate on the right?","",["Yes, it is.","No, it isn't. It's on the left, above the fork.","No, they aren't."],1],
+  ["The knife is ___ the plate and the spoon.","",["between","under","inside"],0],
+  ["Where is the dessert spoon?","",["It's under the napkin.","It's above the plate.","It's next to the bread plate."],1],
+  ["The napkin is ___ the fork.","",["above","under","inside"],1],
+  ["Where ___ the glasses go?","",["does","do","is"],1]]}
+ ]
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script src="/assets/player.js"></script>
+<script src="/assets/dialogues.js?v=4"></script>
+</body>
+</html>

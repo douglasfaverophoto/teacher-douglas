@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Prepositions for waiters, lesson 1: where things are in the restaurant. Is it…? It is… Where are…? They are…">
+<title>Where 1 · In the Restaurant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,600;1,6..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/reader.css">
+<link rel="stylesheet" href="/assets/dialogues.css?v=4">
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.DIALOGUES = {
+ id:"whereRestaurant", short:"Where 1 Restaurant", lang:"en-US", level:"A1",
+ kicker:"Casa Jacaranda · Where is it? · Lesson 1 of 4",
+ title:"Where is <span>it?</span>",
+ sub:"Where things are in the restaurant: the bathroom, the stairs, the terrace, the bar, a lost phone. / Dónde están las cosas en el restaurante.",
+ nextPage:{href:"/english/restaurant/where/table/#1", t:"Lesson 2 · Pass the Salt"},
+ back:{href:"/english/restaurant/#where", label:"Teacher Douglas · Restaurant English"},
+ ui:{howto:"<b>Cómo funciona:</b> Primero lee y escucha la gramática y el vocabulario (toca una frase para escucharla). Luego pon cada diálogo en orden: arrastra una línea, o toca dos líneas para cambiarlas de lugar. Al final, contesta el <b>Check</b>."},
+ voices:["daniel","alex","fred","david","mark","guy","aaron","arthur","tom","oliver","george","james","ryan","eric","andrew","brian","christopher","roger","male"],
+ roles:{w:{name:"Waiter",es:"Mesero"}, g:{name:"Guest",es:"Cliente"}},
+
+ grammar:[
+ {h:"One thing: Where is…? It is… · Una cosa", words:[
+  ["Where is the bathroom?","¿Dónde está el baño?","Where's = Where is"],
+  ["It's next to the kitchen.","Está junto a la cocina.","It's = It is"],
+  ["Is it upstairs?","¿Está arriba?",""],
+  ["Yes, it is.","Sí. (nunca \"Yes, it's.\")",""],
+  ["No, it isn't. It's on this floor.","No. Está en este piso.","isn't = is not"]]},
+ {h:"Two or more: Where are…? They are… · Dos o más", words:[
+  ["Where are the stairs?","¿Dónde están las escaleras?",""],
+  ["They're on the right.","Están a la derecha.","They're = They are"],
+  ["Are they at the bar?","¿Están en la barra?",""],
+  ["Yes, they are.","Sí. (nunca \"Yes, they're.\")",""],
+  ["No, they aren't. They're on the terrace.","No. Están en la terraza.","aren't = are not"]]}
+ ],
+ vocab:[
+ {h:"Where? · ¿Dónde?", words:[
+  ["next to","junto a / al lado de","The bathroom is next to the kitchen."],
+  ["behind","detrás de","The kitchen is behind the bar."],
+  ["in front of","delante de (del mismo lado)","Table 5 is in front of table 2."],
+  ["across from","frente a (del otro lado)","The bar is across from the stairs."],
+  ["between","entre","Table 2 is between table 1 and table 3."],
+  ["near","cerca de","Table 3 is near the stairs."],
+  ["on the left / on the right","a la izquierda / a la derecha","The bar is on the left."],
+  ["at the back","al fondo","The bathrooms are at the back."],
+  ["at the end of the hall","al final del pasillo","It's at the end of the hall."],
+  ["upstairs / downstairs","arriba / abajo","The terrace is upstairs."],
+  ["on this floor","en este piso","The bathroom is on this floor."],
+  ["on / under","sobre (en) / debajo de","Is it under the chair?"]]},
+ {h:"Places in the restaurant · Lugares", words:[
+  ["the bathroom / the restroom","el baño",""],
+  ["the terrace","la terraza",""],
+  ["the stairs","las escaleras","The stairs are a little steep."],
+  ["the bar","la barra",""],
+  ["the kitchen","la cocina",""],
+  ["the entrance","la entrada",""],
+  ["the hall","el pasillo",""],
+  ["the cash register","la caja",""],
+  ["the handrail","el barandal",""]]},
+ {h:"Giving directions inside · Indicar", words:[
+  ["Walk past the bar.","Pase la barra.",""],
+  ["Turn left. / Turn right.","Dé vuelta a la izquierda / derecha.",""],
+  ["It's the door on the left.","Es la puerta de la izquierda.",""],
+  ["Please follow me.","Sígame, por favor.",""],
+  ["Here it is!","¡Aquí está!",""]]}
+ ],
+ items:[
+ {t:"The Bathroom", scene:"Una clienta pregunta por el baño.",
+  lines:[["g","Excuse me, where is the bathroom?","Disculpe, ¿dónde está el baño?"],
+         ["w","It's at the back, next to the kitchen.","Está al fondo, junto a la cocina."],
+         ["g","Is it upstairs?","¿Está arriba?"],
+         ["w","No, it isn't. It's on this floor. Walk past the bar and go down the hall.","No. Está en este piso. Pase la barra y siga por el pasillo."],
+         ["g","Past the bar, then down the hall. Thank you.","Pasando la barra, y luego por el pasillo. Gracias."],
+         ["w","You're welcome. It's at the end of the hall, on the right.","De nada. Está al final del pasillo, a la derecha."]]},
+ {t:"My Phone", scene:"Un cliente no encuentra su celular.",
+  lines:[["g","Excuse me, I can't find my phone. Is it on my table?","Disculpe, no encuentro mi celular. ¿Está en mi mesa?"],
+         ["w","Let me look. No, it isn't on the table.","Déjeme ver. No, no está en la mesa."],
+         ["g","Is it under the chair?","¿Está debajo de la silla?"],
+         ["w","No, it isn't. What color is it?","No. ¿De qué color es?"],
+         ["g","It's black, with a red case.","Es negro, con funda roja."],
+         ["w","Here it is! It's on the bar, next to the cash register.","¡Aquí está! Está en la barra, junto a la caja."],
+         ["g","Oh, thank you! I was at the bar before dinner.","¡Ay, gracias! Estuve en la barra antes de cenar."]]},
+ {t:"Up to the Terrace", scene:"Una familia quiere cenar en la terraza.",
+  lines:[["g","Good evening. Can we sit on the terrace?","Buenas noches. ¿Podemos sentarnos en la terraza?"],
+         ["w","Of course. The terrace is upstairs.","Claro. La terraza está arriba."],
+         ["g","Where are the stairs?","¿Dónde están las escaleras?"],
+         ["w","They're on the right side of the room. Please follow me.","Están del lado derecho del salón. Síganme, por favor."],
+         ["g","Are they very steep? My mother has a bad knee.","¿Están muy empinadas? Mi mamá tiene mal la rodilla."],
+         ["w","They're a little steep, but there's a handrail on the left.","Están un poco empinadas, pero hay un barandal a la izquierda."],
+         ["g","Okay, we'll go slowly. Thank you.","Ok, vamos despacio. Gracias."]]},
+ {t:"Where Are Our Friends?", scene:"Dos clientes buscan a sus amigos.",
+  lines:[["g","Hi, we're meeting some friends. Are they here?","Hola, vamos a ver a unos amigos. ¿Ya están aquí?"],
+         ["w","What's the name of the reservation?","¿A nombre de quién es la reservación?"],
+         ["g","López, a table for six.","López, mesa para seis."],
+         ["w","Yes, they're here. They're at the bar.","Sí, ya están. Están en la barra."],
+         ["g","At the bar? Where is the bar?","¿En la barra? ¿Dónde está la barra?"],
+         ["w","It's on the left, just past the entrance.","Está a la izquierda, pasando la entrada."],
+         ["g","Oh, I see them! Thank you.","¡Ah, ya los veo! Gracias."]]},
+ {t:"Check: The Floor Plan", img:'<svg viewBox="0 0 360 285" role="img" aria-label="Floor plan of Casa Jacaranda"><rect class="room" x="5" y="5" width="350" height="270" rx="4"/><rect class="thing" x="10" y="10" width="140" height="55"/><text class="lb" x="80" y="42" text-anchor="middle">Kitchen</text><rect class="thing" x="210" y="10" width="140" height="55"/><text class="lb" x="280" y="42" text-anchor="middle">Bathrooms</text><text class="sm" x="180" y="42" text-anchor="middle">hall</text><rect class="thing" x="10" y="90" width="45" height="140"/><text class="lb" x="32" y="150" text-anchor="middle">Bar</text><rect x="15" y="200" width="35" height="20" rx="2" style="fill:var(--slip);stroke:currentColor"/><text class="sm" x="32" y="214" text-anchor="middle">$</text><rect class="thing" x="300" y="90" width="50" height="95"/><path class="ln" style="stroke-width:1" d="M300 105h50M300 120h50M300 135h50M300 150h50M300 165h50"/><text class="lb" x="325" y="200" text-anchor="middle">Stairs</text><text class="sm" x="325" y="213" text-anchor="middle">↑ terrace</text><circle cx="110" cy="120" r="18" style="fill:var(--slip);stroke:currentColor;stroke-width:1.5"/><text class="lb" x="110" y="124" text-anchor="middle">1</text><circle cx="180" cy="120" r="18" style="fill:var(--slip);stroke:currentColor;stroke-width:1.5"/><text class="lb" x="180" y="124" text-anchor="middle">2</text><circle cx="250" cy="120" r="18" style="fill:var(--slip);stroke:currentColor;stroke-width:1.5"/><text class="lb" x="250" y="124" text-anchor="middle">3</text><circle cx="110" cy="190" r="18" style="fill:var(--slip);stroke:currentColor;stroke-width:1.5"/><text class="lb" x="110" y="194" text-anchor="middle">4</text><circle cx="180" cy="190" r="18" style="fill:var(--slip);stroke:currentColor;stroke-width:1.5"/><text class="lb" x="180" y="194" text-anchor="middle">5</text><circle cx="250" cy="190" r="18" style="fill:var(--slip);stroke:currentColor;stroke-width:1.5"/><text class="lb" x="250" y="194" text-anchor="middle">6</text><circle cx="240" cy="250" r="12" style="fill:#5f8f5a;stroke:#3e6b3a"/><text class="sm" x="262" y="254">plant</text><rect x="150" y="270" width="60" height="10" style="fill:var(--paper)"/><text class="lb" x="180" y="262" text-anchor="middle">Entrance ↓</text></svg>', quiz:[
+  ["Where is the bar?","Mira el plano.",["It's on the left.","It's on the right, next to the stairs.","It's upstairs."],0],
+  ["Where are the bathrooms?","",["They're next to the entrance.","They're at the back, next to the kitchen.","They're under the stairs."],1],
+  ["Table 2 is ___ table 1 and table 3.","",["between","behind","under"],0],
+  ["Where are the stairs?","",["It's on the right.","They're on the right.","They're in the kitchen."],1],
+  ["Is the plant next to the entrance?","",["Yes, it is.","Yes, it's.","No, they aren't."],0],
+  ["Is the kitchen next to the entrance?","",["Yes, it is.","No, it isn't. It's at the back.","No, it is."],1],
+  ["Table 3 is ___ the stairs.","",["near","under","inside"],0]]},
+ {t:"Check: Is it…? Are they…?", quiz:[
+  ["___ is the bathroom?","",["Where","What","Who"],0],
+  ["Where ___ the stairs?","",["is","are","am"],1],
+  ["\"Is the bar upstairs?\" \"No, ___.\"","",["it isn't","it's not upstairs it","they aren't"],0],
+  ["\"Are your friends at the bar?\" \"Yes, ___.\"","",["they're","they are","it is"],1],
+  ["\"Where's my phone?\" \"___ on the bar.\"","",["It's","They're","Is"],0],
+  ["Choose the right question.","Escoge la pregunta correcta.",["It is next to the kitchen?","Is next to the kitchen?","Is it next to the kitchen?"],2],
+  ["\"Where are the bathrooms?\" \"___ at the back.\"","",["It's","They're","There"],1]]}
+ ]
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script src="/assets/player.js"></script>
+<script src="/assets/dialogues.js?v=4"></script>
+</body>
+</html>

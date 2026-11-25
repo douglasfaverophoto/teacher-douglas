@@ -3,7 +3,9 @@
 // DIALOGUES = {id, short, lang, kicker, title, sub, back:{href,label}, voices:[…], ui:{…},
 //   roles:{w:{name, es}, g:{name, es}}, items:[{t, scene, lines:[[role, text, translation?]]}]}
 // Optional: vocab:[{h, words:[[english, spanish, example?]]}] shows tap-to-hear word lists above the list,
-//   and an item {t, quiz:[[question, help, [options…], rightIndex]]} is a multiple-choice check.
+//   and an item {t, quiz:[[question, help, [options…], rightIndex]], img?} is a multiple-choice check (img = HTML/SVG shown above).
+// grammar:[{h, words:[[english, spanish, note?]]}] shows grammar patterns the same way, under its own heading.
+// An item can set its own roles:{w:{…}, g:{…}} (e.g. Captain and New waiter); the colours stay waiter = w, guest = g.
 (function(){
 const D=window.DIALOGUES, IT=D.items;
 const UI=Object.assign({
@@ -11,7 +13,7 @@ const UI=Object.assign({
   name:"What is your name? ¿Cómo te llamas?", namePh:"Name / Nombre", nameNote:"Teacher Douglas ve tu nombre y tu progreso.",
   hello:"Hello", change:"Cambiar nombre", all:"← All dialogues / Todos los diálogos", dialog:"Dialogue",
   open:"Start", done:"Done ✓", lines:n=>`${n} lines · ${n} líneas`, qs:n=>`${n} questions · ${n} preguntas`,
-  vocab:"Vocabulary · Vocabulario", vocabTip:"Tap a word to hear it. / Toca una palabra para escucharla.", quiz:"Check",
+  vocab:"Vocabulary · Vocabulario", grammar:"Grammar · Gramática", vocabTip:"Tap a word to hear it. / Toca una palabra para escucharla.", quiz:"Check",
   quizTip:"Choose the right answer. / Escoge la respuesta correcta.", quizLeft:n=>`${n} to go · faltan ${n}`, quizRight:"All right! / ¡Todo bien!", quizMsg:"You know the words for this lesson. / Ya sabes las palabras de esta lección.",
   order:"Put the dialogue in order. / Pon el diálogo en orden.", orderTip:"Drag a line, or tap two lines to swap them. / Arrastra una línea, o toca dos para cambiarlas.",
   check:"Check / Revisar", again:n=>`${n} line${n===1?" is":"s are"} in the right place. Move the others. / ${n} en su lugar. Mueve las otras.`,
@@ -87,13 +89,16 @@ function home(){
 
 function say(t){if(!canSpeak)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);if(!voice)pickVoice();
   if(voice)u.voice=voice;u.lang=voice?voice.lang:D.lang;u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
-function vocabHTML(){
-  if(!D.vocab) return "";
-  return `<section class="vocabset"><h2 class="vh">${UI.vocab}</h2>${canSpeak?`<p class="tip">${UI.vocabTip}</p>`:""}
-  ${D.vocab.map((g,gi)=>`<details class="vgroup"${gi===0?" open":""}><summary>${g.h}</summary><ul class="words">
+function vocabHTML(){return groupHTML(D.grammar,UI.grammar,"gram")+groupHTML(D.vocab,UI.vocab,"")}
+function groupHTML(G,head,cls){
+  if(!G) return "";
+  return `<section class="vocabset ${cls}"><h2 class="vh">${head}</h2>${canSpeak?`<p class="tip">${UI.vocabTip}</p>`:""}
+  ${G.map((g,gi)=>`<details class="vgroup"${gi===0?" open":""}><summary>${g.h}</summary><ul class="words">
     ${g.words.map(([en,es,ex])=>`<li><button class="word" type="button" data-say="${esc(en+(ex?". "+ex:""))}"><b>${en}</b><span class="es">${es}</span>${ex?`<i>${ex}</i>`:""}</button></li>`).join("")}
   </ul></details>`).join("")}</section>`;
 }
+// Options in a new random order each time, so the right answer isn't always in the same place.
+const mixOpts=n=>{const a=[...Array(n).keys()];for(let k=n-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a};
 function showQuiz(i){
   const d=IT[i], solved=done.includes(i), got=new Set();
   const P=i>0?{t:IT[i-1].t,go:i-1}:D.prevPage, N=i+1<IT.length?{t:IT[i+1].t,go:i+1}:D.nextPage;
@@ -102,9 +107,9 @@ function showQuiz(i){
   const dnav=`<nav class="dnav" aria-label="Dialogues">${navBtn(P,"p",UI.prev)}<button class="dn all" data-home>${UI.allShort}</button>${navBtn(N,"n",UI.nextNav)}</nav>`;
   app.innerHTML=`<button class="back" id="back">${UI.all}</button>${dnav}
   <article class="slip"><div class="sliphead"><span class="mono">${UI.quiz} · ${D.level}</span><span class="mono">${UI.qs(d.quiz.length)}</span></div>
-    <h2>${d.t}</h2><p class="order">${UI.quizTip}</p>
+    <h2>${d.t}</h2>${d.img?`<figure class="qimg">${d.img}</figure>`:""}<p class="order">${UI.quizTip}</p>
     <div class="section">${d.quiz.map(([q,h,opts,r],qi)=>`<div class="q" data-q="${qi}"><p>${q}${h?`<small>${h}</small>`:""}</p>
-      <div class="opts">${opts.map((o,oi)=>`<button class="opt${solved&&oi===r?" right":""}" type="button" data-o="${oi}"${solved?" disabled":""}>${o}</button>`).join("")}</div></div>`).join("")}</div>
+      <div class="opts">${mixOpts(opts.length).map(oi=>`<button class="opt${solved&&oi===r?" right":""}" type="button" data-o="${oi}"${solved?" disabled":""}>${opts[oi]}</button>`).join("")}</div></div>`).join("")}</div>
     <p class="fb" id="fb" aria-live="polite"></p><div id="after"></div></article>${dnav}`;
   document.getElementById("back").onclick=home;
   app.querySelectorAll(".dnav [data-go]").forEach(b=>b.onclick=()=>show(+b.dataset.go));
@@ -143,7 +148,7 @@ function show(i){
   onHome=false; try{speechSynthesis.cancel()}catch(e){}
   try{history.replaceState(null,"","#"+(i+1))}catch(e){}
   if(IT[i].quiz) return showQuiz(i);
-  const d=IT[i], R=D.roles, solved=done.includes(i);
+  const d=IT[i], R=d.roles||D.roles, solved=done.includes(i);
   const bar=(k)=>{const [role,text,tr]=d.lines[k];
     return `<li class="bar ${role}" data-k="${k}"><span class="who">${R[role].name}<small>${R[role].es}</small></span>
       <span class="txt">${text}</span>${tr?`<span class="tr" hidden>${tr}</span>`:""}<span class="mark" aria-hidden="true"></span></li>`};
